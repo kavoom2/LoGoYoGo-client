@@ -1,0 +1,6 @@
+// ------------ 이하 내용을 복사하여 Root 디렉토리에 .env를 생성하여 붙여넣으세요 ------------ //
+
+REACT_APP_SERVER_SCHEME=http
+REACT_APP_SERVER_HOST=localhost
+REACT_APP_SERVER_PORT=4000
+REACT_APP_SERVER_ACCESS_SECRET= 서버사이드 ACCESS SECRET을 넣으면 됩니다. (미정)
