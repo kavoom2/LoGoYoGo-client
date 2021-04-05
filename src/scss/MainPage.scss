@@ -1,0 +1,86 @@
+@import "./_varaiables.scss";
+
+#container-mainpage {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+#container-mainpage > #section {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  :nth-child(1) {
+    margin-right: 5rem;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 60rem;
+    height: 50rem;
+
+    * {
+      padding: 1rem;
+      margin: 0.5rem;
+    }
+
+    .title {
+      font-size: 5rem;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    input {
+      font-size: 3rem;
+      padding: 1rem;
+    }
+
+    button {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (max-width: 768px,) {
+  // * MOBILE: max-width: 768px;
+  #container-mainpage > #section {
+    flex-direction: column;
+    padding-top: 5rem;
+
+    :nth-child(2) {
+      display: none;
+    }
+
+    .container {
+      height: 80%;
+      width: 100%;
+      margin: 0;
+
+      .title {
+        font-size: 3.5rem;
+        text-align: center;
+      }
+
+      input {
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      :nth-child(2) {
+        display: block;
+      }
+    }
+  }
+}
