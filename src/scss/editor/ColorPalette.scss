@@ -1,0 +1,18 @@
+.palette-item-container {
+  margin-top: 3rem;
+  margin-left: 1rem;
+
+  .palette-item {
+    display: flex;
+    height: 3rem;
+    width: 100%;
+
+    .palette-item-child {
+      flex: 1;
+    }
+  }
+}
+
+.palette-item-container:hover {
+  cursor: pointer;
+}

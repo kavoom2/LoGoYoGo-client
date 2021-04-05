@@ -17,6 +17,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.3",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux-devtools-extension": "^2.13.9",
     "typescript": "~3.8.2"
@@ -26,15 +27,16 @@
     "startHttps": "HTTPS=true SSL_CRT_FILE=./cert.pem SSL_KEY_FILE=./key.pem react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "compileSCSS": "node-sass ./src/scss --output dist/css",
+    "watchSCSS": "node-sass --watch ./src/scss --output dist/css"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "plugin:@typescript-eslint/eslint-recommended",
       "plugin:@typescript-eslint/recommended",
-      "plugin:prettier/recommended",
-      "prettier/@typescript-eslint"
+      "plugin:prettier/recommended"
     ],
     "parserOptions": {
       "project": "./tsconfig.json",
@@ -44,11 +46,7 @@
     "ignorePatterns": [
       "dist/",
       "node_modules/"
-    ],
-    "rules": {
-      "@typescript-eslint/explicit-function-return-type": "off",
-      "@typescript-eslint/no-explicit-any": "off"
-    }
+    ]
   },
   "browserslist": {
     "production": [
@@ -63,8 +61,10 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.7",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
+    "node-sass": "^5.0.0",
     "prettier": "^2.2.1"
   }
 }

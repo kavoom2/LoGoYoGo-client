@@ -1,19 +1,42 @@
 * {
   box-sizing: border-box;
   list-style: none;
-  overflow: hidden;
-  /* Frame 작업을 위해 Box Border를 표시합니다. */
-  border: 1px solid greenyellow;
-}
-
-:root {
-  /* 변수는 다음과 같이 설정합니다. */
-  --main-color-text: rgba(245, 245, 245, 0.95);
-  /* 변수는 다음과 같이 사용할 수 있습니다. */
-  /* color: var(--main-color-text) */
+  /* border: 1px solid green; */
 }
 
 html {
   width: 100%;
   height: 100%;
+  font-size: 10px;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  overflow-x: hidden;
+  font-size: 1.6rem;
+  /* 1rem = 10px */
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+input {
+  font-size: 1.5rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  right: 10px;
+  position: absolute;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 10px;
 }

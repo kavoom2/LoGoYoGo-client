@@ -1,0 +1,123 @@
+@import "./_varaiables.scss";
+
+#container-maker {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+#container-maker > #section {
+  #nav-editor {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+
+    padding: 1rem;
+    padding-right: 3rem;
+
+    justify-content: flex-end;
+    align-items: center;
+
+    button {
+      font-size: 2rem;
+      margin-left: 1rem;
+    }
+  }
+
+  #container-editor {
+    display: flex;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#container-editor {
+  .container-canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    height: 100%;
+    width: 100%;
+    z-index: -1001;
+
+    .canvas {
+      width: 60rem;
+      height: 60rem;
+      background-color: white;
+      z-index: -1000;
+    }
+  }
+  .container-tabs {
+    width: 45rem;
+    height: 100%;
+  }
+  .container-tab-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+
+    button {
+      height: 8rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  // * MOBILE: max-width: 768px;
+  #container-maker {
+    padding-bottom: 0rem;
+  }
+  #nav-editor {
+    background-color: red;
+    width: 100%;
+    height: 4rem !important;
+    display: flex;
+    justify-content: space-evenly !important;
+
+    padding: 0rem !important;
+
+    button {
+      padding: 0.5rem !important;
+      margin: 0rem !important;
+      font-size: 1.5rem !important;
+    }
+  }
+
+  #container-editor {
+    flex-direction: column;
+    overflow: hidden;
+
+    .container-canvas {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: grey;
+
+      height: 50%;
+      .canvas {
+        width: 90%;
+        height: 90%;
+        background-color: white;
+      }
+    }
+    .container-tabs {
+      flex-direction: column;
+      height: 50%;
+      width: 100%;
+      overflow-y: scroll;
+    }
+    .container-tab-buttons {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 5rem;
+
+      button {
+        width: 100%;
+        height: 100%;
+        flex: 1;
+      }
+    }
+  }
+}
