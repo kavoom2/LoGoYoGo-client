@@ -6,17 +6,19 @@ interface Action {
   payload: any;
 }
 
-const loginReducer = (state = initialState, action: Action) => {
+const userInfoReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case ACTIONS.SET_LOGINSTATUS: {
+    case ACTIONS.SET_USERINFO: {
       return Object.assign({}, state, {
-        isLogin: !state.isLogin,
+        userinFo: {
+          username: action.payload.username,
+          email: action.payload.email,
+        },
       });
     }
-
     default:
       return state;
   }
 };
 
-export default loginReducer;
+export default userInfoReducer;

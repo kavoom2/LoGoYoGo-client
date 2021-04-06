@@ -9,6 +9,9 @@ import "./css/App.css";
 import "./scss/ErrorPage.scss";
 
 function App() {
+  const loginState = useSelector((state: RootState) => state.loginReducer);
+  const isLogin = loginState.isLogin;
+
   return (
     <React.Fragment>
       <Modal />
