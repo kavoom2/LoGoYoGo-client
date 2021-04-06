@@ -1,27 +1,39 @@
+import React from "react";
+
 export default function Creator() {
   return (
-    <div id="section">
-      <div className="container">
-        <div className="title">
-          로고는 어디서?
-          <br />
-          LOGOYOGO에서
+    <React.Fragment>
+      <div id="section-creator">
+        <div className="body-header">
+          <div className="title">OOO을 선택하세요</div>
+          <div className="subtitle">
+            최소 3개 이상을 골라주세요. <br /> 선택한 항목들을 요리조리
+            조합해드립니다.
+          </div>
         </div>
-        <div className="subtitle">
-          과제, 프로젝트에 쓸 로고가 필요한가요?
-          <br />
-          누구나 3분이면 간단히 만들 수 있습니다.
-          <br />
-          지금 바로 시작하세요.
+        <div className="body-item-outer-container">
+          <div className="body-item-container">
+            <div className="item">SAMPLE</div>
+            <div className="item">SAMPLE</div>
+            <div className="item">SAMPLE</div>
+            <div className="item">SAMPLE</div>
+            <div className="item">SAMPLE</div>
+            <div className="item">SAMPLE</div>
+            <div className="item">SAMPLE</div>
+            <div className="item">SAMPLE</div>
+            <div className="item">SAMPLE</div>
+            <div className="item">SAMPLE</div>
+            <div className="item">SAMPLE</div>
+            <div className="item">SAMPLE</div>
+            <div className="item">SAMPLE</div>
+            <div className="item">SAMPLE</div>
+          </div>
         </div>
-        <input
-          className="input-logoname"
-          placeholder="로고를 입력하세요"
-        ></input>
-        <button className="btn-logoname-confirm">시작하기</button>
-        <button className="btn-search-template">로고 템플릿 둘러보기</button>
       </div>
-      <div className="container">랜딩페이지 이미지</div>
-    </div>
+      <div id="footer-creator">
+        <button>이전으로 돌아가기</button>
+        <button>다음으로 넘어가기</button>
+      </div>
+    </React.Fragment>
   );
 }
