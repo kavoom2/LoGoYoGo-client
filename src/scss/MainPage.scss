@@ -17,6 +17,11 @@
     margin-right: 5rem;
   }
 
+  :nth-child(2) {
+    // TODO 임시용입니다.
+    background-color: lightseagreen;
+  }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -26,6 +31,11 @@
     * {
       padding: 1rem;
       margin: 0.5rem;
+    }
+
+    :nth-child(2) {
+      // TODO 임시용입니다.
+      background-color: transparent;
     }
 
     .title {
