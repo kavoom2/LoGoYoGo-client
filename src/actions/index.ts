@@ -1,6 +1,6 @@
 interface Return {
   type: string;
-  payload: any;
+  payload?: any;
   // payload: {a: ..., b: ..., c: ...}
 }
 
@@ -14,10 +14,9 @@ export const ACTIONS = {
 
 // -------- ACTION CREATORS ---------- //
 
-export const setLoginStatus = (isLogin: boolean): Return => {
+export const setLoginStatus = (): Return => {
   return {
     type: ACTIONS.SET_LOGINSTATUS,
-    payload: { isLogin },
   };
 };
 
