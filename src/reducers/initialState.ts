@@ -1,15 +1,13 @@
-import { combineReducers } from "redux";
-import loginReducer from "./loginReducer";
-import accessTokenReducer from "./accessTokenReducer";
-import modalStatusReducer from "./modalStatusReducer";
-import modalTypeReducer from "./modalTypeReducer";
+export type stateType = {
+  isLogin: boolean;
+  accessToken: string;
+  isModalOpen: boolean;
+  modalType: string;
+};
 
-const rootReducer = combineReducers({
-  loginReducer,
-  accessTokenReducer,
-  modalStatusReducer,
-  modalTypeReducer,
-});
-
-export default rootReducer;
-export type RootState = ReturnType<typeof rootReducer>;
+export const initialState = {
+  isLogin: false,
+  accessToken: "",
+  isModalOpen: false,
+  modalType: "",
+};
