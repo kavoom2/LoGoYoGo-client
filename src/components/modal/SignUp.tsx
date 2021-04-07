@@ -1,19 +1,50 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Actions } from "../../actions/index";
+import { isValidEmail, isValidPassword } from "../../utilities/index";
+
+require("dotenv").config();
+const axios: any = require("axios");
+axios.default.withCredentials = true;
+const scheme: string = process.env.REACT_APP_SERVER_SCHEME;
+const host: string = process.env.REACT_APP_SERVER_HOST;
+const port: string = process.env.REACT_APP_SERVER_PORT;
 
 export default function SignUp(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
-  const [message, setMessage] = useState(
-    "에러메시지입니다. 빈 값으로 변경하세요."
-  );
+  const [message, setMessage] = useState("");
 
   const handleLogin = (): void => {
     // TODO 1. 회원가입 로직을 작성해야 합니다.
+
     // TODO 2. 유효성 검사에 따른 에러메시지를 출력해야합니다.(setMessage 사용)
+    if (!email || !password || !rePassword) {
+      setMessage("모든 항목을 입력해주세요");
+      return;
+    }
+    if (password !== rePassword) {
+      setMessage("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+    if (!isValidPassword(password)) {
+      setMessage(
+        "비밀번호는 8~20자의 영문, 숫자, 특수기호의 조합이어야합니다."
+      );
+      return;
+    }
     // * 회원가입이 정상적으로 완료되면 로그인 화면으로 전환합니다.
-    props.handleModal(true, "LOGIN");
+    axios
+      .post(`${scheme}://${host}:${port}/user/signup`, {
+        email,
+        password,
+      })
+      .then((data) => {
+        props.handleModal(true, "LOGIN");
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleOnChange = (event, type: string): void => {

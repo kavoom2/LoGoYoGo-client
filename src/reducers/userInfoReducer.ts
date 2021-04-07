@@ -1,18 +1,16 @@
-import { ACTIONS } from "../actions/index";
-import { initialState } from "./initialState";
+import { ACTIONS, ActionsType } from "../actions/index";
+import { initialState, stateType } from "./initialState";
 
-interface Action {
-  type: string;
-  payload: any;
-}
-
-const userInfoReducer = (state = initialState, action: Action) => {
+const userInfoReducer = (
+  state: stateType = initialState,
+  action: ActionsType
+) => {
   switch (action.type) {
     case ACTIONS.SET_USERINFO: {
       return Object.assign({}, state, {
         userinFo: {
-          username: action.payload.username,
-          email: action.payload.email,
+          username: action.payload,
+          email: action.payload,
         },
       });
     }
