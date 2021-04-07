@@ -5,12 +5,14 @@ import { Actions } from "../actions/index";
 export default function Nav() {
   const dispatch = useDispatch();
   const isLogin = useSelector((state: RootState) => state.loginReducer.isLogin);
+  const userInfo = useSelector((state: RootState) => state.userInfo);
   const modalType = useSelector(
     (state: RootState) => state.modalTypeReducer.modalType
   );
   const isModalOpen = useSelector(
     (state: RootState) => state.modalStatusReducer.isModalOpen
   );
+  console.log(isLogin);
 
   // TODO: ---------- Event Handler ---------- //
 
@@ -21,12 +23,20 @@ export default function Nav() {
 
   // TODO: 로그아웃, 프로필 로직을 작성해야 합니다.
 
+  const handleLogout = (): void => {
+    dispatch(Actions.setUserInfo(""));
+    dispatch(Actions.setLoginStatus(false));
+    dispatch(Actions.setAccessToken(""));
+  };
+
   return (
     <div id="nav">
       <span className="title">LOGOYOGO</span>
       {isLogin ? (
         <span>
-          <button className="btn-nav">로그아웃</button>
+          <button className="btn-nav" onClick={handleLogout}>
+            로그아웃
+          </button>
           <button className="btn-nav">프로필</button>
         </span>
       ) : (
