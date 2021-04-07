@@ -1,5 +1,5 @@
-import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React from "react";
 import NotFound from "./pages/NotFound";
 import MainPage from "./pages/MainPage";
 import Maker from "./pages/Maker";
@@ -9,9 +9,6 @@ import "./css/App.css";
 import "./scss/ErrorPage.scss";
 
 function App() {
-  const loginState = useSelector((state: RootState) => state.loginReducer);
-  const isLogin = loginState.isLogin;
-
   return (
     <React.Fragment>
       <Modal />

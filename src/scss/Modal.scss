@@ -7,7 +7,8 @@
 
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: #091118;
+  opacity: 0.98;
 
   #modal-header {
     font-size: 6rem;
@@ -16,37 +17,56 @@
   }
 
   #modal-container {
-    width: 50rem;
+    // width: 50rem;
     height: 60rem;
 
     background-color: white;
     border-radius: 0.5rem;
-    padding: 4rem;
 
     #modal-section {
       display: flex;
       flex-direction: column;
+      align-items: center;
 
-      width: 100%;
+      // width: 50rem;
       height: 100%;
       font-size: 2rem;
+      padding: 4rem;
 
       * {
-        width: 100%;
         display: block;
       }
 
       input {
+        width: 40rem;
         height: 3.5rem;
       }
 
       button {
+        width: 40rem;
         font-size: 2rem;
         height: 4rem;
       }
 
       div {
         margin-bottom: 1.5rem;
+      }
+
+      .preview-container {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0rem;
+
+        // background-color: lawngreen;
+
+        .preview-item {
+          background-color: khaki;
+          width: 40rem;
+          height: 40rem;
+          margin: 2rem;
+        }
       }
     }
   }
@@ -70,7 +90,31 @@
   }
 
   #modal-container {
-    width: 100vw !important;
     height: 70vh !important;
+
+    #modal-section {
+      width: 95vw !important;
+      * {
+        width: 100% !important;
+      }
+    }
+
+    overflow-y: auto;
+
+    .preview-container {
+      display: block !important;
+      flex-direction: column !important;
+      justify-content: center;
+      align-items: center;
+
+      .preview-item {
+        background-color: khaki;
+        width: 90vw !important;
+        height: 90vw !important;
+        margin: auto !important;
+        margin-bottom: 5rem !important;
+        padding: 0 !important;
+      }
+    }
   }
 }
