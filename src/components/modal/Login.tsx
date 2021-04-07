@@ -46,6 +46,9 @@ export default function Login(props) {
         props.handleModal(false, "");
       })
       .catch((err) => {
+        const status = err.response.status;
+        console.log(status);
+        if (status === 404) setMessage("아이디 또는 비밀번호가 틀렸습니다.");
         console.log(err);
       });
     // TODO 3. 정상적으로 로그인되면 모달을 종료합니다.
