@@ -5,6 +5,7 @@ import { Actions } from "../actions/index";
 import { useEffect } from "react";
 import Login from "../components/modal/Login";
 import SignUp from "../components/modal/SignUp";
+import Preview from "../components/modal/Preview";
 
 export default function Modal() {
   const dispatch = useDispatch();
@@ -16,6 +17,21 @@ export default function Modal() {
   );
 
   useEffect(() => {}, [isModalOpen, modalType]);
+
+  useEffect(() => {
+    const handleKeyDownEvent = (e) => {
+      if (!isModalOpen) return;
+      if (e.keyCode === 27) {
+        dispatch(Actions.setModalStatus(false));
+        dispatch(Actions.setModalType(""));
+      }
+    };
+    window.addEventListener("keydown", handleKeyDownEvent);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDownEvent);
+    };
+  }, [isModalOpen]);
 
   // TODO: Modal Handler 함수
   const handleCloseModal = (e) => {
@@ -35,6 +51,7 @@ export default function Modal() {
   const ModalTypes = [
     <Login handleModal={handleModal} />,
     <SignUp handleModal={handleModal} />,
+    <Preview handleModal={handleModal} />,
   ];
   const ModalTypesIndex = ["LOGIN", "SIGNUP", "PREVIEW"];
 
