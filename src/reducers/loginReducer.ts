@@ -1,16 +1,11 @@
-import { ACTIONS } from "../actions/index";
-import { initialState } from "./initialState";
+import { ACTIONS, ActionsType } from "../actions/index";
+import { initialState, stateType } from "./initialState";
 
-interface Action {
-  type: string;
-  payload: any;
-}
-
-const loginReducer = (state = initialState, action: Action) => {
+const loginReducer = (state: stateType = initialState, action: ActionsType) => {
   switch (action.type) {
     case ACTIONS.SET_LOGINSTATUS: {
       return Object.assign({}, state, {
-        isLogin: !state.isLogin,
+        isLogin: action.payload,
       });
     }
 
