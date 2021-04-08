@@ -1,14 +1,19 @@
 import { RootState } from "../reducers/index";
 import { useSelector, useDispatch } from "react-redux";
 import { Actions } from "../actions/index";
+import { useHistory } from "react-router-dom";
 
 export default function Nav() {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const isLogin = useSelector((state: RootState) => state.loginReducer.isLogin);
   const userInfo = useSelector(
     (state: RootState) => state.userInfoReducer.userInfo
   );
-
+  const accessToken = useSelector(
+    (state: RootState) => state.accessTokenReducer.accessToken
+  );
   const modalType = useSelector(
     (state: RootState) => state.modalTypeReducer.modalType
   );
@@ -17,6 +22,7 @@ export default function Nav() {
   );
   console.log("islogin", isLogin);
   console.log("info", userInfo);
+  console.log("token", accessToken);
 
   // TODO: ---------- Event Handler ---------- //
 
@@ -33,6 +39,10 @@ export default function Nav() {
     dispatch(Actions.setAccessToken(""));
   };
 
+  const handleRedirectProfile = (): void => {
+    history.push("/profile");
+  };
+
   return (
     <div id="nav">
       <span className="title">LOGOYOGO</span>
@@ -41,7 +51,9 @@ export default function Nav() {
           <button className="btn-nav" onClick={handleLogout}>
             로그아웃
           </button>
-          <button className="btn-nav">프로필</button>
+          <button className="btn-nav" onClick={handleRedirectProfile}>
+            프로필
+          </button>
         </span>
       ) : (
         <span>

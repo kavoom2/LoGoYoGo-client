@@ -13,14 +13,6 @@ require("dotenv").config();
 export default function MainPage() {
   const dispatch = useDispatch();
 
-  const isLogin = useSelector((state: RootState) => state.loginReducer.isLogin);
-
-  const handleSignout = (): void => {
-    dispatch(Actions.setUserInfo("", ""));
-    dispatch(Actions.setLoginStatus(false));
-    dispatch(Actions.setAccessToken(""));
-  };
-
   return (
     <div id="container-mainpage">
       <Nav />
