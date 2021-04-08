@@ -33,21 +33,19 @@ export default function Login(props) {
       )
       .then((data) => {
         const token = data.data.accessToken;
-        dispatch(Actions.setAccessToken);
+        dispatch(Actions.setAccessToken(token));
         dispatch(Actions.setLoginStatus(true));
         return axios.post(`${scheme}://${host}:${port}/user/userinfo`, {
           accessToken: token,
         });
       })
       .then((data) => {
-        console.log(data);
-        const { email } = data.data;
-        dispatch(Actions.setUserInfo(email));
+        const email = data.data.data.email;
+        dispatch(Actions.setUserInfo("", email));
         props.handleModal(false, "");
       })
       .catch((err) => {
         const status = err.response.status;
-        console.log(status);
         if (status === 404) setMessage("아이디 또는 비밀번호가 틀렸습니다.");
         console.log(err);
       });

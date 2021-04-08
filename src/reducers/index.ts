@@ -3,14 +3,14 @@ import loginReducer from "./loginReducer";
 import accessTokenReducer from "./accessTokenReducer";
 import modalStatusReducer from "./modalStatusReducer";
 import modalTypeReducer from "./modalTypeReducer";
-import userInfo from "./userInfoReducer";
+import userInfoReducer from "./userInfoReducer";
 
 const rootReducer = combineReducers({
   loginReducer,
   accessTokenReducer,
   modalStatusReducer,
   modalTypeReducer,
-  userInfo,
+  userInfoReducer,
 });
 
 export default rootReducer;
