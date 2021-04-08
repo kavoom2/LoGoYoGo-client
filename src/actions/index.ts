@@ -17,10 +17,10 @@ export const Actions = {
     };
   },
 
-  setUserInfo: (email: string) => {
+  setUserInfo: (username: string, email: string) => {
     return {
       type: ACTIONS.SET_USERINFO,
-      payload: { email },
+      payload: { username, email },
     };
   },
 

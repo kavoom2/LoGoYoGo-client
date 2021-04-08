@@ -3,6 +3,10 @@ export type stateType = {
   accessToken: string;
   isModalOpen: boolean;
   modalType: string;
+  userInfo: {
+    username: string;
+    email: string;
+  };
 };
 
 export const initialState = {
@@ -10,4 +14,8 @@ export const initialState = {
   accessToken: "",
   isModalOpen: false,
   modalType: "",
+  userInfo: {
+    username: "",
+    email: "",
+  },
 };
