@@ -13,6 +13,7 @@ const port: string = process.env.REACT_APP_SERVER_PORT;
 
 export default function SignUp(props) {
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
   const [message, setMessage] = useState("");
@@ -39,6 +40,7 @@ export default function SignUp(props) {
     axios
       .post(`${scheme}://${host}:${port}/user/signup`, {
         email,
+        username,
         password,
       })
       .then((data) => {
@@ -49,6 +51,7 @@ export default function SignUp(props) {
 
   const handleOnChange = (event, type: string): void => {
     if (type === "EMAIL") setEmail(event.target.value);
+    if (type === "USERNAME") setUsername(event.target.value);
     if (type === "PASSWORD") setPassword(event.target.value);
     if (type === "REPASSWORD") setRePassword(event.target.value);
   };
@@ -60,6 +63,14 @@ export default function SignUp(props) {
         <input
           onChange={(e) => {
             handleOnChange(e, "EMAIL");
+          }}
+        ></input>
+      </div>
+      <div className="username">
+        <span>Username</span>
+        <input
+          onChange={(e) => {
+            handleOnChange(e, "USERNAME");
           }}
         ></input>
       </div>

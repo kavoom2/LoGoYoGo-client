@@ -7,15 +7,19 @@ import Profile from "./pages/Profile";
 import Modal from "./pages/Modal";
 import "./css/App.css";
 import "./scss/ErrorPage.scss";
+import { useSelector } from "react-redux";
+import { RootState } from "./reducers";
 
 function App() {
+  const isLogin = useSelector((state: RootState) => state.loginReducer.isLogin);
+
   return (
     <React.Fragment>
       <Modal />
       <Router>
         <Switch>
           <Route path="/" component={MainPage} exact />
-          <Route path="/profile" component={Profile} />
+          <Route path="/profile" component={isLogin ? Profile : NotFound} />
           <Route path="/maker" component={Maker} />
           <Route path="*" component={NotFound} />
         </Switch>

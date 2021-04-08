@@ -40,8 +40,9 @@ export default function Login(props) {
         });
       })
       .then((data) => {
+        const username = data.data.data.name;
         const email = data.data.data.email;
-        dispatch(Actions.setUserInfo("", email));
+        dispatch(Actions.setUserInfo(username, email));
         props.handleModal(false, "");
       })
       .catch((err) => {
