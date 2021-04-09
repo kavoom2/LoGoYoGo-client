@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Shape() {
+export default function Shape({ canvas, setIndex }) {
   return (
     <React.Fragment>
       <div className="header">

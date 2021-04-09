@@ -1,0 +1,23 @@
+.palette-item-container {
+  margin-top: 3rem;
+  margin-left: 1rem;
+}
+
+.palette-item-container .palette-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 3rem;
+  width: 100%;
+}
+
+.palette-item-container .palette-item .palette-item-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.palette-item-container:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=ColorPalette.css.map */

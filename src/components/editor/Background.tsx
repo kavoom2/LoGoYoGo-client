@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { ChromePicker } from "react-color";
+import { fabric } from "fabric";
 
-export default function Background() {
+export default function Background({ canvas, setIndex }) {
+  const [bgColor, setBgColor] = useState("#fff");
+
+  const handleChange = (color, event) => {
+    setBgColor(color.hex);
+    canvas.backgroundColor = color.hex;
+    canvas.renderAll();
+  };
+
   return (
     <React.Fragment>
       <div className="header">
@@ -11,12 +21,17 @@ export default function Background() {
       <div className="content">
         <div className="title">색상</div>
         <div className="color-selector-container">
-          <input></input>
+          <input defaultValue={bgColor}></input>
           <div
             className="color-selector-color"
-            style={{ backgroundColor: "purple" }}
+            style={{ backgroundColor: bgColor }}
           ></div>
         </div>
+        <ChromePicker
+          className="color-selector-picker"
+          color={bgColor}
+          onChange={handleChange}
+        />
       </div>
     </React.Fragment>
   );
