@@ -17,6 +17,11 @@ export default function Login(props) {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
+  const handleModalOpen = (type) => {
+    dispatch(Actions.setModalStatus(true));
+    dispatch(Actions.setModalType(type));
+  };
+
   // TODO 1. 로그인 로직을 작성해야 합니다.
   const handleLogin = (): void => {
     // TODO 2. 유효성 검사에 따른 에러메시지를 출력해야합니다.(setMessage 사용)
@@ -80,6 +85,9 @@ export default function Login(props) {
       <div className="message">{message}</div>
       <button className="btn-login" onClick={handleLogin}>
         로그인
+      </button>
+      <button className="btn-login" onClick={() => handleModalOpen("SIGNUP")}>
+        회원가입
       </button>
     </React.Fragment>
   );
