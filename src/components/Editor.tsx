@@ -8,7 +8,12 @@ import Layout from "./editor/Layout";
 import { fabric } from "fabric";
 import "../scss/editor/_CommonComponentsEditor.scss";
 
+// ! Object Controll Container
+const texts: Object = {};
+const shapes: Object = {};
+
 export default function Editor() {
+  // *: Commons
   const [id, setId] = useState<number>(0);
   const [index, setIndex] = useState<number>(0);
   const [canvas, setCanvas] = useState<any>();
@@ -20,6 +25,7 @@ export default function Editor() {
   // *: Shape
   const [shapeSize, setShapeSize] = useState<number>(40);
   const [shapeColor, setShapeColor] = useState<string>("Black");
+  const [shapeType, setShapeType] = useState<any>();
 
   useEffect(() => {
     const c = new fabric.Canvas("my-canvas", {
@@ -35,9 +41,17 @@ export default function Editor() {
 
       c.on("selection:created", function (event: any) {
         if (event.target.type === "textbox") setIndex(1);
+        if (event.target.type === "shape") setIndex(2);
       });
 
-      c.on("object:scaling", function (event: any) {});
+      c.on("object:scaling", function (event: any) {
+        // if (event.target.type === "shape") {
+        //   event.target.width *= event.target.scaleX;
+        //   event.target.height *= event.target.scaleY;
+        //   event.target.sxaleX = 1;
+        //   event.target.scaleY = 1;
+        // }
+      });
 
       c.on("object:modified", function (event: any) {
         // TODO: 1. 텍스트 박스 크기 변경
@@ -51,6 +65,13 @@ export default function Editor() {
               el.scaleX = 1;
               el.scaleY = 1;
               el._clearCache();
+            } else if (el.type === "shape") {
+              el.width *= el.scaleX;
+              el.height *= el.scaleY;
+              el.cacheWidth = el.width;
+              el.cacheHeight = el.height;
+              el.scaleX = 1;
+              el.scaleY = 1;
             }
           }
 
@@ -64,17 +85,55 @@ export default function Editor() {
           event.target.scaleX = 1;
           event.target.scaleY = 1;
           event.target._clearCache();
+
+          const slider: any = document.getElementById("slider-text");
+          slider.value = String(event.target.fontSize);
+          setTextSize(event.target.fontSize);
+        } else if (event.target.type === "shape") {
+          event.target.width *= event.target.scaleX;
+          event.target.height *= event.target.scaleY;
+          event.target.cacheWidth = event.target.width;
+          event.target.cacheHeight = event.target.height;
+          event.target.scaleX = 1;
+          event.target.scaleY = 1;
+
+          const slider: any = document.getElementById("slider-shape");
+          slider.value = String(event.target.width);
+          setShapeSize(parseInt(event.target.width));
         }
-        setTextSize(event.target.fontSize);
-        const slider: any = document.getElementById("slider-text");
-        slider.value = String(event.target.fontSize);
+        console.log(event.target);
       });
     };
 
     setCanvasFunc();
 
+    // TODO: 키보드 이벤트를 추가합니다.
+    const hamdleEventKeyDown = (event) => {
+      // TODO 1. Delete Items
+      if (event.keyCode === 46) {
+        const items = c.getActiveObjects();
+        items.forEach((item) => {
+          // * 1 - 1. Selection Container에 담겨있는 Key-Value를 Type에 따라 제거합니다.
+          if (item.type === "textbox") delete texts[id];
+          // * 1 - 2. 캔버스에서 해당 오브젝트를 제거합니다.
+          c.remove(item);
+        });
+        c.discardActiveObject().renderAll();
+      }
+    };
+
+    window.addEventListener("keydown", hamdleEventKeyDown);
     return () => {
       c.dispose();
+      window.removeEventListener("keydown", hamdleEventKeyDown);
+
+      for (const key in texts) {
+        delete texts[key];
+      }
+
+      for (const key in shapes) {
+        delete shapes[key];
+      }
     };
   }, []);
 
@@ -88,13 +147,17 @@ export default function Editor() {
       setTextSize={setTextSize}
       setTextColor={setTextColor}
       setId={setId}
+      texts={texts}
     />,
     <Shape
+      id={id}
+      shapes={shapes}
       canvas={canvas}
       shapeSize={shapeSize}
       shapeColor={shapeColor}
       setShapeSize={setShapeSize}
       setShapeColor={setShapeColor}
+      setId={setId}
     />,
     <Background canvas={canvas} bgColor={bgColor} setBgColor={setBgColor} />,
     <Layout canvas={canvas} setIndex={setIndex} />,

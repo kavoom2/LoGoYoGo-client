@@ -3,11 +3,12 @@ import { ChromePicker } from "react-color";
 import { fabric } from "fabric";
 
 // ! 선택된 Textbox를 모아두는 Container입니다.
-const texts: Object = {};
+// const texts: Object = {};
 
 export default function Text({
   id,
   canvas,
+  texts,
   textSize,
   textColor,
   setTextSize,
@@ -28,14 +29,13 @@ export default function Text({
 
   // TODO: EventHandling Functions
   const handleAddTextBox = () => {
-    // * : 생성 버튼을 클릭하면 새로운 텍스트 박스를 생성합니다.
     const textbox: any = new fabric.Textbox("내용을 입력하세요", {
       fontSize: textSize,
       fill: textColor,
     });
 
     textbox.set({
-      // * : 오브젝트 타입 구분을 할 수 있도록 Type을 설정합니다.
+      // * : 오브젝트 타입과 키값을 명시합니다.
       type: "textbox",
       id: id,
       left: canvas.width / 2 - textbox.width,
@@ -49,7 +49,7 @@ export default function Text({
       mt: false,
     });
 
-    // TODO: 선택되면 팔레트도 TEXT로 넘어가도록 설정합니다.
+    // TODO: Event - Selected
     textbox.on("selected", (event) => {
       const id = textbox.id;
       texts[id] = textbox;
@@ -61,16 +61,10 @@ export default function Text({
       slider.value = String(textbox.fontSize);
     });
 
+    // TODO: Event - Deselected
     textbox.on("deselected", (event) => {
       const id = textbox.id;
       delete texts[id];
-    });
-
-    textbox.on("scaling", (event) => {
-      // console.log("Scaling");
-    });
-    textbox.on("modified", (event) => {
-      // console.log("Modified");
     });
 
     canvas.add(textbox);
