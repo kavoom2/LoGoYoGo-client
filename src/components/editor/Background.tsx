@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { ChromePicker } from "react-color";
 import { fabric } from "fabric";
 
-export default function Background({ canvas, setIndex }) {
-  const [bgColor, setBgColor] = useState("#fff");
-
+export default function Background({ canvas, bgColor, setBgColor }) {
   const handleChange = (color, event) => {
     setBgColor(color.hex);
     canvas.backgroundColor = color.hex;

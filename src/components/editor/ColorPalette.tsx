@@ -17,18 +17,22 @@ export default function ColorPalette({ canvas, setIndex }) {
           <div className="palette-item">
             <div
               className="palette-item-child"
+              data-color={arr[0]}
               style={{ backgroundColor: arr[0] }}
             ></div>
             <div
               className="palette-item-child"
+              data-color={arr[1]}
               style={{ backgroundColor: arr[1] }}
             ></div>
             <div
               className="palette-item-child"
+              data-color={arr[2]}
               style={{ backgroundColor: arr[2] }}
             ></div>
             <div
               className="palette-item-child"
+              data-color={arr[3]}
               style={{ backgroundColor: arr[3] }}
             ></div>
           </div>
