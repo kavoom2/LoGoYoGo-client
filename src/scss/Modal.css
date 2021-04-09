@@ -1,0 +1,139 @@
+#modal-background {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100000;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #091118;
+  opacity: 0.98;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#modal-background #modal-header {
+  font-size: 6rem;
+  font-weight: 700;
+  color: white;
+}
+
+#modal-background #modal-container {
+  height: 60rem;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+#modal-background #modal-container #modal-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  font-size: 2rem;
+  padding: 4rem;
+}
+
+#modal-background #modal-container #modal-section * {
+  display: block;
+}
+
+#modal-background #modal-container #modal-section input {
+  width: 40rem;
+  height: 3.5rem;
+}
+
+#modal-background #modal-container #modal-section button {
+  width: 40rem;
+  font-size: 2rem;
+  height: 4rem;
+}
+
+#modal-background #modal-container #modal-section div {
+  margin-bottom: 1.5rem;
+}
+
+#modal-background #modal-container #modal-section .preview-container {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0rem;
+}
+
+#modal-background #modal-container #modal-section .preview-container .preview-item {
+  background-color: khaki;
+  width: 40rem;
+  height: 40rem;
+  margin: 2rem;
+}
+
+.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.deactive {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #modal-header {
+    font-size: 4rem !important;
+    font-weight: 700;
+    color: white;
+  }
+  #modal-container {
+    height: 70vh !important;
+    overflow-y: auto;
+  }
+  #modal-container #modal-section {
+    width: 95vw !important;
+  }
+  #modal-container #modal-section * {
+    width: 100% !important;
+  }
+  #modal-container .preview-container {
+    display: block !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #modal-container .preview-container .preview-item {
+    background-color: khaki;
+    width: 90vw !important;
+    height: 90vw !important;
+    margin: auto !important;
+    margin-bottom: 5rem !important;
+    padding: 0 !important;
+  }
+}
+/*# sourceMappingURL=Modal.css.map */

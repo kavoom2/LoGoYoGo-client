@@ -2,7 +2,7 @@ import React from "react";
 import colorPalette from "../../dummy/colorPalette";
 import "../../scss/editor/ColorPalette.scss";
 
-export default function ColorPalette() {
+export default function ColorPalette({ canvas, setIndex }) {
   const renderColorPalette = (
     palettes: Array<Array<string>>
   ): JSX.Element[] => {
