@@ -75,6 +75,44 @@
     }
   }
 
+  .clipart-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    justify-content: center;
+
+    .img-container {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: flex;
+      margin: 1rem;
+
+      width: 10rem;
+      height: 10rem;
+
+      justify-content: center;
+      align-items: center;
+
+      box-shadow: 1px 2px 8px 1px #ccc;
+      transition: 0.3s ease;
+
+      img {
+        max-width: 90%;
+        max-height: 90%;
+      }
+    }
+
+    .img-container:hover {
+      top: -6px;
+      left: -2px;
+      box-shadow: 2px 3px 7px 2px #ccc;
+      cursor: pointer;
+    }
+  }
+
   .layout-container {
     display: flex;
     height: 7rem;

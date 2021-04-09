@@ -19,6 +19,8 @@ body {
   overflow-x: hidden;
   font-size: 1.6rem;
   /* 1rem = 10px */
+
+  overflow: hidden;
 }
 
 #root {

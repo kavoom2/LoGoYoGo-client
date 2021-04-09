@@ -1,3 +1,12 @@
+require("dotenv").config();
+const axios = require("axios");
+
+const SCHEME = process.env.REACT_APP_SERVER_SCHEME;
+const HOST = process.env.REACT_APP_SERVER_HOST;
+const PORT = process.env.REACT_APP_SERVER_PORT;
+const URL_SERVER = `${SCHEME}://${HOST}:${PORT}`;
+const API_ICON = process.env.REACT_APP_SERVER_API_ICONFINDER;
+
 // --------- 유효성 검사 메서드입니다 --------- //
 
 export const isValidEmail = (str: any) => {
@@ -20,3 +29,67 @@ export const isValidPassword = (str: any) => {
   const regExp = /^[A-za-z0-9]{5,15}/g;
   return regExp.test(str);
 };*/
+
+export const Fetch_Icon = {
+  searchIcons: (keyword: string): Array<Object> => {
+    const count = 30;
+    const URL = `/api/v4/icons/search?query=${keyword}&vector=1&count=${count}&premium=0`;
+
+    const result = axios
+      .get(URL, {
+        headers: {
+          Authorization: `Bearer ${API_ICON}`,
+          // "Content-Type": "application/json",
+        },
+        // withCredentials: true,
+        // crossDomain: true,
+      })
+      .then((data: any) => {
+        return data.data.icons;
+      })
+      .catch((err: any) => console.log(err));
+
+    return result;
+  },
+
+  getIcon: (iconId: number): any => {
+    const URL = `/api/v4/icons/${iconId}`;
+
+    const result = axios
+      .get(URL, {
+        headers: {
+          Authorization: `Bearer ${API_ICON}`,
+          // "Content-Type": "application/json",
+        },
+        // withCredentials: true,
+        // crossDomain: true,
+      })
+      .then((data: any) => {
+        return data.data.vector_sizes[0].formats[0].download_url;
+      })
+      .catch((err: any) => console.log(err));
+
+    return result;
+  },
+
+  getImageByUrl: (url: string): any => {
+    const cuttedUrl = url.split("https://api.iconfinder.com/v4/icons/")[1];
+    const URL = `/api/v4/icons/${cuttedUrl}`;
+
+    const result = axios
+      .get(URL, {
+        headers: {
+          Authorization: `Bearer ${API_ICON}`,
+          // "Content-Type": "application/json",
+        },
+        // withCredentials: true,
+        // crossDomain: true,
+      })
+      .then((data: any) => {
+        return data.data;
+      })
+      .catch((err: any) => console.log(err));
+
+    return result;
+  },
+};
