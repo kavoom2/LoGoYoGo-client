@@ -1,6 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { ChromePicker } from "react-color";
+import { fabric } from "fabric";
 
-export default function Shape({ canvas, setIndex }) {
+const shapes: Object = {};
+
+export default function Shape({
+  canvas,
+  shapeSize,
+  shapeColor,
+  setShapeSize,
+  setShapeColor,
+}) {
+  const handleChangeColor = (color, event) => {
+    setShapeColor(color.hex);
+
+    // if (Object.keys(shapes).length > 0) {
+    //   for (const key in shapes) {
+    //     const item = shapes[key];
+    //     item.set({ fill: color.hex });
+    //   }
+    //   canvas.renderAll();
+    // }
+  };
+
+  const handleChangeSize = (event) => {
+    event.preventDefault();
+    setShapeSize(event.target.value);
+
+    // if (Object.keys(shapes).length > 0) {
+    //   for (const key in shapes) {
+    //     const item = shapes[key];
+    //     item.set({ fontSize: event.target.value });
+    //   }
+    //   canvas.renderAll();
+    // }
+  };
+
   return (
     <React.Fragment>
       <div className="header">
@@ -33,8 +68,15 @@ export default function Shape({ canvas, setIndex }) {
       <div className="content">
         <div className="title">크기</div>
         <div className="slider-container">
-          <input type="range" min="1" max="100" className="slider"></input>
-          <span>100</span>
+          <input
+            type="range"
+            min="1"
+            max="100"
+            className="slider"
+            onChange={handleChangeSize}
+            defaultValue={shapeSize}
+          ></input>
+          <span>{shapeSize}</span>
         </div>
       </div>
 
@@ -47,6 +89,11 @@ export default function Shape({ canvas, setIndex }) {
             style={{ backgroundColor: "purple" }}
           ></div>
         </div>
+        <ChromePicker
+          className="color-selector-picker"
+          color={shapeColor}
+          onChange={handleChangeColor}
+        />
       </div>
     </React.Fragment>
   );

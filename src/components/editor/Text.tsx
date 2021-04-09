@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { ChromePicker } from "react-color";
 import { fabric } from "fabric";
 
 // ! 선택된 Textbox를 모아두는 Container입니다.
 const texts: Object = {};
 
-export default function Text({ canvas, setIndex }) {
+export default function Text({
+  id,
+  canvas,
+  textSize,
+  textColor,
+  setTextSize,
+  setTextColor,
+  setId,
+}) {
   // TODO: Init
-  const [id, setId] = useState<number>(0);
-  const [color, setColor] = useState("Black");
-  const [size, setSize] = useState(40);
   const fonts: Array<string> = [
     "Pacifico",
     "VT323",
@@ -17,19 +22,16 @@ export default function Text({ canvas, setIndex }) {
     "Inconsolata",
   ];
 
-  // useEffect(() => {
-  //   return () => {
-  //     for (const key in texts) {
-  //       delete texts[key];
-  //     }
-  //   };
-  // });
+  useEffect(() => {
+    return () => {};
+  });
 
   // TODO: EventHandling Functions
   const handleAddTextBox = () => {
     // * : 생성 버튼을 클릭하면 새로운 텍스트 박스를 생성합니다.
     const textbox: any = new fabric.Textbox("내용을 입력하세요", {
-      fontSize: size,
+      fontSize: textSize,
+      fill: textColor,
     });
 
     textbox.set({
@@ -51,9 +53,12 @@ export default function Text({ canvas, setIndex }) {
     textbox.on("selected", (event) => {
       const id = textbox.id;
       texts[id] = textbox;
+      setTextSize(textbox.fontSize);
+      setTextColor(textbox.fill);
 
-      setIndex(1);
-      setColor(textbox.fill);
+      const slider: any = document.getElementById("slider-text");
+      if (!slider) return;
+      slider.value = String(textbox.fontSize);
     });
 
     textbox.on("deselected", (event) => {
@@ -61,15 +66,19 @@ export default function Text({ canvas, setIndex }) {
       delete texts[id];
     });
 
-    textbox.on("object:scaling", (options) => {});
-    textbox.on("object.modified", (options) => {});
+    textbox.on("scaling", (event) => {
+      // console.log("Scaling");
+    });
+    textbox.on("modified", (event) => {
+      // console.log("Modified");
+    });
 
     canvas.add(textbox);
     canvas.setActiveObject(textbox);
   };
 
   const handleChangeColor = (color, event) => {
-    setColor(color.hex);
+    setTextColor(color.hex);
 
     if (Object.keys(texts).length > 0) {
       for (const key in texts) {
@@ -82,7 +91,7 @@ export default function Text({ canvas, setIndex }) {
 
   const handleChangeSize = (event) => {
     event.preventDefault();
-    setSize(event.target.value);
+    setTextSize(event.target.value);
 
     if (Object.keys(texts).length > 0) {
       for (const key in texts) {
@@ -121,26 +130,27 @@ export default function Text({ canvas, setIndex }) {
             type="range"
             min="1"
             max="100"
+            id="slider-text"
             className="slider"
             onChange={handleChangeSize}
-            defaultValue={size}
+            defaultValue={textSize}
           ></input>
-          <span>{size}</span>
+          <span>{textSize}</span>
         </div>
       </div>
 
       <div className="content">
         <div className="title">색상</div>
         <div className="color-selector-container">
-          <input defaultValue={color}></input>
+          <input defaultValue={textColor}></input>
           <div
             className="color-selector-color"
-            style={{ backgroundColor: color }}
+            style={{ backgroundColor: textColor }}
           ></div>
         </div>
         <ChromePicker
           className="color-selector-picker"
-          color={color}
+          color={textColor}
           onChange={handleChangeColor}
         />
       </div>

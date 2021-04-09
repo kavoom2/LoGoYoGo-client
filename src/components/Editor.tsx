@@ -9,8 +9,17 @@ import { fabric } from "fabric";
 import "../scss/editor/_CommonComponentsEditor.scss";
 
 export default function Editor() {
-  const [index, setIndex] = useState(0);
+  const [id, setId] = useState<number>(0);
+  const [index, setIndex] = useState<number>(0);
   const [canvas, setCanvas] = useState<any>();
+  // *: Text
+  const [textSize, setTextSize] = useState<number>(40);
+  const [textColor, setTextColor] = useState<string>("Black");
+  // *: Bg
+  const [bgColor, setBgColor] = useState<string>("Black");
+  // *: Shape
+  const [shapeSize, setShapeSize] = useState<number>(40);
+  const [shapeColor, setShapeColor] = useState<string>("Black");
 
   useEffect(() => {
     const c = new fabric.Canvas("my-canvas", {
@@ -24,7 +33,9 @@ export default function Editor() {
     const setCanvasFunc = async () => {
       await setCanvas(c);
 
-      c.on("object:selected", function (event: any) {});
+      c.on("selection:created", function (event: any) {
+        if (event.target.type === "textbox") setIndex(1);
+      });
 
       c.on("object:scaling", function (event: any) {});
 
@@ -54,6 +65,9 @@ export default function Editor() {
           event.target.scaleY = 1;
           event.target._clearCache();
         }
+        setTextSize(event.target.fontSize);
+        const slider: any = document.getElementById("slider-text");
+        slider.value = String(event.target.fontSize);
       });
     };
 
@@ -66,9 +80,23 @@ export default function Editor() {
 
   const components = [
     <ColorPalette canvas={canvas} setIndex={setIndex} />,
-    <Text canvas={canvas} setIndex={setIndex} />,
-    <Shape canvas={canvas} setIndex={setIndex} />,
-    <Background canvas={canvas} setIndex={setIndex} />,
+    <Text
+      id={id}
+      canvas={canvas}
+      textSize={textSize}
+      textColor={textColor}
+      setTextSize={setTextSize}
+      setTextColor={setTextColor}
+      setId={setId}
+    />,
+    <Shape
+      canvas={canvas}
+      shapeSize={shapeSize}
+      shapeColor={shapeColor}
+      setShapeSize={setShapeSize}
+      setShapeColor={setShapeColor}
+    />,
+    <Background canvas={canvas} bgColor={bgColor} setBgColor={setBgColor} />,
     <Layout canvas={canvas} setIndex={setIndex} />,
   ];
 
