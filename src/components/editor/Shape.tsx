@@ -6,35 +6,32 @@ const shapes: Object = {};
 
 export default function Shape({
   id,
-  shapes,
   canvas,
   shapeSize,
   shapeColor,
   setShapeSize,
   setShapeColor,
   setId,
+  setIndex,
 }) {
   const handleChangeColor = (color, event) => {
-    setShapeColor(color.hex);
-
-    if (Object.keys(shapes).length > 0) {
-      for (const key in shapes) {
-        const item = shapes[key];
+    const items = canvas.getActiveObjects();
+    items.forEach((item) => {
+      if (item.type === "shape") {
         item.set({ fill: color.hex });
       }
-      canvas.renderAll();
-    }
+    });
+
+    canvas.renderAll();
+    setShapeColor(color.hex);
   };
 
   const handleChangeSize = (event) => {
     event.preventDefault();
-    setShapeSize(parseInt(event.target.value));
 
-    if (Object.keys(shapes).length > 0) {
-      for (const key in shapes) {
-        const item = shapes[key];
-        const initWidth = item.width;
-        const initHeight = item.Height;
+    const items = canvas.getActiveObjects();
+    items.forEach((item) => {
+      if (item.type === "shape") {
         const scale = Number(event.target.value) / Number(item.width);
 
         item.set({
@@ -43,15 +40,14 @@ export default function Shape({
           scaleX: 1,
           scaleY: 1,
         });
-
-        console.log(item);
       }
-      canvas.renderAll();
-    }
+    });
+
+    canvas.renderAll();
+    setShapeSize(parseInt(event.target.value));
   };
 
   const handleAddShape = () => {
-    console.log(shapeSize);
     const shape: any = new fabric.Rect({
       fill: shapeColor,
       width: shapeSize,
@@ -72,20 +68,13 @@ export default function Shape({
 
     // TODO: Event - Selected
     shape.on("selected", (event) => {
-      const id = shape.id;
-      shapes[id] = shape;
       setShapeSize(parseInt(shape.width));
       setShapeColor(shape.fill);
+      setIndex(2);
 
       const slider: any = document.getElementById("slider-shape");
       if (!slider) return;
       slider.value = String(shape.width);
-    });
-
-    // TODO: Event - Deselected
-    shape.on("deselected", (event) => {
-      const id = shape.id;
-      delete shapes[id];
     });
 
     canvas.add(shape);
@@ -148,13 +137,14 @@ export default function Shape({
           <input></input>
           <div
             className="color-selector-color"
-            style={{ backgroundColor: "purple" }}
+            style={{ backgroundColor: shapeColor }}
           ></div>
         </div>
         <ChromePicker
           className="color-selector-picker"
           color={shapeColor}
           onChange={handleChangeColor}
+          disableAlpha={true}
         />
       </div>
     </React.Fragment>

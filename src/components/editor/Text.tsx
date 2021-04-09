@@ -8,12 +8,12 @@ import { fabric } from "fabric";
 export default function Text({
   id,
   canvas,
-  texts,
   textSize,
   textColor,
   setTextSize,
   setTextColor,
   setId,
+  setIndex,
 }) {
   // TODO: Init
   const fonts: Array<string> = [
@@ -51,20 +51,13 @@ export default function Text({
 
     // TODO: Event - Selected
     textbox.on("selected", (event) => {
-      const id = textbox.id;
-      texts[id] = textbox;
       setTextSize(textbox.fontSize);
       setTextColor(textbox.fill);
+      setIndex(1);
 
       const slider: any = document.getElementById("slider-text");
       if (!slider) return;
       slider.value = String(textbox.fontSize);
-    });
-
-    // TODO: Event - Deselected
-    textbox.on("deselected", (event) => {
-      const id = textbox.id;
-      delete texts[id];
     });
 
     canvas.add(textbox);
@@ -72,28 +65,30 @@ export default function Text({
   };
 
   const handleChangeColor = (color, event) => {
-    setTextColor(color.hex);
+    const items = canvas.getActiveObjects();
 
-    if (Object.keys(texts).length > 0) {
-      for (const key in texts) {
-        const item = texts[key];
+    items.forEach((item) => {
+      if (item.type === "textbox") {
         item.set({ fill: color.hex });
       }
-      canvas.renderAll();
-    }
+    });
+
+    canvas.renderAll();
+    setTextColor(color.hex);
   };
 
   const handleChangeSize = (event) => {
     event.preventDefault();
-    setTextSize(event.target.value);
+    const items = canvas.getActiveObjects();
 
-    if (Object.keys(texts).length > 0) {
-      for (const key in texts) {
-        const item = texts[key];
+    items.forEach((item) => {
+      if (item.type === "textbox") {
         item.set({ fontSize: event.target.value });
       }
-      canvas.renderAll();
-    }
+    });
+
+    canvas.renderAll();
+    setTextSize(event.target.value);
   };
 
   return (
@@ -146,6 +141,7 @@ export default function Text({
           className="color-selector-picker"
           color={textColor}
           onChange={handleChangeColor}
+          disableAlpha={true}
         />
       </div>
     </React.Fragment>
