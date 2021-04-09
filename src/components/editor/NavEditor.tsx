@@ -19,6 +19,22 @@ export default function Nav() {
     dispatch(Actions.setModalType(type));
   };
 
+  const handleExport = () => {
+    if (isLogin) {
+      var a: any = document.createElement("a");
+      var selectcanvas: any = document.getElementById("my-canvas");
+      var img: string = selectcanvas.toDataURL("image/png; base64");
+
+      a.download = "LoGo.png";
+      a.href = img;
+      a.click();
+      a.remove();
+    } else {
+      handleModalOpen("LOGIN");
+    }
+    // 고칠점 : 객체를 선택한 상태에서 저장시 선택창이 보임
+  };
+
   return (
     <div id="nav-editor">
       <button className="btn-nav">UNDO</button>
@@ -31,7 +47,9 @@ export default function Nav() {
       >
         PREVIEW
       </button>
-      <button className="btn-nav">SAVE</button>
+      <button className="btn-nav" onClick={handleExport}>
+        SAVE
+      </button>
     </div>
   );
 }
