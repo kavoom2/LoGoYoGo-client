@@ -29,6 +29,7 @@ export default function Background({ canvas, bgColor, setBgColor }) {
           className="color-selector-picker"
           color={bgColor}
           onChange={handleChange}
+          disableAlpha={true}
         />
       </div>
     </React.Fragment>

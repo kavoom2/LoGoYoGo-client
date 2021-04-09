@@ -9,9 +9,6 @@ import { fabric } from "fabric";
 import "../scss/editor/_CommonComponentsEditor.scss";
 
 // ! Object Controll Container
-const texts: Object = {};
-const shapes: Object = {};
-
 export default function Editor() {
   // *: Commons
   const [id, setId] = useState<number>(0);
@@ -39,19 +36,9 @@ export default function Editor() {
     const setCanvasFunc = async () => {
       await setCanvas(c);
 
-      c.on("selection:created", function (event: any) {
-        if (event.target.type === "textbox") setIndex(1);
-        if (event.target.type === "shape") setIndex(2);
-      });
+      c.on("selection:created", function (event: any) {});
 
-      c.on("object:scaling", function (event: any) {
-        // if (event.target.type === "shape") {
-        //   event.target.width *= event.target.scaleX;
-        //   event.target.height *= event.target.scaleY;
-        //   event.target.sxaleX = 1;
-        //   event.target.scaleY = 1;
-        // }
-      });
+      c.on("object:scaling", function (event: any) {});
 
       c.on("object:modified", function (event: any) {
         // TODO: 1. 텍스트 박스 크기 변경
@@ -87,17 +74,20 @@ export default function Editor() {
           event.target._clearCache();
 
           const slider: any = document.getElementById("slider-text");
+
+          if (!slider) return;
           slider.value = String(event.target.fontSize);
           setTextSize(event.target.fontSize);
         } else if (event.target.type === "shape") {
           event.target.width *= event.target.scaleX;
           event.target.height *= event.target.scaleY;
-          event.target.cacheWidth = event.target.width;
-          event.target.cacheHeight = event.target.height;
           event.target.scaleX = 1;
           event.target.scaleY = 1;
+          event.target.dirty = true;
 
           const slider: any = document.getElementById("slider-shape");
+
+          if (!slider) return;
           slider.value = String(event.target.width);
           setShapeSize(parseInt(event.target.width));
         }
@@ -113,9 +103,6 @@ export default function Editor() {
       if (event.keyCode === 46) {
         const items = c.getActiveObjects();
         items.forEach((item) => {
-          // * 1 - 1. Selection Container에 담겨있는 Key-Value를 Type에 따라 제거합니다.
-          if (item.type === "textbox") delete texts[id];
-          // * 1 - 2. 캔버스에서 해당 오브젝트를 제거합니다.
           c.remove(item);
         });
         c.discardActiveObject().renderAll();
@@ -126,14 +113,6 @@ export default function Editor() {
     return () => {
       c.dispose();
       window.removeEventListener("keydown", hamdleEventKeyDown);
-
-      for (const key in texts) {
-        delete texts[key];
-      }
-
-      for (const key in shapes) {
-        delete shapes[key];
-      }
     };
   }, []);
 
@@ -147,16 +126,16 @@ export default function Editor() {
       setTextSize={setTextSize}
       setTextColor={setTextColor}
       setId={setId}
-      texts={texts}
+      setIndex={setIndex}
     />,
     <Shape
       id={id}
-      shapes={shapes}
       canvas={canvas}
       shapeSize={shapeSize}
       shapeColor={shapeColor}
       setShapeSize={setShapeSize}
       setShapeColor={setShapeColor}
+      setIndex={setIndex}
       setId={setId}
     />,
     <Background canvas={canvas} bgColor={bgColor} setBgColor={setBgColor} />,
