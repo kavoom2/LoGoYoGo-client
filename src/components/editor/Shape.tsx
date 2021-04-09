@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import { ChromePicker } from "react-color";
 import { fabric } from "fabric";
 
-const shapes: Object = {};
-
 export default function Shape({
   id,
   canvas,

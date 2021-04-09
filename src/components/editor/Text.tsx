@@ -2,9 +2,6 @@ import React, { useEffect } from "react";
 import { ChromePicker } from "react-color";
 import { fabric } from "fabric";
 
-// ! 선택된 Textbox를 모아두는 Container입니다.
-// const texts: Object = {};
-
 export default function Text({
   id,
   canvas,

@@ -16,6 +16,7 @@
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "fabric": "^4.4.0",
+    "http-proxy-middleware": "^0.19.1",
     "react": "^17.0.2",
     "react-color": "^2.19.3",
     "react-dom": "^17.0.2",
@@ -64,6 +65,7 @@
     ]
   },
   "devDependencies": {
+    "@types/http-proxy-middleware": "^1.0.0",
     "@types/react-router-dom": "^5.1.7",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",

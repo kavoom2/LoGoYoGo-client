@@ -1,14 +1,15 @@
 #modal-background {
-  flex-direction: column;
   position: absolute;
-  width: 100vw;
-  height: 100vh;
-  z-index: 100000;
+  flex-direction: column;
+  top: -20vh;
+  left: -20vw;
+  width: 140vw;
+  height: 140vh;
+  z-index: 10000;
 
   justify-content: center;
   align-items: center;
-  background-color: #091118;
-  opacity: 0.98;
+  background-color: rgba(9, 17, 24, 0.95);
 
   #modal-header {
     font-size: 6rem;
@@ -17,10 +18,10 @@
   }
 
   #modal-container {
-    // width: 50rem;
     height: 60rem;
 
     background-color: white;
+    opacity: 1;
     border-radius: 0.5rem;
 
     #modal-section {
@@ -28,7 +29,6 @@
       flex-direction: column;
       align-items: center;
 
-      // width: 50rem;
       height: 100%;
       font-size: 2rem;
       padding: 4rem;
@@ -59,8 +59,6 @@
         justify-content: center;
         padding: 0rem;
 
-        // background-color: lawngreen;
-
         .preview-item {
           background-color: khaki;
           width: 40rem;
@@ -70,7 +68,7 @@
       }
     }
   }
-  transition: 0.3s;
+  transition: 0.5s linear;
 }
 
 .active {
@@ -78,7 +76,15 @@
 }
 
 .deactive {
-  display: none;
+  display: flex;
+  z-index: -10 !important;
+  opacity: 0 !important;
+  transition: 0s !important;
+
+  * {
+    width: 0rem !important;
+    height: 0rem !important;
+  }
 }
 
 @media (max-width: 768px,) {

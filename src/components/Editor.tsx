@@ -5,6 +5,7 @@ import Text from "./editor/Text";
 import Shape from "./editor/Shape";
 import Background from "./editor/Background";
 import Layout from "./editor/Layout";
+import ClipArt from "./editor/ClipArt";
 import { fabric } from "fabric";
 import "../scss/editor/_CommonComponentsEditor.scss";
 
@@ -23,6 +24,8 @@ export default function Editor() {
   const [shapeSize, setShapeSize] = useState<number>(40);
   const [shapeColor, setShapeColor] = useState<string>("Black");
   const [shapeType, setShapeType] = useState<any>();
+  // *: ClipArts
+  const [clipItems, setClipItems] = useState<Array<any>>([]);
 
   useEffect(() => {
     const c = new fabric.Canvas("my-canvas", {
@@ -91,7 +94,6 @@ export default function Editor() {
           slider.value = String(event.target.width);
           setShapeSize(parseInt(event.target.width));
         }
-        console.log(event.target);
       });
     };
 
@@ -140,6 +142,13 @@ export default function Editor() {
     />,
     <Background canvas={canvas} bgColor={bgColor} setBgColor={setBgColor} />,
     <Layout canvas={canvas} setIndex={setIndex} />,
+    <ClipArt
+      id={id}
+      canvas={canvas}
+      clipItems={clipItems}
+      setId={setId}
+      setClipItems={setClipItems}
+    />,
   ];
 
   const handleIndexNumber = (idx: number): void => {
@@ -176,6 +185,14 @@ export default function Editor() {
           >
             모양
           </button>
+          <button
+            onClick={() => {
+              handleIndexNumber(5);
+            }}
+          >
+            클립아트
+          </button>
+
           <button
             onClick={() => {
               handleIndexNumber(3);
