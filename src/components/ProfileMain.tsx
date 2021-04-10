@@ -5,24 +5,15 @@ import { Actions } from "../actions/index";
 
 require("dotenv").config();
 
-const axios: any = require("axios");
-axios.default.withCredentials = true;
-const scheme: string = process.env.REACT_APP_SERVER_SCHEME;
-const host: string = process.env.REACT_APP_SERVER_HOST;
-const port: string = process.env.REACT_APP_SERVER_PORT;
-
 function ProfileMain() {
   const history = useHistory();
-  const dispatch = useDispatch();
   const loginState = useSelector(
     (state: RootState) => state.loginReducer.isLogin
   );
   const userInfoState = useSelector(
     (state: RootState) => state.userInfoReducer.userInfo
   );
-  const accessToken = useSelector(
-    (state: RootState) => state.accessTokenReducer.accessToken
-  );
+
   console.log(loginState);
   console.log(userInfoState);
 
@@ -31,23 +22,6 @@ function ProfileMain() {
   };
   const handleRedirectProfile = (): void => {
     history.push("/profile");
-  };
-
-  //회원탈퇴
-  const handleDeleteId = () => {
-    axios
-      .post(`${scheme}://${host}:${port}/user/deleteid`, {
-        accessToken: accessToken,
-      })
-      .then((data) => {
-        history.push("/");
-        dispatch(Actions.setUserInfo("", ""));
-        dispatch(Actions.setLoginStatus(false));
-        dispatch(Actions.setAccessToken(""));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   };
 
   return (
@@ -77,9 +51,6 @@ function ProfileMain() {
             <div>
               <span>{userInfoState.email}</span>
             </div>
-          </div>
-          <div>
-            <button onClick={handleDeleteId}>회원탈퇴</button>
           </div>
         </section>
       </div>
