@@ -38,8 +38,12 @@ export default function Nav({ canvas }) {
 
   return (
     <div id="nav-editor">
-      <button className="btn-nav">UNDO</button>
-      <button className="btn-nav">REDO</button>
+      <button className="btn-nav" onClick={() => canvas.undo()}>
+        UNDO
+      </button>
+      <button className="btn-nav" onClick={() => canvas.redo()}>
+        REDO
+      </button>
       <button
         className="btn-nav"
         onClick={() => {

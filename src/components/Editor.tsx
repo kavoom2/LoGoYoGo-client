@@ -7,6 +7,7 @@ import Background from "./editor/Background";
 import Layout from "./editor/Layout";
 import ClipArt from "./editor/ClipArt";
 import { fabric } from "fabric";
+import "fabric-history";
 import "../scss/editor/_CommonComponentsEditor.scss";
 
 // ! Object Controll Container
