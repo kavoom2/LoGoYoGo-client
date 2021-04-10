@@ -2,7 +2,7 @@ import { RootState } from "../../reducers/index";
 import { useSelector, useDispatch } from "react-redux";
 import { Actions } from "../../actions/index";
 
-export default function Nav() {
+export default function Nav({ canvas }) {
   const dispatch = useDispatch();
   const isLogin = useSelector((state: RootState) => state.loginReducer.isLogin);
   const modalType = useSelector(
@@ -22,6 +22,8 @@ export default function Nav() {
   const handleExport = () => {
     if (isLogin) {
       var a: any = document.createElement("a");
+      canvas.discardActiveObject().renderAll();
+
       var selectcanvas: any = document.getElementById("my-canvas");
       var img: string = selectcanvas.toDataURL("image/png; base64");
 
@@ -32,7 +34,6 @@ export default function Nav() {
     } else {
       handleModalOpen("LOGIN");
     }
-    // 고칠점 : 객체를 선택한 상태에서 저장시 선택창이 보임
   };
 
   return (

@@ -157,7 +157,7 @@ export default function Editor() {
 
   return (
     <div id="section">
-      <NavEditor />
+      <NavEditor canvas={canvas} />
       <div id="container-editor">
         <div className="container-canvas">
           <canvas id="my-canvas" />
