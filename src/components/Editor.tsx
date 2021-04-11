@@ -8,24 +8,65 @@ import Layout from "./editor/Layout";
 import ClipArt from "./editor/ClipArt";
 import { fabric } from "fabric";
 import "../scss/editor/_CommonComponentsEditor.scss";
+import { Fetch_Font } from "../utilities/index";
+import { Type } from "typescript";
 
 // ! Object Controll Container
 export default function Editor() {
   // *: Commons
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [id, setId] = useState<number>(0);
   const [index, setIndex] = useState<number>(0);
   const [canvas, setCanvas] = useState<any>();
   // *: Text
   const [textSize, setTextSize] = useState<number>(40);
   const [textColor, setTextColor] = useState<string>("Black");
+  const [textAlign, setTextAlign] = useState<string>("left");
+  const [fonts, setFonts] = useState<Array<any>>([]);
+  const [fontType, setFontType] = useState<string>("");
+  const [fontWeight, setFontWeight] = useState(400);
   // *: Bg
   const [bgColor, setBgColor] = useState<string>("Black");
   // *: Shape
-  const [shapeSize, setShapeSize] = useState<number>(40);
+  const [shapeSize, setShapeSize] = useState<number>(150);
   const [shapeColor, setShapeColor] = useState<string>("Black");
   const [shapeType, setShapeType] = useState<any>();
   // *: ClipArts
-  const [clipItems, setClipItems] = useState<Array<any>>([]);
+  const [clipItems, setClipItems] = useState<Array<Type>>([]);
+
+  useEffect(() => {
+    async function asyncFunc() {
+      const result = await Fetch_Font.getFonts();
+
+      const fontItems = result.items.filter((el) => {
+        if (el.subsets.includes("korean")) return true;
+        else return false;
+      });
+
+      for (let i = 0; i < 50; i++) {
+        const el = result.items[i];
+        if (!el.subsets.includes("korean") && el.subsets.includes("latin"))
+          fontItems.push(el);
+      }
+
+      const promises = fontItems.map(async (item: any) => {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.id = item.family;
+        link.type = "text/css";
+        link.href = `https://fonts.googleapis.com/css?family=${item.family}`;
+        link.media = "all";
+
+        document.head.appendChild(link);
+        return item.family;
+      });
+
+      const items = await Promise.all(promises);
+      setFonts(items);
+    }
+
+    asyncFunc();
+  }, []);
 
   useEffect(() => {
     const c = new fabric.Canvas("my-canvas", {
@@ -49,27 +90,19 @@ export default function Editor() {
           // * 1. 1. Grouping일 경우 텍스트상자 크기 변경
           for (let i = 0; i < event.target._objects.length; i++) {
             const el = event.target._objects[i];
-            if (el.type === "textbox") {
+            if (el.customType === "textbox") {
               el.fontSize *= el.scaleX;
               el.fontSize = el.fontSize.toFixed(0);
               el.scaleX = 1;
               el.scaleY = 1;
               el._clearCache();
-            } else if (el.type === "shape") {
-              el.width *= el.scaleX;
-              el.height *= el.scaleY;
-              el.cacheWidth = el.width;
-              el.cacheHeight = el.height;
-              el.scaleX = 1;
-              el.scaleY = 1;
             }
           }
-
           return;
         }
 
         // * 1. 2. 단일 대상일 경우 텍스트상자 크기 변경
-        if (event.target.type === "textbox") {
+        if (event.target.customType === "textbox") {
           event.target.fontSize *= event.target.scaleX;
           event.target.fontSize = event.target.fontSize.toFixed(0);
           event.target.scaleX = 1;
@@ -81,19 +114,27 @@ export default function Editor() {
           if (!slider) return;
           slider.value = String(event.target.fontSize);
           setTextSize(event.target.fontSize);
-        } else if (event.target.type === "shape") {
-          event.target.width *= event.target.scaleX;
-          event.target.height *= event.target.scaleY;
-          event.target.scaleX = 1;
-          event.target.scaleY = 1;
-          event.target.dirty = true;
+        } else if (event.target.customType === "shape") {
+          // event.target.width *= event.target.scaleX;
+          // event.target.height *= event.target.scaleY;
+          // event.target.scaleX = 1;
+          // event.target.scaleY = 1;
+          // event.target.dirty = true;
 
           const slider: any = document.getElementById("slider-shape");
 
           if (!slider) return;
-          slider.value = String(event.target.width);
-          setShapeSize(parseInt(event.target.width));
+          slider.value = String(event.target.width * event.target.scaleX);
+          setShapeSize(Math.round(event.target.width * event.target.scaleX));
         }
+      });
+
+      c.on("mouse:down", (event) => {
+        // ! 그룹 내부 오브젝트들을 수정할 수 있는 이벤트입니다.
+        // if (event.subTargets[0]) {
+        //   const item = event.subTargets[0];
+        //   c.setActiveObject(item);
+        // }
       });
     };
 
@@ -119,16 +160,23 @@ export default function Editor() {
   }, []);
 
   const components = [
-    <ColorPalette canvas={canvas} setIndex={setIndex} />,
+    <ColorPalette canvas={canvas} />,
     <Text
       id={id}
       canvas={canvas}
       textSize={textSize}
       textColor={textColor}
+      textAlign={textAlign}
+      fonts={fonts}
+      fontType={fontType}
+      fontWeight={fontWeight}
       setTextSize={setTextSize}
       setTextColor={setTextColor}
+      setTextAlign={setTextAlign}
       setId={setId}
       setIndex={setIndex}
+      setFontType={setFontType}
+      setFontWeight={setFontWeight}
     />,
     <Shape
       id={id}

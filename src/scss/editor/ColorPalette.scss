@@ -1,9 +1,14 @@
 .palette-item-container {
+  position: relative;
+  top: 0;
+  left: 0;
   margin-top: 3rem;
   margin-left: 1rem;
+  padding: 1rem;
 
   .palette-item {
     display: flex;
+    margin-top: 0.5rem;
     height: 3rem;
     width: 100%;
 
@@ -11,8 +16,16 @@
       flex: 1;
     }
   }
+
+  box-shadow: 1px 2px 8px 1px #ccc;
+  transition: 0.3s;
 }
 
 .palette-item-container:hover {
+  cursor: pointer;
+
+  top: -6px;
+  left: -2px;
+  box-shadow: 2px 3px 7px 2px #ccc;
   cursor: pointer;
 }

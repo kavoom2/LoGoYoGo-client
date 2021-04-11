@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fabric } from "fabric";
 import { Fetch_Icon } from "../../utilities/index";
-import { group } from "node:console";
 
 export default function ClipArt({
   id,
@@ -42,25 +41,31 @@ export default function ClipArt({
     const svg = await Fetch_Icon.getImageByUrl(svgUrl);
 
     fabric.loadSVGFromString(svg, (objects, options) => {
+      objects.forEach((el: any) => {
+        el.set({ customType: "shape" });
+      });
       const groupObj: any = new fabric.Group(objects, {});
 
       groupObj.set({
         // * : 오브젝트 타입과 키값을 명시합니다.
-        type: "clipArt",
+        customType: "clipArt",
         id: id,
-        left: canvas.width / 2 - groupObj.get("width") / 2,
-        top: canvas.height / 2 - groupObj.get("height") / 2,
+        // ! 하위 오브젝트들이 선택될 수 있도록 합니다. (대상이 너무 많으므로 임시로 해제)
+        // subTargetCheck: true,
       });
 
       groupObj.set({
-        width: groupObj.get("width") * groupObj.get("scaleX"),
-        height: groupObj.get("height") * groupObj.get("scaleY"),
-        scaleX: 1,
-        scaleY: 1,
+        scaleX: canvas.width / groupObj.get("width") / 3,
+        scaleY: canvas.width / groupObj.get("width") / 3,
       });
 
-      groupObj.on("selected", (event) => {
-        console.log(event.target);
+      groupObj.set({
+        left:
+          canvas.height / 2 -
+          (groupObj.get("width") * groupObj.get("scaleX")) / 2,
+        top:
+          canvas.height / 2 -
+          (groupObj.get("height") * groupObj.get("scaleY")) / 2,
       });
 
       setId(id + 1);
@@ -72,7 +77,6 @@ export default function ClipArt({
 
   const renderImgs = () => {
     const result = imgs.map((el, idx) => {
-      // const b64Response = btoa(unescape(encodeURIComponent(el.img)));
       return (
         <div
           className="img-container"
