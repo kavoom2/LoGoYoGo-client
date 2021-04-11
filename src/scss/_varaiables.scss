@@ -1,9 +1,9 @@
 // TODO: 미디어 쿼리 분기점 변수입니다.
 // * map-get($breakpoints, mobile)으로 값을 가져올 수 있다.
 $breakpoints: (
-//   "mobile": 320px,
+  //   "mobile": 320px,
   "mobile": 768px,
-  "desktop": 1024px,
+  "desktop": 1024px
 );
 
 // TODO: 사용 예시입니다. 수치 대신 변수를 대입하면 됩니다.

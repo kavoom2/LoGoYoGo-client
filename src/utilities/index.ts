@@ -6,6 +6,7 @@ const HOST = process.env.REACT_APP_SERVER_HOST;
 const PORT = process.env.REACT_APP_SERVER_PORT;
 const URL_SERVER = `${SCHEME}://${HOST}:${PORT}`;
 const API_ICON = process.env.REACT_APP_SERVER_API_ICONFINDER;
+const API_FONT = process.env.REACT_APP_SERVER_API_GOOGLEFONT;
 
 // --------- 유효성 검사 메서드입니다 --------- //
 
@@ -32,7 +33,7 @@ export const isValidPassword = (str: any) => {
 
 export const Fetch_Icon = {
   searchIcons: (keyword: string): Array<Object> => {
-    const count = 30;
+    const count = 60;
     const URL = `/api/v4/icons/search?query=${keyword}&vector=1&count=${count}&premium=0`;
 
     const result = axios
@@ -85,6 +86,21 @@ export const Fetch_Icon = {
         // withCredentials: true,
         // crossDomain: true,
       })
+      .then((data: any) => {
+        return data.data;
+      })
+      .catch((err: any) => console.log(err));
+
+    return result;
+  },
+};
+
+export const Fetch_Font = {
+  getFonts: () => {
+    const URL = `https://webfonts.googleapis.com/v1/webfonts?key=${API_FONT}&sort=TRENDING`;
+
+    const result = axios
+      .get(URL)
       .then((data: any) => {
         return data.data;
       })

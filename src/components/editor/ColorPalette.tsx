@@ -2,7 +2,22 @@ import React from "react";
 import colorPalette from "../../dummy/colorPalette";
 import "../../scss/editor/ColorPalette.scss";
 
-export default function ColorPalette({ canvas, setIndex }) {
+export default function ColorPalette({ canvas }) {
+  const handleChangeColorPalette = (arr) => {
+    const objects = canvas.getObjects();
+
+    // * 1. Change BgColor
+    canvas.backgroundColor = arr[0];
+
+    // * 2. Change Shape and Text
+    objects.forEach((el) => {
+      if (el.customType === "shape" || el.customType === "circle") {
+        el.set({ fill: arr[Math.round(Math.random()) + 1] });
+      } else if (el.customType === "textbox") el.set({ fill: arr[3] });
+    });
+
+    canvas.renderAll();
+  };
   const renderColorPalette = (
     palettes: Array<Array<string>>
   ): JSX.Element[] => {
@@ -12,7 +27,13 @@ export default function ColorPalette({ canvas, setIndex }) {
     for (let i = 0; i < palettes.length; i++) {
       const arr = palettes[i];
       result.push(
-        <div className="palette-item-container" key={i}>
+        <div
+          className="palette-item-container"
+          key={i}
+          onClick={() => {
+            handleChangeColorPalette(arr);
+          }}
+        >
           <span className="title">No. {count}</span>
           <div className="palette-item">
             <div

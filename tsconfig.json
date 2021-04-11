@@ -14,7 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react-jsx",
+    "types": ["node", "webpack-env"]
   },
-  "include": ["src/**/*.ts", "src/setupProxy.js"]
+  "include": ["src/**/*.ts", "src/setupProxy.js", "src/custom.d.ts"]
 }
