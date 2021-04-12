@@ -59,8 +59,7 @@ export default function Shape({
 
         object.set({
           left:
-            canvas.height / 2 -
-            (object.get("width") * object.get("scaleX")) / 2,
+            canvas.width / 2 - (object.get("width") * object.get("scaleX")) / 2,
           top:
             canvas.height / 2 -
             (object.get("height") * object.get("scaleY")) / 2,

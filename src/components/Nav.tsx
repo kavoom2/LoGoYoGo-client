@@ -20,9 +20,6 @@ export default function Nav() {
   const isModalOpen = useSelector(
     (state: RootState) => state.modalStatusReducer.isModalOpen
   );
-  console.log("islogin", isLogin);
-  console.log("info", userInfo);
-  console.log("token", accessToken);
 
   // TODO: ---------- Event Handler ---------- //
 
