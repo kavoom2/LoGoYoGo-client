@@ -16,7 +16,6 @@ import { Type } from "typescript";
 export default function Editor() {
   // *: Commons
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [id, setId] = useState<number>(0);
   const [index, setIndex] = useState<number>(0);
   const [canvas, setCanvas] = useState<any>();
   // *: Text
@@ -27,15 +26,18 @@ export default function Editor() {
   const [fontType, setFontType] = useState<string>("");
   const [fontWeight, setFontWeight] = useState(400);
   // *: Bg
-  const [bgColor, setBgColor] = useState<string>("Black");
+  const [bgColor, setBgColor] = useState<string>("white");
   // *: Shape
   const [shapeSize, setShapeSize] = useState<number>(150);
   const [shapeColor, setShapeColor] = useState<string>("Black");
   const [shapeType, setShapeType] = useState<any>();
   // *: ClipArts
   const [clipItems, setClipItems] = useState<Array<Type>>([]);
+  // *: Nav
+  const [history, setHistory] = useState<Object>({});
 
   useEffect(() => {
+    // TODO: Get Fonts from API
     async function asyncFunc() {
       const result = await Fetch_Font.getFonts();
 
@@ -71,6 +73,16 @@ export default function Editor() {
 
   useEffect(() => {
     // TODO: Canvas 초기 설정(반응형 포함)
+    // Save additional attributes in Serialization
+    fabric.Object.prototype.toObject = (function (toObject) {
+      return function (propertiesToInclude) {
+        propertiesToInclude = (propertiesToInclude || []).concat([
+          "customType",
+        ]);
+        return toObject.apply(this, [propertiesToInclude]);
+      };
+    })(fabric.Object.prototype.toObject);
+
     const canvasWidth = 700;
     const canvasHeight = 600;
 
@@ -82,7 +94,7 @@ export default function Editor() {
       preserveObjectStacking: true,
       height: canvasHeight,
       width: canvasWidth,
-      backgroundColor: "white",
+      backgroundColor: bgColor,
     });
 
     if (stageWidth <= 768) {
@@ -98,7 +110,9 @@ export default function Editor() {
     const setCanvasFunc = async () => {
       await setCanvas(c);
 
-      c.on("selection:created", function (event: any) {});
+      c.on("selection:created", function (event: any) {
+        console.log(event.target);
+      });
 
       c.on("object:scaling", function (event: any) {});
 
@@ -133,12 +147,6 @@ export default function Editor() {
           slider.value = String(event.target.fontSize);
           setTextSize(event.target.fontSize);
         } else if (event.target.customType === "shape") {
-          // event.target.width *= event.target.scaleX;
-          // event.target.height *= event.target.scaleY;
-          // event.target.scaleX = 1;
-          // event.target.scaleY = 1;
-          // event.target.dirty = true;
-
           const slider: any = document.getElementById("slider-shape");
 
           if (!slider) return;
@@ -195,6 +203,7 @@ export default function Editor() {
     window.addEventListener("resize", handleResizeEvent, false);
 
     return () => {
+      // TODO: CleanUp 함수입니다.
       c.dispose();
       window.removeEventListener("keydown", hamdleEventKeyDown);
       window.removeEventListener("resize", handleResizeEvent);
@@ -204,7 +213,6 @@ export default function Editor() {
   const components = [
     <ColorPalette canvas={canvas} />,
     <Text
-      id={id}
       canvas={canvas}
       textSize={textSize}
       textColor={textColor}
@@ -215,28 +223,23 @@ export default function Editor() {
       setTextSize={setTextSize}
       setTextColor={setTextColor}
       setTextAlign={setTextAlign}
-      setId={setId}
       setIndex={setIndex}
       setFontType={setFontType}
       setFontWeight={setFontWeight}
     />,
     <Shape
-      id={id}
       canvas={canvas}
       shapeSize={shapeSize}
       shapeColor={shapeColor}
       setShapeSize={setShapeSize}
       setShapeColor={setShapeColor}
       setIndex={setIndex}
-      setId={setId}
     />,
     <Background canvas={canvas} bgColor={bgColor} setBgColor={setBgColor} />,
     <Layout canvas={canvas} setIndex={setIndex} />,
     <ClipArt
-      id={id}
       canvas={canvas}
       clipItems={clipItems}
-      setId={setId}
       setClipItems={setClipItems}
     />,
   ];

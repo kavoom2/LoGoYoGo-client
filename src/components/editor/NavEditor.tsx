@@ -1,6 +1,7 @@
 import { RootState } from "../../reducers/index";
 import { useSelector, useDispatch } from "react-redux";
 import { Actions } from "../../actions/index";
+import { useState, useEffect } from "react";
 
 export default function Nav({ canvas }) {
   const dispatch = useDispatch();

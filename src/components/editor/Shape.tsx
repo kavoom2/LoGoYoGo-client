@@ -6,13 +6,11 @@ const paths = reqSvgs.keys();
 const svgs = paths.map((path) => reqSvgs(path).default);
 
 export default function Shape({
-  id,
   canvas,
   shapeSize,
   shapeColor,
   setShapeSize,
   setShapeColor,
-  setId,
   setIndex,
 }) {
   const handleChangeColor = (color, event) => {
@@ -48,7 +46,6 @@ export default function Shape({
         console.log(object);
         object.set({
           customType: "shape",
-          id: id,
           fill: shapeColor,
         });
 
@@ -74,8 +71,6 @@ export default function Shape({
           if (!slider) return;
           slider.value = String(Math.round(object.width * object.scaleX));
         });
-
-        setId(id + 1);
 
         canvas.setActiveObject(object);
         canvas.add(object);
