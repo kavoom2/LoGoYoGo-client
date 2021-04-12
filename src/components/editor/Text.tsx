@@ -3,7 +3,6 @@ import { ChromePicker } from "react-color";
 import { fabric } from "fabric";
 
 export default function Text({
-  id,
   canvas,
   textSize,
   textColor,
@@ -14,7 +13,6 @@ export default function Text({
   setTextSize,
   setTextColor,
   setTextAlign,
-  setId,
   setIndex,
   setFontType,
   setFontWeight,
@@ -25,7 +23,7 @@ export default function Text({
 
   // TODO: EventHandling Functions
   const handleAddTextBox = () => {
-    const textbox: any = new fabric.Textbox("내용을 입력하세요", {
+    const textbox: any = new fabric.IText("내용을 입력하세요", {
       fontSize: textSize,
       fill: textColor,
       fontFamily: fontType,
@@ -35,12 +33,9 @@ export default function Text({
     textbox.set({
       // * : 오브젝트 타입과 키값을 명시합니다.
       customType: "textbox",
-      id: id,
       left: canvas.width / 2 - textbox.width / 2,
       top: canvas.height / 2 - textbox.height / 2,
     });
-
-    setId(id + 1);
 
     textbox.setControlsVisibility({
       mb: false,

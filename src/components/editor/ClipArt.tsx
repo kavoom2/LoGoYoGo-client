@@ -2,13 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fabric } from "fabric";
 import { Fetch_Icon } from "../../utilities/index";
 
-export default function ClipArt({
-  id,
-  canvas,
-  clipItems,
-  setClipItems,
-  setId,
-}) {
+export default function ClipArt({ canvas, clipItems, setClipItems }) {
   const [keyword, setKeyword] = useState<string>("");
   const [imgs, setImgs] = useState<Array<any>>([]);
 
@@ -49,7 +43,6 @@ export default function ClipArt({
       groupObj.set({
         // * : 오브젝트 타입과 키값을 명시합니다.
         customType: "clipArt",
-        id: id,
         // ! 하위 오브젝트들이 선택될 수 있도록 합니다. (대상이 너무 많으므로 임시로 해제)
         // subTargetCheck: true,
       });
@@ -67,8 +60,6 @@ export default function ClipArt({
           canvas.height / 2 -
           (groupObj.get("height") * groupObj.get("scaleY")) / 2,
       });
-
-      setId(id + 1);
 
       canvas.setActiveObject(groupObj);
       canvas.add(groupObj);
