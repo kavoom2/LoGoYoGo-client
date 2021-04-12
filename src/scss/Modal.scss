@@ -65,55 +65,6 @@
           height: 40rem;
           margin: 2rem;
         }
-
-        #WebPage {
-          background-image: url("../images/preview/web-sample3.png");
-          background-size: cover;
-        }
-
-        #FaceBook {
-          background-image: url("../images/preview/facebook2.png");
-          background-size: cover;
-        }
-
-        #Bcard {
-          background-image: url("../images/preview/card2.png");
-          background-size: cover;
-        }
-
-        #wpage1 {
-          width: 120px;
-          height: 120px;
-          position: relative;
-          left: 33%;
-          top: 25%;
-        }
-
-        #fbook1 {
-          transform: rotateX(24deg) rotateZ(-17deg);
-          width: 73.5px;
-          height: 73.5px;
-          position: relative;
-          left: 39.5%;
-          top: 36.8%;
-        }
-
-        #bCard1 {
-          transform: rotateX(47deg) rotateZ(-39deg);
-          width: 100px;
-          height: 100px;
-          position: relative;
-          left: 23%;
-          top: 20.5%;
-        }
-        #bCard2 {
-          transform: rotateX(46deg) rotateZ(-39.5deg);
-          width: 70px;
-          height: 70px;
-          position: relative;
-          left: 38%;
-          top: 30%;
-        }
       }
     }
   }
@@ -170,11 +121,6 @@
         margin: auto !important;
         margin-bottom: 5rem !important;
         padding: 0 !important;
-      }
-
-      #wpage1 {
-        width: 120vw !important;
-        height: 120vw !important;
       }
     }
   }
