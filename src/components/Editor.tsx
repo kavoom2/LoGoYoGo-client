@@ -71,22 +71,24 @@ export default function Editor() {
 
   useEffect(() => {
     // TODO: Canvas 초기 설정(반응형 포함)
-    const canvasSize = 600;
+    const canvasWidth = 700;
+    const canvasHeight = 600;
 
     const stageWidth = document.body.clientWidth;
-    const scaleRatio = (stageWidth * 0.9) / canvasSize;
+    const stageHeight = document.body.clientHeight;
+    const scaleRatio = (stageHeight * 0.4) / canvasHeight;
 
     const c = new fabric.Canvas("my-canvas", {
       preserveObjectStacking: true,
-      height: canvasSize,
-      width: canvasSize,
+      height: canvasHeight,
+      width: canvasWidth,
       backgroundColor: "white",
     });
 
     if (stageWidth <= 768) {
       c.setDimensions({
-        width: stageWidth * 0.9,
-        height: stageWidth * 0.9,
+        width: canvasWidth * scaleRatio,
+        height: canvasHeight * scaleRatio,
       });
 
       c.setZoom(scaleRatio);
@@ -171,19 +173,20 @@ export default function Editor() {
     // TODO: 반응형 구현을 위한 캔버스 Resize Event
     const handleResizeEvent = () => {
       const stageWidth = document.body.clientWidth;
-      const scaleRatio = (stageWidth * 0.9) / canvasSize;
+      const stageHeight = document.body.clientHeight;
+      const scaleRatio = (stageHeight * 0.4) / canvasHeight;
 
       if (stageWidth <= 768) {
         c.setDimensions({
-          width: stageWidth * 0.9,
-          height: stageWidth * 0.9,
+          width: canvasWidth * scaleRatio,
+          height: canvasHeight * scaleRatio,
         });
 
         c.setZoom(scaleRatio);
       } else {
         c.setDimensions({
-          width: canvasSize,
-          height: canvasSize,
+          width: canvasWidth,
+          height: canvasHeight,
         });
       }
     };
