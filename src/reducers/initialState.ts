@@ -10,7 +10,7 @@ export type stateType = {
 };
 
 export const initialState = {
-  isLogin: false,
+  isLogin: true,
   accessToken: "",
   isModalOpen: false,
   modalType: "",
