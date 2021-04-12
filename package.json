@@ -13,7 +13,6 @@
     "@types/react": "^16.14.5",
     "@types/react-dom": "^16.9.12",
     "@types/react-redux": "^7.1.16",
-    "@types/webpack-env": "^1.16.0",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "fabric": "^4.4.0",
@@ -68,6 +67,7 @@
   "devDependencies": {
     "@types/http-proxy-middleware": "^1.0.0",
     "@types/react-router-dom": "^5.1.7",
+    "@types/webpack-env": "^1.16.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "node-sass": "^5.0.0",
