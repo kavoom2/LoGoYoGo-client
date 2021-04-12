@@ -63,6 +63,12 @@ export default function Login(props) {
     if (type === "PASSWORD") setPassword(event.target.value);
   };
 
+  const gitOauth = (): void => {
+    window.location.assign(
+      "https://github.com/login/oauth/authorize?client_id=6aa0dad3f84236a84221"
+    );
+  };
+
   return (
     <React.Fragment>
       <div className="email">
@@ -88,6 +94,9 @@ export default function Login(props) {
       </button>
       <button className="btn-login" onClick={() => handleModalOpen("SIGNUP")}>
         회원가입
+      </button>
+      <button className="btn-login" onClick={gitOauth}>
+        git 로그인
       </button>
     </React.Fragment>
   );

@@ -70,12 +70,29 @@ export default function Editor() {
   }, []);
 
   useEffect(() => {
+    // TODO: Canvas 초기 설정(반응형 포함)
+    const canvasWidth = 700;
+    const canvasHeight = 600;
+
+    const stageWidth = document.body.clientWidth;
+    const stageHeight = document.body.clientHeight;
+    const scaleRatio = (stageHeight * 0.4) / canvasHeight;
+
     const c = new fabric.Canvas("my-canvas", {
       preserveObjectStacking: true,
-      height: 600,
-      width: 600,
+      height: canvasHeight,
+      width: canvasWidth,
       backgroundColor: "white",
     });
+
+    if (stageWidth <= 768) {
+      c.setDimensions({
+        width: canvasWidth * scaleRatio,
+        height: canvasHeight * scaleRatio,
+      });
+
+      c.setZoom(scaleRatio);
+    }
 
     // TODO: Canvas Event를 정의합니다.
     const setCanvasFunc = async () => {
@@ -153,10 +170,34 @@ export default function Editor() {
       }
     };
 
+    // TODO: 반응형 구현을 위한 캔버스 Resize Event
+    const handleResizeEvent = () => {
+      const stageWidth = document.body.clientWidth;
+      const stageHeight = document.body.clientHeight;
+      const scaleRatio = (stageHeight * 0.4) / canvasHeight;
+
+      if (stageWidth <= 768) {
+        c.setDimensions({
+          width: canvasWidth * scaleRatio,
+          height: canvasHeight * scaleRatio,
+        });
+
+        c.setZoom(scaleRatio);
+      } else {
+        c.setDimensions({
+          width: canvasWidth,
+          height: canvasHeight,
+        });
+      }
+    };
+
     window.addEventListener("keydown", hamdleEventKeyDown);
+    window.addEventListener("resize", handleResizeEvent, false);
+
     return () => {
       c.dispose();
       window.removeEventListener("keydown", hamdleEventKeyDown);
+      window.removeEventListener("resize", handleResizeEvent);
     };
   }, []);
 

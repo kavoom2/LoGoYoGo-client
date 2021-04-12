@@ -36,8 +36,8 @@ export default function Text({
       // * : 오브젝트 타입과 키값을 명시합니다.
       customType: "textbox",
       id: id,
-      left: canvas.width / 2 - textbox.width,
-      top: canvas.height / 2 - textbox.height,
+      left: canvas.width / 2 - textbox.width / 2,
+      top: canvas.height / 2 - textbox.height / 2,
     });
 
     setId(id + 1);

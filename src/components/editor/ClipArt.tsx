@@ -61,7 +61,7 @@ export default function ClipArt({
 
       groupObj.set({
         left:
-          canvas.height / 2 -
+          canvas.width / 2 -
           (groupObj.get("width") * groupObj.get("scaleX")) / 2,
         top:
           canvas.height / 2 -
