@@ -94,3 +94,247 @@
     }
   }
 }
+
+/////////////////////main2
+
+#container-mainpage > #section2 {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+
+  :nth-child(2) {
+    margin-right: 5rem;
+  }
+
+  // :nth-child(1) {
+  //   // TODO 임시용입니다.
+  //   // background-color: rgb(97, 224, 218);
+  //   // border: solid black;
+  // }
+  .imgback {
+    display: flex;
+    flex-direction: column;
+    width: 60rem;
+    height: 50rem;
+    background-color: blanchedalmond;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 60rem;
+    height: 50rem;
+
+    * {
+      padding: 1rem;
+      margin: 0.5rem;
+    }
+
+    :nth-child(2) {
+      // TODO 임시용입니다.
+      background-color: transparent;
+    }
+
+    .title {
+      font-size: 5rem;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    input {
+      font-size: 3rem;
+      padding: 1rem;
+    }
+
+    button {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (max-width: 768px,) {
+  // * MOBILE: max-width: 768px;
+  #container-mainpage > #section2 {
+    flex-direction: column;
+    padding-top: 5rem;
+
+    :nth-child(1) {
+      display: none;
+    }
+
+    .container {
+      height: 80%;
+      width: 100%;
+      margin: 0;
+
+      .title {
+        font-size: 3.5rem;
+        text-align: center;
+      }
+
+      input {
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      :nth-child(1) {
+        display: block;
+      }
+    }
+  }
+}
+
+////////////////////////////main3
+
+#container-mainpage > #section3 {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: solid black;
+
+  :nth-child(1) {
+    margin-right: 5rem;
+  }
+
+  :nth-child(2) {
+    // TODO 임시용입니다.
+    background-color: rgb(97, 224, 218);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 60rem;
+    height: 50rem;
+    border: solid black;
+
+    * {
+      padding: 1rem;
+      margin: 0.5rem;
+    }
+
+    :nth-child(2) {
+      // TODO 임시용입니다.
+      background-color: transparent;
+    }
+
+    .title {
+      font-size: 5rem;
+      font-weight: 700;
+      border: solid black;
+    }
+
+    .subtitle {
+      font-size: 2rem;
+      font-weight: 500;
+      border: solid black;
+    }
+
+    input {
+      font-size: 3rem;
+      padding: 1rem;
+    }
+
+    button {
+      font-size: 2rem;
+    }
+  }
+}
+@media (max-width: 768px,) {
+  // * MOBILE: max-width: 768px;
+  #container-mainpage > #section3 {
+    flex-direction: column;
+    padding-top: 5rem;
+
+    :nth-child(2) {
+      display: none;
+    }
+
+    .container {
+      height: 80%;
+      width: 100%;
+      margin: 0;
+
+      .title {
+        font-size: 3.5rem;
+        text-align: center;
+      }
+
+      input {
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      :nth-child(2) {
+        display: block;
+      }
+    }
+  }
+}
+
+/////////////////////footer
+#container-mainpage > #Footer {
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 90rem;
+    height: 30rem;
+    border: solid black;
+
+    * {
+      padding: 1rem;
+      margin: 0.5rem;
+    }
+
+    .title {
+      font-size: 3rem;
+      font-weight: 700;
+      border: solid black;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 2rem;
+      font-weight: 500;
+      border: solid black;
+      text-align: center;
+    }
+    input {
+      display: block;
+      font-size: 3rem;
+      width: 500px;
+      border: solid black;
+    }
+    button {
+      display: block;
+      position: right;
+      width: 200px;
+      font-size: 1rem;
+      border: solid black;
+    }
+  }
+}

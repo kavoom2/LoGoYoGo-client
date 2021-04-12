@@ -1,5 +1,9 @@
 import Nav from "../components/Nav";
 import LandingPart1 from "../components/LandingPart1";
+import LandingPart2 from "../components/LandingPart2";
+import LandingPart3 from "../components/LandingPart3";
+import LandingPart4 from "../components/LandingPart4";
+
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Actions } from "../actions/index";
@@ -58,6 +62,9 @@ export default function MainPage() {
     <div id="container-mainpage">
       <Nav />
       <LandingPart1 handleLogoName={handleLogoName} />
+      <LandingPart2 />
+      <LandingPart3 />
+      <LandingPart4 />
     </div>
   );
 }
