@@ -6,6 +6,7 @@ import Shape from "./editor/Shape";
 import Background from "./editor/Background";
 import Layout from "./editor/Layout";
 import ClipArt from "./editor/ClipArt";
+import ContextMenu from "./editor/ContextMenu";
 import { fabric } from "fabric";
 import "fabric-history";
 import "../scss/editor/_CommonComponentsEditor.scss";
@@ -30,11 +31,11 @@ export default function Editor() {
   // *: Shape
   const [shapeSize, setShapeSize] = useState<number>(150);
   const [shapeColor, setShapeColor] = useState<string>("Black");
-  const [shapeType, setShapeType] = useState<any>();
   // *: ClipArts
   const [clipItems, setClipItems] = useState<Array<Type>>([]);
-  // *: Nav
-  const [history, setHistory] = useState<Object>({});
+  // *: ContextMenu
+  const [visible, setVisible] = useState<boolean>(false);
+  const [pointer, setPointer] = useState<any>({ x: null, y: null });
 
   useEffect(() => {
     // TODO: Get Fonts from API
@@ -92,29 +93,36 @@ export default function Editor() {
 
     const c = new fabric.Canvas("my-canvas", {
       preserveObjectStacking: true,
+      stopContextMenu: true,
+      fireRightClick: true,
       height: canvasHeight,
       width: canvasWidth,
       backgroundColor: bgColor,
     });
 
     if (stageWidth <= 768) {
-      c.setDimensions({
-        width: canvasWidth * scaleRatio,
-        height: canvasHeight * scaleRatio,
-      });
+      const scaleRatio = (stageHeight * 0.4) / canvasHeight;
 
-      c.setZoom(scaleRatio);
+      if (canvasWidth * scaleRatio <= 0.95 * stageWidth) {
+        c.setDimensions({
+          width: canvasWidth * scaleRatio,
+          height: canvasHeight * scaleRatio,
+        });
+
+        c.setZoom(scaleRatio);
+      } else {
+        c.setDimensions({
+          width: stageWidth * 0.95,
+          height: (canvasHeight * (stageWidth * 0.95)) / canvasWidth,
+        });
+
+        c.setZoom((stageWidth * 0.95) / canvasWidth);
+      }
     }
 
     // TODO: Canvas Event를 정의합니다.
     const setCanvasFunc = async () => {
       await setCanvas(c);
-
-      c.on("selection:created", function (event: any) {
-        console.log(event.target);
-      });
-
-      c.on("object:scaling", function (event: any) {});
 
       c.on("object:modified", function (event: any) {
         // TODO: 1. 텍스트 박스 크기 변경
@@ -156,6 +164,55 @@ export default function Editor() {
       });
 
       c.on("mouse:down", (event) => {
+        // TODO: 마우스 우클릭 ContextMenu 이벤트
+        if (event.button !== 3) return;
+        setVisible(false);
+        // TODO: 1. 이미 선택된 오브젝트가 존재할 때,
+        let isMouseOver = false;
+        const items = c.getActiveObjects();
+        c.discardActiveObject();
+
+        const pointer = new fabric.Point(
+          c.getPointer(event.e).x,
+          c.getPointer(event.e).y
+        );
+
+        for (let i = items.length - 1; i >= 0; i--) {
+          if (items[i].containsPoint(pointer)) {
+            isMouseOver = true;
+
+            items.forEach((el) => {
+              c.setActiveObject(el);
+            });
+            break;
+          }
+        }
+
+        if (isMouseOver) {
+          setPointer({ x: event.e.x, y: event.e.y });
+          setVisible(true);
+          return;
+        }
+
+        c.discardActiveObject();
+        const items2 = c.getObjects();
+
+        for (let i = items2.length - 1; i >= 0; i--) {
+          if (items2[i].containsPoint(pointer)) {
+            c.setActiveObject(items2[i]);
+            break;
+          }
+        }
+
+        c.renderAll();
+
+        // TODO: ContextMenu 이벤트
+        if (!(c.getActiveObjects().length > 0)) return;
+        setPointer({ x: event.e.x, y: event.e.y });
+        setVisible(true);
+      });
+
+      c.on("mouse:down", (event) => {
         // ! 그룹 내부 오브젝트들을 수정할 수 있는 이벤트입니다.
         // if (event.subTargets[0]) {
         //   const item = event.subTargets[0];
@@ -186,12 +243,22 @@ export default function Editor() {
       if (stageWidth <= 768) {
         const scaleRatio = (stageHeight * 0.4) / canvasHeight;
 
-        c.setDimensions({
-          width: canvasWidth * scaleRatio,
-          height: canvasHeight * scaleRatio,
-        });
+        if (canvasWidth * scaleRatio <= 0.95 * stageWidth) {
+          c.setDimensions({
+            width: canvasWidth * scaleRatio,
+            height: canvasHeight * scaleRatio,
+          });
 
-        c.setZoom(scaleRatio);
+          c.setZoom(scaleRatio);
+        } else {
+          c.setDimensions({
+            width: stageWidth * 0.95,
+            height: (canvasHeight * (stageWidth * 0.95)) / canvasWidth,
+          });
+
+          c.setZoom((stageWidth * 0.95) / canvasWidth);
+        }
+
         c.renderAll();
       } else {
         c.setDimensions({
@@ -228,7 +295,6 @@ export default function Editor() {
       canvas={canvas}
       textSize={textSize}
       textColor={textColor}
-      textAlign={textAlign}
       fonts={fonts}
       fontType={fontType}
       fontWeight={fontWeight}
@@ -252,7 +318,9 @@ export default function Editor() {
     <ClipArt
       canvas={canvas}
       clipItems={clipItems}
+      isLoading={isLoading}
       setClipItems={setClipItems}
+      setIsLoading={setIsLoading}
     />,
   ];
 
@@ -263,6 +331,16 @@ export default function Editor() {
   return (
     <div id="section">
       <NavEditor canvas={canvas} />
+      {visible ? (
+        <ContextMenu
+          canvas={canvas}
+          visible={visible}
+          pointer={pointer}
+          setVisible={setVisible}
+        />
+      ) : (
+        ""
+      )}
       <div id="container-editor">
         <div className="container-canvas">
           <canvas id="my-canvas" />
