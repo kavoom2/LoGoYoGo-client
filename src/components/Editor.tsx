@@ -182,20 +182,25 @@ export default function Editor() {
     const handleResizeEvent = () => {
       const stageWidth = document.body.clientWidth;
       const stageHeight = document.body.clientHeight;
-      const scaleRatio = (stageHeight * 0.4) / canvasHeight;
 
       if (stageWidth <= 768) {
+        const scaleRatio = (stageHeight * 0.4) / canvasHeight;
+
         c.setDimensions({
           width: canvasWidth * scaleRatio,
           height: canvasHeight * scaleRatio,
         });
 
         c.setZoom(scaleRatio);
+        c.renderAll();
       } else {
         c.setDimensions({
           width: canvasWidth,
           height: canvasHeight,
         });
+
+        c.setZoom(1);
+        c.renderAll();
       }
     };
 
