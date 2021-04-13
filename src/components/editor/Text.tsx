@@ -23,7 +23,7 @@ export default function Text({
 
   // TODO: EventHandling Functions
   const handleAddTextBox = () => {
-    const textbox: any = new fabric.IText("내용을 입력하세요", {
+    const textbox: any = new fabric.Textbox("내용을 입력하세요", {
       fontSize: textSize,
       fill: textColor,
       fontFamily: fontType,
@@ -96,12 +96,13 @@ export default function Text({
 
     items.forEach((item) => {
       if (item.customType === "textbox") {
-        item.set({ fontFamily: event.target.value });
+        item.set("fontFamily", event.target.value);
+        item.set("text", item.text);
       }
     });
 
     setFontType(event.target.value);
-    canvas.requestRenderAll();
+    canvas.renderAll();
   };
 
   const handleChangeFontWeight = (event) => {
