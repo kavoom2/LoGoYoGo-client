@@ -34,8 +34,12 @@ export default function Nav() {
     dispatch(Actions.setUserInfo("", ""));
     dispatch(Actions.setLoginStatus(false));
     dispatch(Actions.setAccessToken(""));
-    history.push("/");
-    // 코드를 지우기 위해 추가했습니다. 필요 없으시다면 알려주세요
+
+    const url = new URL(window.location.href);
+    const authorizationCode = url.searchParams.get("code");
+    if (authorizationCode) {
+      history.push("/");
+    }
   };
 
   const handleRedirectProfile = (): void => {

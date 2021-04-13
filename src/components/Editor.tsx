@@ -204,6 +204,13 @@ export default function Editor() {
       }
     };
 
+    if (sessionStorage.getItem("canvas")) {
+      const json = JSON.parse(sessionStorage.getItem("canvas"));
+      c.clear();
+      c.loadFromJSON(json, c.renderAll.bind(c));
+      sessionStorage.removeItem("canvas");
+    }
+
     window.addEventListener("keydown", hamdleEventKeyDown);
     window.addEventListener("resize", handleResizeEvent, false);
 
