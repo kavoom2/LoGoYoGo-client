@@ -49,6 +49,7 @@ export default function Login(props) {
         const email = data.data.data.email;
         dispatch(Actions.setUserInfo(username, email));
         props.handleModal(false, "");
+        sessionStorage.removeItem("canvas");
       })
       .catch((err) => {
         const status = err.response.status;
@@ -69,6 +70,12 @@ export default function Login(props) {
     );
   };
 
+  const enter = (e): void => {
+    if (e.key === "Enter") {
+      handleLogin();
+    }
+  };
+
   return (
     <React.Fragment>
       <div className="email">
@@ -86,6 +93,7 @@ export default function Login(props) {
           onChange={(e) => {
             handleOnChange(e, "PASSWORD");
           }}
+          onKeyPress={enter}
         ></input>
       </div>
       <div className="message">{message}</div>

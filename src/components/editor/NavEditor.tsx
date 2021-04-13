@@ -33,6 +33,8 @@ export default function Nav({ canvas }) {
       a.click();
       a.remove();
     } else {
+      const json = canvas.toJSON();
+      sessionStorage.setItem("canvas", JSON.stringify(json));
       handleModalOpen("LOGIN");
     }
   };

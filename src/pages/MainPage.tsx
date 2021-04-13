@@ -17,6 +17,7 @@ require("dotenv").config();
 
 export default function MainPage() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [logoname, setLogoName] = useState<string>("");
 
   const handleLogoName = (event) => {
@@ -28,6 +29,9 @@ export default function MainPage() {
     const authorizationCode = url.searchParams.get("code");
     if (authorizationCode) {
       getAccessToken(authorizationCode);
+    }
+    if (sessionStorage.getItem("canvas")) {
+      getcanvas();
     }
   });
 
@@ -57,6 +61,10 @@ export default function MainPage() {
         dispatch(Actions.setUserInfo(username, email));
       });
   }
+
+  const getcanvas = () => {
+    history.push("/maker/editor");
+  };
 
   return (
     <div id="container-mainpage">
