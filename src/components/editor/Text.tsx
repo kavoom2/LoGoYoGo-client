@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { ChromePicker } from "react-color";
 import { fabric } from "fabric";
 
@@ -6,7 +6,6 @@ export default function Text({
   canvas,
   textSize,
   textColor,
-  textAlign,
   fonts,
   fontType,
   fontWeight,
@@ -18,17 +17,19 @@ export default function Text({
   setFontWeight,
 }) {
   useEffect(() => {
-    setFontType(fonts[0]);
+    setFontType(fonts[1]);
   }, []);
 
   // TODO: EventHandling Functions
   const handleAddTextBox = () => {
-    const textbox: any = new fabric.Textbox("내용을 입력하세요", {
+    const textbox: any = new fabric.Textbox(" ", {
       fontSize: textSize,
       fill: textColor,
       fontFamily: fontType,
       fontWeight: fontWeight,
     });
+
+    textbox.set("text", "내용을 입력하세요");
 
     textbox.set({
       // * : 오브젝트 타입과 키값을 명시합니다.
@@ -92,12 +93,16 @@ export default function Text({
   };
 
   const handleChangeFont = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
     const items = canvas.getActiveObjects();
 
     items.forEach((item) => {
       if (item.customType === "textbox") {
+        const text = item.text;
         item.set("fontFamily", event.target.value);
-        item.set("text", item.text);
+        item.set("text", text + " ");
+        item.set("text", text);
       }
     });
 

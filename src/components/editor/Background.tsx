@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { ChromePicker } from "react-color";
-import { fabric } from "fabric";
 
 export default function Background({ canvas, bgColor, setBgColor }) {
   const handleChange = (color, event) => {

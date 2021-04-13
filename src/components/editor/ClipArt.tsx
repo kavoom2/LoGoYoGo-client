@@ -2,9 +2,16 @@ import React, { useEffect, useState } from "react";
 import { fabric } from "fabric";
 import { Fetch_Icon } from "../../utilities/index";
 
-export default function ClipArt({ canvas, clipItems, setClipItems }) {
+export default function ClipArt({
+  canvas,
+  clipItems,
+  isLoading,
+  setClipItems,
+  setIsLoading,
+}) {
   const [keyword, setKeyword] = useState<string>("");
   const [imgs, setImgs] = useState<Array<any>>([]);
+  const [islistLoaded, setIsListLoaded] = useState<boolean>(true);
 
   useEffect(() => {
     setImgs(clipItems);
@@ -16,6 +23,8 @@ export default function ClipArt({ canvas, clipItems, setClipItems }) {
 
   const handleSearch = async () => {
     // * 1. 검색 결과를 불러옵니다.
+    setIsListLoaded(false);
+    console.log("isListLoaded: false");
     const items = await Fetch_Icon.searchIcons(keyword);
 
     // * 2. 각 검색결과에 대하여 썸네일을 불러옵니다.
@@ -28,9 +37,15 @@ export default function ClipArt({ canvas, clipItems, setClipItems }) {
 
     const thumbnails = await Promise.all(promises);
     setClipItems(thumbnails);
+
+    setIsListLoaded(true);
+    console.log("isListLoaded: true");
   };
 
   const handleAddClipArt = async (id: number) => {
+    setIsLoading(true);
+    console.log("isLoading: TRUE");
+
     const svgUrl = await Fetch_Icon.getIcon(id);
     const svg = await Fetch_Icon.getImageByUrl(svgUrl);
 
@@ -63,6 +78,8 @@ export default function ClipArt({ canvas, clipItems, setClipItems }) {
 
       canvas.setActiveObject(groupObj);
       canvas.add(groupObj);
+      setIsLoading(true);
+      console.log("isLoading: FALSE");
     });
   };
 
