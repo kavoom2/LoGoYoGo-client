@@ -48,7 +48,9 @@ export default function Nav() {
 
   return (
     <div id="nav">
-      <span className="title">LOGOYOGO</span>
+      <span className="title" onClick={() => history.push("/")}>
+        LOGOYOGO
+      </span>
       {isLogin ? (
         <span>
           <button className="btn-nav" onClick={handleLogout}>

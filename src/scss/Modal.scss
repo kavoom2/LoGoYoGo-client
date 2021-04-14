@@ -65,6 +65,55 @@
           height: 40rem;
           margin: 2rem;
         }
+
+        #WebPage {
+          background-image: url("../images/preview/web-sample1.png");
+          background-size: cover;
+        }
+
+        #FaceBook {
+          background-image: url("../images/preview/facebook1.png");
+          background-size: cover;
+        }
+
+        #Bcard {
+          background-image: url("../images/preview/card2.png");
+          background-size: cover;
+        }
+
+        #web-page1 {
+          width: 120px;
+          height: 120px;
+          position: relative;
+          left: 33%;
+          top: 25%;
+        }
+
+        #face-book1 {
+          transform: rotateX(24deg) rotateZ(-17deg);
+          width: 73.5px;
+          height: 73.5px;
+          position: relative;
+          left: 39.5%;
+          top: 36.8%;
+        }
+
+        #b-card1 {
+          transform: rotateX(47deg) rotateZ(-39deg);
+          width: 100px;
+          height: 100px;
+          position: relative;
+          left: 23%;
+          top: 20.5%;
+        }
+        #b-card2 {
+          transform: rotateX(46deg) rotateZ(-39.5deg);
+          width: 70px;
+          height: 70px;
+          position: relative;
+          left: 38%;
+          top: 30%;
+        }
       }
     }
   }
@@ -121,6 +170,37 @@
         margin: auto !important;
         margin-bottom: 5rem !important;
         padding: 0 !important;
+      }
+
+      #web-page1 {
+        width: 30vw !important;
+        height: 30vw !important;
+        position: relative;
+        left: 35% !important;
+      }
+
+      #face-book1 {
+        width: 16vw !important;
+        height: 16vw !important;
+        position: relative;
+        left: 45% !important;
+        top: 36.9% !important;
+      }
+
+      #b-card1 {
+        width: 20vw !important;
+        height: 20vw !important;
+        position: relative;
+        left: 28% !important;
+        top: 21.5% !important;
+      }
+
+      #b-card2 {
+        width: 15vw !important;
+        height: 15vw !important;
+        position: relative;
+        left: 43.5% !important;
+        top: 33.5% !important;
       }
     }
   }

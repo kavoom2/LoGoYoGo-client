@@ -4,6 +4,7 @@ import { Actions } from "../../actions/index";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUndo, faRedo, faShareSquare, faEye } from '@fortawesome/free-solid-svg-icons'
+import axios from "axios";
 
 export default function Nav({ canvas }) {
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ export default function Nav({ canvas }) {
       <button
         className="btn-nav"
         onClick={() => {
+          canvas.discardActiveObject().renderAll();
           handleModalOpen("PREVIEW");
         }}
       >
