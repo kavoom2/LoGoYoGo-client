@@ -35,7 +35,6 @@ export default function Nav({ canvas }) {
       a.remove();
     } else {
       const json = canvas.toJSON();
-      // axios.post("http://localhost:5000/save", { json: json });
       sessionStorage.setItem("canvas", JSON.stringify(json));
       handleModalOpen("LOGIN");
     }
@@ -52,6 +51,7 @@ export default function Nav({ canvas }) {
       <button
         className="btn-nav"
         onClick={() => {
+          canvas.discardActiveObject().renderAll();
           handleModalOpen("PREVIEW");
         }}
       >
