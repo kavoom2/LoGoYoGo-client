@@ -19,10 +19,12 @@ export default function LandingPart1({ handleLogoName }) {
           placeholder="로고를 입력하세요"
           onChange={handleLogoName}
         ></input>
+
         <button className="btn-logoname-confirm">시작하기</button>
         <button className="btn-search-template">로고 템플릿 둘러보기</button>
       </div>
-      <div className="container">랜딩페이지 이미지</div>
+
+      <div className="container2"></div>
     </div>
   );
 }
