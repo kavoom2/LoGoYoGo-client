@@ -172,6 +172,21 @@
         padding: 0 !important;
       }
 
+      #WebPage {
+        background-image: url("../images/preview/web-sample1.png") !important;
+        background-size: cover !important;
+      }
+
+      #FaceBook {
+        background-image: url("../images/preview/facebook1.png") !important;
+        background-size: cover !important;
+      }
+
+      #Bcard {
+        background-image: url("../images/preview/card2.png") !important;
+        background-size: cover !important;
+      }
+
       #web-page1 {
         width: 30vw !important;
         height: 30vw !important;
@@ -180,10 +195,10 @@
       }
 
       #face-book1 {
-        width: 16vw !important;
-        height: 16vw !important;
+        width: 17vw !important;
+        height: 17vw !important;
         position: relative;
-        left: 45% !important;
+        left: 44% !important;
         top: 36.9% !important;
       }
 
