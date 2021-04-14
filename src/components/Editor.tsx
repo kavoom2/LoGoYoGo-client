@@ -278,6 +278,13 @@ export default function Editor() {
       sessionStorage.removeItem("canvas");
     }
 
+    if (sessionStorage.getItem("sample")) {
+      const json = sessionStorage.getItem("sample");
+      c.clear();
+      c.loadFromJSON(json, c.renderAll.bind(c));
+      sessionStorage.removeItem("sample");
+    }
+
     window.addEventListener("keydown", hamdleEventKeyDown);
     window.addEventListener("resize", handleResizeEvent, false);
 
