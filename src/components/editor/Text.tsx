@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { SliderPicker } from "react-color";
 import { fabric } from "fabric";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,7 +8,6 @@ import {
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import ColorPicker from "./ColorPicker";
-import { Color } from "fabric/fabric-impl";
 
 export default function Text({
   canvas,
