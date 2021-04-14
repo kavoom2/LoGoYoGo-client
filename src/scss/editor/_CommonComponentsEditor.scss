@@ -36,7 +36,7 @@
     border-radius: 5px;
     background: $color-slider-background;
     outline: none;
-    opacity: 0.7;
+    opacity: 0.8;
     -webkit-transition: 0.2s;
     transition: opacity 0.2s;
   }
@@ -48,6 +48,7 @@
     height: 1.6rem;
     border-radius: 50%;
     background: $color-button;
+
     cursor: pointer;
   }
 
