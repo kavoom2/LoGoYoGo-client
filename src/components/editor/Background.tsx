@@ -1,8 +1,8 @@
 import React from "react";
-import { ChromePicker } from "react-color";
+import ColorPicker from "./ColorPicker";
 
 export default function Background({ canvas, bgColor, setBgColor }) {
-  const handleChange = (color, event) => {
+  const handleChangeColor = (color, event) => {
     setBgColor(color.hex);
     canvas.backgroundColor = color.hex;
     canvas.renderAll();
@@ -17,19 +17,7 @@ export default function Background({ canvas, bgColor, setBgColor }) {
 
       <div className="content">
         <div className="title">색상</div>
-        <div className="color-selector-container">
-          <input defaultValue={bgColor}></input>
-          <div
-            className="color-selector-color"
-            style={{ backgroundColor: bgColor }}
-          ></div>
-        </div>
-        <ChromePicker
-          className="color-selector-picker"
-          color={bgColor}
-          onChange={handleChange}
-          disableAlpha={true}
-        />
+        <ColorPicker color={bgColor} handleChangeColor={handleChangeColor} />
       </div>
     </React.Fragment>
   );

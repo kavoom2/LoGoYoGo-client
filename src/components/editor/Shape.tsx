@@ -1,9 +1,9 @@
-import React from "react";
-import { ChromePicker } from "react-color";
+import React, { useEffect } from "react";
 import { fabric } from "fabric";
 const reqSvgs = require.context("../../images", true, /\.svg$/);
 const paths = reqSvgs.keys();
 const svgs = paths.map((path) => reqSvgs(path).default);
+import ColorPicker from "./ColorPicker";
 
 export default function Shape({
   canvas,
@@ -13,6 +13,29 @@ export default function Shape({
   setShapeColor,
   setIndex,
 }) {
+  useEffect(() => {
+    // TODO: 슬라이더 Rerender 바 색상 렌더
+    const slider = document.getElementById("slider-shape");
+    const value = ((shapeSize - 1) / (800 - 1)) * 100;
+    slider.style.background =
+      "linear-gradient(to right, #859ffd 0%, #859ffd " +
+      value +
+      "%, #efefef " +
+      value +
+      "%, #efefef 100%)";
+
+    // TODO: 슬라이더 Value 변경시 바 색상 렌더
+    document.getElementById("slider-shape").oninput = function (this: any) {
+      var value = ((this.value - this.min) / (this.max - this.min)) * 100;
+      this.style.background =
+        "linear-gradient(to right, #859ffd 0%, #859ffd " +
+        value +
+        "%, #efefef " +
+        value +
+        "%, #efefef 100%)";
+    };
+  }, []);
+
   const handleChangeColor = (color, event) => {
     const items = canvas.getActiveObjects();
     items.forEach((item) => {
@@ -70,6 +93,15 @@ export default function Shape({
           const slider: any = document.getElementById("slider-shape");
           if (!slider) return;
           slider.value = String(Math.round(object.width * object.scaleX));
+
+          const value =
+            (Math.round(object.width * object.scaleX) / (800 - 1)) * 100;
+          slider.style.background =
+            "linear-gradient(to right, #859ffd 0%, #859ffd " +
+            value +
+            "%, #efefef " +
+            value +
+            "%, #efefef 100%)";
         });
 
         canvas.setActiveObject(object);
@@ -100,7 +132,7 @@ export default function Shape({
   return (
     <React.Fragment>
       <div className="header">
-        <div className="title">모양</div>
+        <div className="title">도형</div>
         <div className="description">
           원하는 도형을 선택하세요.
           <br />
@@ -131,87 +163,8 @@ export default function Shape({
 
       <div className="content">
         <div className="title">색상</div>
-        <div className="color-selector-container">
-          <input></input>
-          <div
-            className="color-selector-color"
-            style={{ backgroundColor: shapeColor }}
-          ></div>
-        </div>
-        <ChromePicker
-          className="color-selector-picker"
-          color={shapeColor}
-          onChange={handleChangeColor}
-          disableAlpha={true}
-        />
+        <ColorPicker color={shapeColor} handleChangeColor={handleChangeColor} />
       </div>
     </React.Fragment>
   );
 }
-
-// ! 삭제한 기존의 HandleAddShape 메서드입니다
-// const handleAddShape = (type: string) => {
-//   let shape: any;
-//   if (type === "Rect") {
-//     shape = new fabric.Rect({
-//       fill: shapeColor,
-//       width: shapeSize,
-//       height: shapeSize,
-//       scaleX: 1,
-//       scaleY: 1,
-//       left: canvas.width / 2 - shapeSize / 2,
-//       top: canvas.height / 2 - shapeSize / 2,
-//     });
-
-//     shape.set({
-//       // * : 오브젝트 타입과 키값을 명시합니다.
-//       customType: "shape",
-//       id: id,
-//     });
-
-//     // TODO: Event - Selected
-//     shape.on("selected", (event) => {
-//       setShapeSize(parseInt(shape.width));
-//       setShapeColor(shape.fill);
-//       setIndex(2);
-
-//       const slider: any = document.getElementById("slider-shape");
-//       if (!slider) return;
-//       slider.value = String(shape.width);
-//     });
-//   } else if (type === "Circle") {
-//     shape = new fabric.Ellipse({
-//       fill: shapeColor,
-//       rx: shapeSize / 2,
-//       ry: shapeSize / 2,
-//       scaleX: 1,
-//       scaleY: 1,
-//       left: canvas.width / 2 - shapeSize / 2,
-//       top: canvas.height / 2 - shapeSize / 2,
-//     });
-
-//     shape.set({
-//       // * : 오브젝트 타입과 키값을 명시합니다.
-//       customType: "circle",
-//       id: id,
-//     });
-
-//     // TODO: Event - Selected
-//     shape.on("selected", (event) => {
-//       setShapeSize(Math.round(shape.rx * shape.scaleX * 2));
-//       setShapeColor(shape.fill);
-//       setIndex(2);
-
-//       console.log(shape);
-
-//       const slider: any = document.getElementById("slider-shape");
-//       if (!slider) return;
-//       slider.value = String(Math.round(shape.rx * shape.scaleX * 2));
-//     });
-//   } else return;
-
-//   setId(id + 1);
-
-//   canvas.add(shape);
-//   canvas.setActiveObject(shape);
-// };

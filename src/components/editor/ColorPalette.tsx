@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import colorPalette from "../../dummy/colorPalette";
 import "../../scss/editor/ColorPalette.scss";
 
 export default function ColorPalette({ canvas }) {
+  const [selected, setSelected] = useState<number>();
   const handleChangeColorPalette = (arr) => {
     const objects = canvas.getObjects();
 
@@ -18,6 +19,11 @@ export default function ColorPalette({ canvas }) {
 
     canvas.renderAll();
   };
+
+  const handleSelected = (idx) => {
+    setSelected(idx);
+  };
+
   const renderColorPalette = (
     palettes: Array<Array<string>>
   ): JSX.Element[] => {
@@ -28,13 +34,18 @@ export default function ColorPalette({ canvas }) {
       const arr = palettes[i];
       result.push(
         <div
-          className="palette-item-container"
+          className={
+            selected === i
+              ? "palette-item-container selected"
+              : "palette-item-container"
+          }
           key={i}
           onClick={() => {
+            handleSelected(i);
             handleChangeColorPalette(arr);
           }}
         >
-          <span className="title">No. {count}</span>
+          {/* <span className="title">No. {count}</span> */}
           <div className="palette-item">
             <div
               className="palette-item-child"
@@ -70,8 +81,7 @@ export default function ColorPalette({ canvas }) {
       <div className="header">
         <div className="title">색상 팔레트</div>
         <div className="description">
-          원하는 색상 팔레트를 선택하세요.
-          <br />각 탭에서 오브젝트의 색상을 개별적으로 변경할 수 있습니다.
+          모든 도형과 텍스트의 색상을 변경합니다.
         </div>
       </div>
       {renderColorPalette(colorPalette)}
