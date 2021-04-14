@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { fabric } from "fabric";
 import { Fetch_Icon } from "../../utilities/index";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Loading from "./Loading";
+import NoResult from "./NoResult";
+import BeforeSearch from "./BeforeSearch";
 
 export default function ClipArt({
   canvas,
@@ -11,6 +16,7 @@ export default function ClipArt({
 }) {
   const [keyword, setKeyword] = useState<string>("");
   const [imgs, setImgs] = useState<Array<any>>([]);
+  const [isFirst, setIsFirst] = useState<boolean>(true);
   const [islistLoaded, setIsListLoaded] = useState<boolean>(true);
 
   useEffect(() => {
@@ -23,8 +29,8 @@ export default function ClipArt({
 
   const handleSearch = async () => {
     // * 1. 검색 결과를 불러옵니다.
+    setIsFirst(false);
     setIsListLoaded(false);
-    console.log("isListLoaded: false");
     const items = await Fetch_Icon.searchIcons(keyword);
 
     // * 2. 각 검색결과에 대하여 썸네일을 불러옵니다.
@@ -39,12 +45,10 @@ export default function ClipArt({
     setClipItems(thumbnails);
 
     setIsListLoaded(true);
-    console.log("isListLoaded: true");
   };
 
   const handleAddClipArt = async (id: number) => {
     setIsLoading(true);
-    console.log("isLoading: TRUE");
 
     const svgUrl = await Fetch_Icon.getIcon(id);
     const svg = await Fetch_Icon.getImageByUrl(svgUrl);
@@ -79,7 +83,6 @@ export default function ClipArt({
       canvas.setActiveObject(groupObj);
       canvas.add(groupObj);
       setIsLoading(true);
-      console.log("isLoading: FALSE");
     });
   };
 
@@ -97,6 +100,13 @@ export default function ClipArt({
         </div>
       );
     });
+    if (result.length === 0) {
+      if (isFirst) {
+        return <BeforeSearch />;
+      } else {
+        return <NoResult />;
+      }
+    }
     return result;
   };
 
@@ -105,22 +115,29 @@ export default function ClipArt({
       <div className="header">
         <div className="title">클립아트</div>
         <div className="description">
-          원하는 클립아트를 생성하세요.
+          원하는 클립아트를 선택하세요.
           <br />
           키워드로 검색할 수 있습니다.
         </div>
       </div>
 
       <div className="content">
-        <div className="title">클립아트 검색</div>
-        <div className="color-selector-container">
-          <input onChange={handleOnChange} />
-          <button onClick={handleSearch}>검색</button>
+        <div className="title">키워드 검색</div>
+        <div className="clipart-search">
+          <input
+            onChange={handleOnChange}
+            placeholder="Apple, Cafe, Mouse....."
+          />
+          <button onClick={handleSearch}>
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
         </div>
       </div>
 
       <div className="content">
-        <div className="clipart-container">{renderImgs()}</div>
+        <div className="clipart-container">
+          {!islistLoaded ? <Loading /> : renderImgs()}
+        </div>
       </div>
     </React.Fragment>
   );
