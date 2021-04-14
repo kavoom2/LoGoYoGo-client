@@ -22,6 +22,7 @@ export default function MainPage() {
 
   const handleLogoName = (event) => {
     setLogoName(event.target.value);
+    sessionStorage.setItem("logo", event.target.value);
   };
 
   useEffect(() => {

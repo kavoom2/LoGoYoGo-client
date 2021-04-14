@@ -2,6 +2,7 @@ import { RootState } from "../../reducers/index";
 import { useSelector, useDispatch } from "react-redux";
 import { Actions } from "../../actions/index";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Nav({ canvas }) {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ export default function Nav({ canvas }) {
       a.remove();
     } else {
       const json = canvas.toJSON();
+      // axios.post("http://localhost:5000/save", { json: json });
       sessionStorage.setItem("canvas", JSON.stringify(json));
       handleModalOpen("LOGIN");
     }
