@@ -1,0 +1,24 @@
+@import "../_varaiables.scss";
+.loading-spinner {
+  //   display: inline-block;
+  width: 6rem;
+  height: 6rem;
+
+  border: 0.7rem solid #a8bbfd;
+  border-radius: 50%;
+  border-top-color: #596bd8;
+  margin-bottom: 2.5rem;
+
+  /*   기본 Easing function 사용 */
+  /*   animation: 1.5s spin infinite ease-in-out; */
+
+  /*   사용자 정의 Easing function 사용. 비지어 곡선으로 정의함 */
+  /* @keyframes duration | timing-function | delay | name */
+  animation: 1.4s cubic-bezier(0.65, 0, 0.35, 1) spin infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

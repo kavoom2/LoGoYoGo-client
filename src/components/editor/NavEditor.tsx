@@ -2,6 +2,8 @@ import { RootState } from "../../reducers/index";
 import { useSelector, useDispatch } from "react-redux";
 import { Actions } from "../../actions/index";
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUndo, faRedo, faShareSquare, faEye } from '@fortawesome/free-solid-svg-icons'
 import axios from "axios";
 
 export default function Nav({ canvas }) {
@@ -43,10 +45,10 @@ export default function Nav({ canvas }) {
   return (
     <div id="nav-editor">
       <button className="btn-nav" onClick={() => canvas.undo()}>
-        UNDO
+<FontAwesomeIcon icon={faUndo} /> 실행취소
       </button>
       <button className="btn-nav" onClick={() => canvas.redo()}>
-        REDO
+<FontAwesomeIcon icon={faRedo} /> 다시실행
       </button>
       <button
         className="btn-nav"
@@ -55,10 +57,10 @@ export default function Nav({ canvas }) {
           handleModalOpen("PREVIEW");
         }}
       >
-        PREVIEW
+<FontAwesomeIcon icon={faEye} /> 미리보기
       </button>
       <button className="btn-nav" onClick={handleExport}>
-        SAVE
+<FontAwesomeIcon icon={faShareSquare} /> 저장하기
       </button>
     </div>
   );

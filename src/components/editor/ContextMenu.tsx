@@ -26,7 +26,8 @@ export default function ContextMenu({ canvas, visible, pointer, setVisible }) {
     for (let i = 0; i < items.length; i++) {
       canvas.remove(items[i]);
     }
-    canvas.renderAll();
+
+    canvas.discardActiveObject().renderAll();
   };
 
   const handleBringForward = () => {
@@ -39,7 +40,7 @@ export default function ContextMenu({ canvas, visible, pointer, setVisible }) {
 
     if (items.length > 1) canvas.bringForward(lastItem);
 
-    canvas.renderAll();
+    canvas.discardActiveObject().renderAll();
   };
 
   const handleSendBackwards = () => {
@@ -49,7 +50,7 @@ export default function ContextMenu({ canvas, visible, pointer, setVisible }) {
       canvas.sendBackwards(items[i]);
     }
 
-    canvas.renderAll();
+    canvas.discardActiveObject().renderAll();
   };
 
   return (
