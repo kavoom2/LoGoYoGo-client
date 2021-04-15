@@ -165,9 +165,9 @@ export default function Editor() {
           slider.style.background =
             "linear-gradient(to right, #859ffd 0%, #859ffd " +
             value +
-            "%, #efefef " +
+            "%, #eef0f6 " +
             value +
-            "%, #efefef 100%)";
+            "%, #eef0f6 100%)";
 
           setTextSize(event.target.fontSize);
         } else if (event.target.customType === "shape") {
@@ -181,9 +181,9 @@ export default function Editor() {
           slider.style.background =
             "linear-gradient(to right, #859ffd 0%, #859ffd " +
             value +
-            "%, #efefef " +
+            "%, #eef0f6 " +
             value +
-            "%, #efefef 100%)";
+            "%, #eef0f6 100%)";
 
           setShapeSize(Math.round(event.target.width * event.target.scaleX));
         }

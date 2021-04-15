@@ -14,7 +14,7 @@
     appearance: none;
 
     position: relative;
-    background: $color-item-container;
+    background: $color-background;
     outline: none;
     border: 2px solid transparent;
     border-radius: 0.6rem;
@@ -36,7 +36,7 @@
     border-radius: 5px;
     background: $color-slider-background;
     outline: none;
-    opacity: 0.7;
+    opacity: 0.8;
     -webkit-transition: 0.2s;
     transition: opacity 0.2s;
   }
@@ -48,14 +48,16 @@
     height: 1.6rem;
     border-radius: 50%;
     background: $color-button;
+
     cursor: pointer;
   }
 
   .slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
+    width: 1.6rem;
+    height: 1.6rem;
     border-radius: 50%;
-    background: #4caf50;
+    border: none;
+    background: $color-button;
     cursor: pointer;
   }
 
@@ -171,10 +173,11 @@
     }
 
     .img-container:hover {
-      top: -3px;
+      top: -2.8px;
       left: -1px;
       box-shadow: 3px 3px 10px 1px #dce0ee;
       cursor: pointer;
+      background: $color-item-container-hover;
     }
   }
 
@@ -203,8 +206,16 @@
     }
 
     button {
+      border: 1.5px solid $color-item-button;
+      background: $color-container;
       position: absolute;
       right: 10%;
+    }
+
+    button:hover {
+      border: 1.5px solid $color-item-button;
+      background: $color-item-button;
+      color: $color-container;
     }
   }
 
@@ -251,6 +262,7 @@
       left: -1px;
       box-shadow: 4px 4px 6px 4px #dce0ee;
       cursor: pointer;
+      background: $color-slider-fill;
     }
   }
 

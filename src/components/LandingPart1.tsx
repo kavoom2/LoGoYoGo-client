@@ -45,7 +45,7 @@ export default function LandingPart1({ handleLogoName }) {
         </button>
         <button className="btn-search-template">로고 템플릿 둘러보기</button>
       </div>
-      <div className="container">랜딩페이지 이미지</div>
+      <div className="container2"></div>
     </div>
   );
 }

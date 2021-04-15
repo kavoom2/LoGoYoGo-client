@@ -20,9 +20,9 @@ export default function Shape({
     slider.style.background =
       "linear-gradient(to right, #859ffd 0%, #859ffd " +
       value +
-      "%, #efefef " +
+      "%, #eef0f6 " +
       value +
-      "%, #efefef 100%)";
+      "%, #eef0f6 100%)";
 
     // TODO: 슬라이더 Value 변경시 바 색상 렌더
     document.getElementById("slider-shape").oninput = function (this: any) {
@@ -30,9 +30,9 @@ export default function Shape({
       this.style.background =
         "linear-gradient(to right, #859ffd 0%, #859ffd " +
         value +
-        "%, #efefef " +
+        "%, #eef0f6 " +
         value +
-        "%, #efefef 100%)";
+        "%, #eef0f6 100%)";
     };
   }, []);
 
@@ -99,9 +99,9 @@ export default function Shape({
           slider.style.background =
             "linear-gradient(to right, #859ffd 0%, #859ffd " +
             value +
-            "%, #efefef " +
+            "%, #eef0f6 " +
             value +
-            "%, #efefef 100%)";
+            "%, #eef0f6 100%)";
         });
 
         canvas.setActiveObject(object);
