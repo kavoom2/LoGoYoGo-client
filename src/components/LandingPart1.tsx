@@ -6,14 +6,12 @@ export default function LandingPart1({ handleLogoName }) {
 
   const logoname = (): void => {
     if (sessionStorage.getItem("logo")) {
-      sample[3].objects[0].text = sessionStorage.getItem("logo");
-      const selectsample = sample[3];
-      sessionStorage.setItem("sample", JSON.stringify(selectsample));
+      sample[4].objects[1].text = sessionStorage.getItem("logo");
       sessionStorage.removeItem("logo");
-      history.push("/maker/editor");
+      history.push("/maker/selectshape");
     } else {
       sessionStorage.removeItem("logo");
-      history.push("/maker/editor");
+      history.push("/maker/selectshape");
     }
   };
 
