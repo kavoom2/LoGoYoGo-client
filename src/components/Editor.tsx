@@ -424,19 +424,6 @@ export default function Editor() {
       sessionStorage.removeItem("sample");
     }
 
-    if (true) {
-      // for (let i = 0; i <= 5; i++) {
-      //   // setTimeout(() => handleIndexNumber(i), 1);
-      // }
-      // handleIndexNumber(0);
-      setTimeout(() => handleIndexNumber(0), 1);
-      setTimeout(() => handleIndexNumber(1), 1);
-      setTimeout(() => handleIndexNumber(2), 1);
-      setTimeout(() => handleIndexNumber(3), 1);
-      setTimeout(() => handleIndexNumber(0), 1);
-      handleIndexNumber(0);
-    }
-
     window.addEventListener("keydown", hamdleEventKeyDown);
     window.addEventListener("resize", handleResizeEvent, false);
 

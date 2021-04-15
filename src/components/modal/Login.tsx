@@ -47,9 +47,11 @@ export default function Login(props) {
       .then((data) => {
         const username = data.data.data.name;
         const email = data.data.data.email;
+        const json = { username: username, email: email };
         dispatch(Actions.setUserInfo(username, email));
         props.handleModal(false, "");
         sessionStorage.removeItem("canvas");
+        sessionStorage.setItem("userinfo", JSON.stringify(json));
       })
       .catch((err) => {
         const status = err.response.status;

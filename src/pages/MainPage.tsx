@@ -60,6 +60,9 @@ export default function MainPage() {
         const { email, login } = data.data;
         let username = login;
         dispatch(Actions.setUserInfo(username, email));
+
+        const json = { username: username, email: email };
+        sessionStorage.setItem("userinfo", JSON.stringify(json));
       });
   }
 
