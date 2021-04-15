@@ -15,17 +15,6 @@ export default function LandingPart2() {
         <div>이미지</div>
         <div>이미지</div>
         <div>이미지</div>
-        <div>이미지</div>
-        <div>이미지</div>
-        <div>이미지</div>
-        <div>이미지</div>
-        <div>이미지</div>
-        <div>이미지</div>
-        <div>이미지</div>
-        <div>이미지</div>
-        <div>이미지</div>
-        <div>이미지</div>
-        <div>이미지</div>
       </div>
     </div>
   );
