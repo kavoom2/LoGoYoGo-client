@@ -83,9 +83,6 @@ export default function ClipArt({
     const svg = await Fetch_Icon.getImageByUrl(svgUrl);
 
     fabric.loadSVGFromString(svg, (objects, options) => {
-      objects.forEach((el: any) => {
-        el.set({ customType: "shape" });
-      });
       const groupObj: any = new fabric.Group(objects, {});
 
       groupObj.set({
@@ -194,11 +191,7 @@ export default function ClipArt({
     <React.Fragment>
       <div className="header">
         <div className="title">클립아트</div>
-        <div className="description">
-          원하는 클립아트를 선택하세요.
-          <br />
-          키워드로 검색할 수 있습니다.
-        </div>
+        <div className="description">원하는 클립아트를 선택하세요.</div>
       </div>
 
       {clipGroup.length > 0 ? (
