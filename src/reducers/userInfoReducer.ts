@@ -7,7 +7,6 @@ const userInfoReducer = (
 ) => {
   switch (action.type) {
     case ACTIONS.SET_USERINFO: {
-      console.log("action", action.payload);
       return Object.assign({}, state, {
         userInfo: action.payload,
       });

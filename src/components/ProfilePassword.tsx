@@ -73,7 +73,7 @@ function ProfilePassword(props) {
 
   return (
     <div>
-      <header>
+      <header className="profile-header">
         <nav onClick={handleRedirectProfile}>
           <h1>Profile</h1>
         </nav>
@@ -84,7 +84,9 @@ function ProfilePassword(props) {
       <section>
         <div>
           <span>현재 비밀번호</span>
+          <br></br>
           <input
+            className="profile-input-changepw"
             type="password"
             placeholder="현재 비밀번호"
             onChange={(e) => {
@@ -94,7 +96,9 @@ function ProfilePassword(props) {
         </div>
         <div>
           <span>새로운 비밀번호</span>
+          <br></br>
           <input
+            className="profile-input-changepw"
             type="password"
             placeholder="새로운 비밀번호"
             onChange={(e) => {
@@ -104,7 +108,9 @@ function ProfilePassword(props) {
         </div>
         <div>
           <span>새로운 비밀번호 확인</span>
+          <br></br>
           <input
+            className="profile-input-changepw"
             type="password"
             placeholder="새로운 비밀번호 확인"
             onChange={(e) => {
@@ -117,10 +123,20 @@ function ProfilePassword(props) {
         <div>
           <div className="message">{message}</div>
           <div>
-            <button onClick={handleChangePassword}>변경하기</button>
+            <button
+              className="profile-inner-btn"
+              onClick={handleChangePassword}
+            >
+              변경하기
+            </button>
           </div>
           <div>
-            <button onClick={handleRedirectProfile}>Cancel</button>
+            <button
+              className="profile-inner-btn"
+              onClick={handleRedirectProfile}
+            >
+              Cancel
+            </button>
           </div>
         </div>
       </footer>

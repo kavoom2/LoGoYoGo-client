@@ -52,6 +52,10 @@
         margin-bottom: 1.5rem;
       }
 
+      .btn-login {
+        color: gray;
+      }
+
       .preview-container {
         height: 100%;
         display: flex;
@@ -172,6 +176,24 @@
         padding: 0 !important;
       }
 
+      #WebPage {
+        background-image: url("../images/preview/web-sample1.png") !important;
+        background-size: cover !important;
+        background-position: center !important;
+      }
+
+      #FaceBook {
+        background-image: url("../images/preview/facebook1.png") !important;
+        background-size: cover !important;
+        background-position: center !important;
+      }
+
+      #Bcard {
+        background-image: url("../images/preview/card2.png") !important;
+        background-size: cover !important;
+        background-position: center !important;
+      }
+
       #web-page1 {
         width: 30vw !important;
         height: 30vw !important;
@@ -180,10 +202,10 @@
       }
 
       #face-book1 {
-        width: 16vw !important;
-        height: 16vw !important;
+        width: 17vw !important;
+        height: 17vw !important;
         position: relative;
-        left: 45% !important;
+        left: 38% !important;
         top: 36.9% !important;
       }
 
@@ -191,7 +213,7 @@
         width: 20vw !important;
         height: 20vw !important;
         position: relative;
-        left: 28% !important;
+        left: 23% !important;
         top: 21.5% !important;
       }
 
@@ -199,7 +221,7 @@
         width: 15vw !important;
         height: 15vw !important;
         position: relative;
-        left: 43.5% !important;
+        left: 39% !important;
         top: 33.5% !important;
       }
     }

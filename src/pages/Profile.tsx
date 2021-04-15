@@ -17,6 +17,7 @@ const port: string = process.env.REACT_APP_SERVER_PORT;
 export default function Profile() {
   const history = useHistory();
   const dispatch = useDispatch();
+  const isLogin = useSelector((state: RootState) => state.loginReducer.isLogin);
   const accessToken = useSelector(
     (state: RootState) => state.accessTokenReducer.accessToken
   );
@@ -24,6 +25,7 @@ export default function Profile() {
     history.push("/");
   };
 
+  console.log("profile islogin", isLogin);
   const [profileOn, setProfileOn] = useState(false);
 
   const handleProfileMain = (): void => {
@@ -65,10 +67,14 @@ export default function Profile() {
             <div onClick={handleRedirectMain}>LOGOYOGO</div>
           </div>
           <div>
-            <button onClick={handelMyLogo}>내 로고</button>
+            <button className="profile-aside-btn" onClick={handelMyLogo}>
+              내 로고
+            </button>
           </div>
           <div>
-            <button onClick={handleProfileMain}>내 프로필</button>
+            <button className="profile-aside-btn" onClick={handleProfileMain}>
+              내 프로필
+            </button>
           </div>
         </aside>
         <section className="profile-container">
@@ -82,7 +88,12 @@ export default function Profile() {
                     <Route exact path="/profile">
                       <ProfileMain />
                       <div>
-                        <button onClick={handleDeleteId}>회원탈퇴</button>
+                        <button
+                          className="profile-inner-btn"
+                          onClick={handleDeleteId}
+                        >
+                          회원탈퇴
+                        </button>
                       </div>
                     </Route>
                     <Route exact path="/profile/password">
