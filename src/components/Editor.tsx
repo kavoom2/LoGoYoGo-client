@@ -248,7 +248,64 @@ export default function Editor() {
     };
 
     // TODO: 오브젝트 타입에 따른 텝 이동 이벤트
+    // TODO: 1. 선택영역 생성시
     c.on("selection:created", (event: any) => {
+      console.log("일단 클릭이벤트는 작동");
+      console.log(event.target.customType);
+      // * 1. Group: 제외
+      if (event.target._objects) return;
+      // * 2. Shape
+      else if (event.target.customType === "shape") {
+        setShapeSize(Math.round(event.target.width * event.target.scaleX));
+        setShapeColor(event.target.fill);
+        setIndex(2);
+
+        const slider: any = document.getElementById("slider-shape");
+        if (!slider) return;
+        slider.value = String(
+          Math.round(event.target.width * event.target.scaleX)
+        );
+
+        const value =
+          (Math.round(event.target.width * event.target.scaleX) / (800 - 1)) *
+          100;
+        slider.style.background =
+          "linear-gradient(to right, #859ffd 0%, #859ffd " +
+          value +
+          "%, #eef0f6 " +
+          value +
+          "%, #eef0f6 100%)";
+      }
+      // * 3. Textbox
+      else if (event.target.customType === "textbox") {
+        console.log("이건 작동합니다");
+        setTextSize(event.target.fontSize);
+        setFontWeight(event.target.fontWeight);
+        setTextColor(event.target.fill);
+        setFontType(event.target.fontFamily);
+        setIndex(1);
+
+        const slider: any = document.getElementById("slider-text");
+        const fontFamily: any = document.getElementById("fontFamily");
+        const fontWeight: any = document.getElementById("fontWeight");
+
+        if (!slider || !fontFamily || !fontWeight) return;
+        slider.value = String(event.target.fontSize);
+        fontFamily.value = String(event.target.fontFamily);
+        fontWeight.value = String(event.target.fontWeight);
+
+        const value = ((event.target.fontSize - 1) / (100 - 1)) * 100;
+        slider.style.background =
+          "linear-gradient(to right, #859ffd 0%, #859ffd " +
+          value +
+          "%, #eef0f6 " +
+          value +
+          "%, #eef0f6 100%)";
+      }
+    });
+
+    // TODO: 2. 선택영역 변경시
+    c.on("selection:updated", (event: any) => {
       console.log("일단 클릭이벤트는 작동");
       console.log(event.target.customType);
       // * 1. Group: 제외
