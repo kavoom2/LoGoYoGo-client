@@ -260,7 +260,11 @@ export default function Text({
 
       <div className="content">
         <div className="title">색상</div>
-        <ColorPicker color={textColor} handleChangeColor={handleChangeColor} />
+        <ColorPicker
+          color={textColor}
+          handleChangeColor={handleChangeColor}
+          id="_"
+        />
       </div>
     </React.Fragment>
   );
