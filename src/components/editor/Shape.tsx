@@ -11,7 +11,6 @@ export default function Shape({
   shapeColor,
   setShapeSize,
   setShapeColor,
-  setIndex,
 }) {
   useEffect(() => {
     // TODO: 슬라이더 Rerender 바 색상 렌더
@@ -83,25 +82,6 @@ export default function Shape({
           top:
             canvas.height / 2 -
             (object.get("height") * object.get("scaleY")) / 2,
-        });
-
-        object.on("selected", (event) => {
-          setShapeSize(Math.round(object.width * object.scaleX));
-          setShapeColor(object.fill);
-          setIndex(2);
-
-          const slider: any = document.getElementById("slider-shape");
-          if (!slider) return;
-          slider.value = String(Math.round(object.width * object.scaleX));
-
-          const value =
-            (Math.round(object.width * object.scaleX) / (800 - 1)) * 100;
-          slider.style.background =
-            "linear-gradient(to right, #859ffd 0%, #859ffd " +
-            value +
-            "%, #eef0f6 " +
-            value +
-            "%, #eef0f6 100%)";
         });
 
         canvas.setActiveObject(object);

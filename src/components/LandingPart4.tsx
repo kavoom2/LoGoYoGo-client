@@ -1,4 +1,28 @@
-export default function LandingPart2() {
+import { useHistory } from "react-router-dom";
+import sample from "../dummy/sample";
+
+export default function LandingPart4({ handleLogoName }) {
+  const history = useHistory();
+
+  const logoname = (): void => {
+    if (sessionStorage.getItem("logo")) {
+      sample[3].objects[0].text = sessionStorage.getItem("logo");
+      const selectsample = sample[3];
+      sessionStorage.setItem("sample", JSON.stringify(selectsample));
+      sessionStorage.removeItem("logo");
+      history.push("/maker/editor");
+    } else {
+      sessionStorage.removeItem("logo");
+      history.push("/maker/editor");
+    }
+  };
+
+  const enter = (e): void => {
+    if (e.key === "Enter") {
+      logoname();
+    }
+  };
+
   return (
     <div id="Footer">
       <div className="container">
@@ -9,10 +33,12 @@ export default function LandingPart2() {
           지금 LOGOYOGO와 함께 시작하세요!
         </div>
         <input
+          onChange={handleLogoName}
           className="input-logoname"
           placeholder="로고를 입력하세요"
+          onKeyPress={enter}
         ></input>
-        <button>시작하기</button>
+        <button onClick={logoname}>시작하기</button>
       </div>
     </div>
   );

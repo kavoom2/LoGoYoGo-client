@@ -4,19 +4,22 @@ import sample from "../dummy/sample";
 export default function LandingPart1({ handleLogoName }) {
   const history = useHistory();
 
-  const logoname = () => {
+  const logoname = (): void => {
     if (sessionStorage.getItem("logo")) {
-      for (let i = 0; i <= 2; i++) {
-        sample[i].objects[1].text = sessionStorage.getItem("logo");
-      }
+      sample[3].objects[0].text = sessionStorage.getItem("logo");
+      const selectsample = sample[3];
+      sessionStorage.setItem("sample", JSON.stringify(selectsample));
       sessionStorage.removeItem("logo");
-      history.push("/maker");
+      history.push("/maker/editor");
     } else {
-      for (let i = 0; i <= 2; i++) {
-        sample[i].objects[1].text = `sample ${i + 1}`;
-      }
       sessionStorage.removeItem("logo");
-      history.push("/maker");
+      history.push("/maker/editor");
+    }
+  };
+
+  const enter = (e): void => {
+    if (e.key === "Enter") {
+      logoname();
     }
   };
 
@@ -39,11 +42,17 @@ export default function LandingPart1({ handleLogoName }) {
           className="input-logoname"
           placeholder="로고를 입력하세요"
           onChange={handleLogoName}
+          onKeyPress={enter}
         ></input>
         <button className="btn-logoname-confirm" onClick={logoname}>
           시작하기
         </button>
-        <button className="btn-search-template">로고 템플릿 둘러보기</button>
+        <button
+          className="btn-search-template"
+          onClick={() => history.push("/maker")}
+        >
+          로고 템플릿 둘러보기
+        </button>
       </div>
       <div className="container2"></div>
     </div>
