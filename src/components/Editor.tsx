@@ -42,6 +42,9 @@ export default function Editor() {
   const [shapeColor, setShapeColor] = useState<string>("Black");
   // *: ClipArts
   const [clipItems, setClipItems] = useState<Array<Type>>([]);
+  const [clipGroup, setClipGroup] = useState<Array<Type>>([]);
+  const [clipColors, setClipColors] = useState<Object>({});
+
   // *: ContextMenu
   const [visible, setVisible] = useState<boolean>(false);
   const [pointer, setPointer] = useState<any>({ x: null, y: null });
@@ -250,10 +253,22 @@ export default function Editor() {
     // TODO: 오브젝트 타입에 따른 텝 이동 이벤트
     // TODO: 1. 선택영역 생성시
     c.on("selection:created", (event: any) => {
-      console.log("일단 클릭이벤트는 작동");
-      console.log(event.target.customType);
       // * 1. Group: 제외
-      if (event.target._objects) return;
+      if (event.target._objects) {
+        if (event.target.customType === "clipArt") {
+          setIndex(5);
+          setClipGroup(event.target._objects);
+          return;
+        } else {
+          for (let i = 0; i < event.target._objects.length; i++) {
+            const item = event.target._objects[i];
+            if (item.customType === "clipArt") {
+              setClipGroup(item._objects);
+              return;
+            }
+          }
+        }
+      }
       // * 2. Shape
       else if (event.target.customType === "shape") {
         setShapeSize(Math.round(event.target.width * event.target.scaleX));
@@ -278,7 +293,6 @@ export default function Editor() {
       }
       // * 3. Textbox
       else if (event.target.customType === "textbox") {
-        console.log("이건 작동합니다");
         setTextSize(event.target.fontSize);
         setFontWeight(event.target.fontWeight);
         setTextColor(event.target.fill);
@@ -306,10 +320,22 @@ export default function Editor() {
 
     // TODO: 2. 선택영역 변경시
     c.on("selection:updated", (event: any) => {
-      console.log("일단 클릭이벤트는 작동");
-      console.log(event.target.customType);
       // * 1. Group: 제외
-      if (event.target._objects) return;
+      if (event.target._objects) {
+        if (event.target.customType === "clipArt") {
+          setIndex(5);
+          setClipGroup(event.target._objects);
+          return;
+        } else {
+          for (let i = 0; i < event.target._objects.length; i++) {
+            const item = event.target._objects[i];
+            if (item.customType === "clipArt") {
+              setClipGroup(item._objects);
+              return;
+            }
+          }
+        }
+      }
       // * 2. Shape
       else if (event.target.customType === "shape") {
         setShapeSize(Math.round(event.target.width * event.target.scaleX));
@@ -334,7 +360,6 @@ export default function Editor() {
       }
       // * 3. Textbox
       else if (event.target.customType === "textbox") {
-        console.log("이건 작동합니다");
         setTextSize(event.target.fontSize);
         setFontWeight(event.target.fontWeight);
         setTextColor(event.target.fill);
@@ -358,6 +383,10 @@ export default function Editor() {
           value +
           "%, #eef0f6 100%)";
       }
+    });
+
+    c.on("selection:cleared", (event: any) => {
+      setClipGroup([]);
     });
 
     setCanvasFunc();
@@ -462,9 +491,13 @@ export default function Editor() {
     <ClipArt
       canvas={canvas}
       clipItems={clipItems}
+      clipGroup={clipGroup}
+      clipColors={clipColors}
       isLoading={isLoading}
       setClipItems={setClipItems}
       setIsLoading={setIsLoading}
+      setClipGroup={setClipGroup}
+      setClipColors={setClipColors}
     />,
   ];
 

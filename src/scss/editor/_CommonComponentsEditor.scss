@@ -360,3 +360,13 @@
   }
   padding-bottom: 1.5rem;
 }
+
+.clipart-colors {
+  display: flex;
+  flex-wrap: wrap;
+
+  > div {
+    margin-right: 1rem;
+    margin-bottom: 0.8rem;
+  }
+}
