@@ -19,7 +19,6 @@ export default function Text({
   setTextSize,
   setTextColor,
   setTextAlign,
-  setIndex,
   setFontType,
   setFontWeight,
 }) {
@@ -69,32 +68,6 @@ export default function Text({
     textbox.setControlsVisibility({
       mb: false,
       mt: false,
-    });
-
-    // TODO: Event - Selected
-    textbox.on("selected", (event) => {
-      setTextSize(event.target.fontSize);
-      setFontWeight(textbox.fontWeight);
-      setTextColor(textbox.fill);
-      setFontType(textbox.fontFamily);
-      setIndex(1);
-
-      const slider: any = document.getElementById("slider-text");
-      const fontFamily: any = document.getElementById("fontFamily");
-      const fontWeight: any = document.getElementById("fontWeight");
-
-      if (!slider || !fontFamily || !fontWeight) return;
-      slider.value = String(textbox.fontSize);
-      fontFamily.value = String(textbox.fontFamily);
-      fontWeight.value = String(textbox.fontWeight);
-
-      const value = ((textbox.fontSize - 1) / (100 - 1)) * 100;
-      slider.style.background =
-        "linear-gradient(to right, #859ffd 0%, #859ffd " +
-        value +
-        "%, #eef0f6 " +
-        value +
-        "%, #eef0f6 100%)";
     });
 
     canvas.add(textbox);

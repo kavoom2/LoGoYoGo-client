@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import colorPalette from "../../dummy/colorPalette";
 import "../../scss/editor/ColorPalette.scss";
 
-export default function ColorPalette({ canvas }) {
+export default function ColorPalette({ canvas, setBgColor }) {
   const [selected, setSelected] = useState<number>();
   const handleChangeColorPalette = (arr) => {
     const objects = canvas.getObjects();
 
     // * 1. Change BgColor
     canvas.backgroundColor = arr[0];
+    setBgColor(arr[0]);
 
     // * 2. Change Shape and Text
     objects.forEach((el) => {
