@@ -73,7 +73,7 @@ export default function MainPage() {
       <LandingPart1 handleLogoName={handleLogoName} />
       <LandingPart2 />
       <LandingPart3 />
-      <LandingPart4 />
+      <LandingPart4 handleLogoName={handleLogoName} />
     </div>
   );
 }
