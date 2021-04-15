@@ -2,6 +2,7 @@ import { RootState } from "../reducers/index";
 import { useSelector, useDispatch } from "react-redux";
 import { Actions } from "../actions/index";
 import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
 export default function Nav() {
   const dispatch = useDispatch();
@@ -35,6 +36,8 @@ export default function Nav() {
     dispatch(Actions.setLoginStatus(false));
     dispatch(Actions.setAccessToken(""));
 
+    sessionStorage.removeItem("userinfo");
+
     const url = new URL(window.location.href);
     const authorizationCode = url.searchParams.get("code");
     if (authorizationCode) {
@@ -45,6 +48,15 @@ export default function Nav() {
   const handleRedirectProfile = (): void => {
     history.push("/profile");
   };
+
+  useEffect(() => {
+    if (sessionStorage.getItem("userinfo")) {
+      let userinfo = JSON.parse(sessionStorage.getItem("userinfo"));
+      const { username, email } = userinfo;
+      dispatch(Actions.setUserInfo(username, email));
+      dispatch(Actions.setLoginStatus(true));
+    }
+  }, []);
 
   return (
     <div id="nav">
