@@ -28,19 +28,15 @@ body {
   overflow: hidden;
 }
 
-input {
-  font-size: 1.5rem;
-}
-
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
   right: 10px;
   position: absolute;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: grey;
-  border-radius: 10px;
+  background-color: #859ffe;
+  border-radius: 4px;
 }
 
 button:hover {

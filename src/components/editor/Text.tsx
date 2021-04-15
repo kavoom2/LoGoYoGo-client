@@ -1,6 +1,13 @@
 import React, { useEffect } from "react";
-import { ChromePicker } from "react-color";
 import { fabric } from "fabric";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAlignRight,
+  faAlignLeft,
+  faAlignCenter,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
+import ColorPicker from "./ColorPicker";
 
 export default function Text({
   canvas,
@@ -18,6 +25,27 @@ export default function Text({
 }) {
   useEffect(() => {
     setFontType(fonts[1]);
+
+    // TODO: 슬라이더 Rerender 바 색상 렌더
+    const slider = document.getElementById("slider-text");
+    const value = ((textSize - 1) / (100 - 1)) * 100;
+    slider.style.background =
+      "linear-gradient(to right, #859ffd 0%, #859ffd " +
+      value +
+      "%, #eef0f6 " +
+      value +
+      "%, #eef0f6 100%)";
+
+    // TODO: 슬라이더 Value 변경시 바 색상 렌더
+    document.getElementById("slider-text").oninput = function (this: any) {
+      var value = ((this.value - this.min) / (this.max - this.min)) * 100;
+      this.style.background =
+        "linear-gradient(to right, #859ffd 0%, #859ffd " +
+        value +
+        "%, #eef0f6 " +
+        value +
+        "%, #eef0f6 100%)";
+    };
   }, []);
 
   // TODO: EventHandling Functions
@@ -59,6 +87,14 @@ export default function Text({
       slider.value = String(textbox.fontSize);
       fontFamily.value = String(textbox.fontFamily);
       fontWeight.value = String(textbox.fontWeight);
+
+      const value = ((textbox.fontSize - 1) / (100 - 1)) * 100;
+      slider.style.background =
+        "linear-gradient(to right, #859ffd 0%, #859ffd " +
+        value +
+        "%, #eef0f6 " +
+        value +
+        "%, #eef0f6 100%)";
     });
 
     canvas.add(textbox);
@@ -140,10 +176,27 @@ export default function Text({
 
   const renderFontLists = () => {
     const result: Array<JSX.Element> = [];
-    fonts.forEach((el) => {
-      const jsxEl = <option value={el}>{el}</option>;
+    fonts.forEach((el, idx) => {
+      const jsxEl = (
+        <option key={idx} value={el}>
+          {el}
+        </option>
+      );
       result.push(jsxEl);
     });
+    return result;
+  };
+
+  const renderWeightLists = () => {
+    const result: Array<JSX.Element> = [];
+    for (let i = 100; i <= 900; i += 100) {
+      const jsxEl = (
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
+      result.push(jsxEl);
+    }
     return result;
   };
 
@@ -152,7 +205,7 @@ export default function Text({
       <div className="header">
         <div className="title">텍스트</div>
         <div className="description">
-          원하는 색상 텍스트를 입력하세요.
+          원하는 텍스트를 입력하세요.
           <br />
           글꼴, 크기, 색상 등을 변경할 수 있습니다.
         </div>
@@ -160,7 +213,9 @@ export default function Text({
 
       <div className="content">
         <div className="title">텍스트 상자</div>
-        <button onClick={handleAddTextBox}>생성하기</button>
+        <button onClick={handleAddTextBox}>
+          <FontAwesomeIcon icon={faPlus} />
+        </button>
       </div>
 
       <div className="content">
@@ -183,15 +238,7 @@ export default function Text({
           onChange={handleChangeFontWeight}
           defaultValue={fontWeight}
         >
-          <option value="100">100</option>
-          <option value="200">200</option>
-          <option value="300">300</option>
-          <option value="400">400</option>
-          <option value="500">500</option>
-          <option value="600">600</option>
-          <option value="700">700</option>
-          <option value="800">800</option>
-          <option value="900">900</option>
+          {renderWeightLists()}
         </select>
       </div>
 
@@ -219,39 +266,28 @@ export default function Text({
               handleChangeTextAlign("left");
             }}
           >
-            좌측
+            <FontAwesomeIcon icon={faAlignLeft} />
           </button>
           <button
             onClick={() => {
               handleChangeTextAlign("center");
             }}
           >
-            중앙
+            <FontAwesomeIcon icon={faAlignCenter} />
           </button>
           <button
             onClick={() => {
               handleChangeTextAlign("right");
             }}
           >
-            우측
+            <FontAwesomeIcon icon={faAlignRight} />
           </button>
         </div>
       </div>
 
       <div className="content">
         <div className="title">색상</div>
-        <div className="color-selector-container">
-          <div
-            className="color-selector-color"
-            style={{ backgroundColor: textColor }}
-          ></div>
-        </div>
-        <ChromePicker
-          className="color-selector-picker"
-          color={textColor}
-          onChange={handleChangeColor}
-          disableAlpha={true}
-        />
+        <ColorPicker color={textColor} handleChangeColor={handleChangeColor} />
       </div>
     </React.Fragment>
   );

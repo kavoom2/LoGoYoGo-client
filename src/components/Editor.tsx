@@ -13,6 +13,15 @@ import "../scss/editor/_CommonComponentsEditor.scss";
 import { Fetch_Font } from "../utilities/index";
 import { Type } from "typescript";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFont,
+  faSquare,
+  faPalette,
+  faImage,
+  faTint,
+} from "@fortawesome/free-solid-svg-icons";
+
 // ! Object Controll Container
 export default function Editor() {
   // *: Commons
@@ -29,7 +38,7 @@ export default function Editor() {
   // *: Bg
   const [bgColor, setBgColor] = useState<string>("white");
   // *: Shape
-  const [shapeSize, setShapeSize] = useState<number>(150);
+  const [shapeSize, setShapeSize] = useState<number>(100);
   const [shapeColor, setShapeColor] = useState<string>("Black");
   // *: ClipArts
   const [clipItems, setClipItems] = useState<Array<Type>>([]);
@@ -89,7 +98,6 @@ export default function Editor() {
 
     const stageWidth = document.body.clientWidth;
     const stageHeight = document.body.clientHeight;
-    const scaleRatio = (stageHeight * 0.4) / canvasHeight;
 
     const c = new fabric.Canvas("my-canvas", {
       preserveObjectStacking: true,
@@ -153,17 +161,35 @@ export default function Editor() {
 
           if (!slider) return;
           slider.value = String(event.target.fontSize);
+          const value = ((event.target.fontSize - 1) / (100 - 1)) * 100;
+          slider.style.background =
+            "linear-gradient(to right, #859ffd 0%, #859ffd " +
+            value +
+            "%, #eef0f6 " +
+            value +
+            "%, #eef0f6 100%)";
+
           setTextSize(event.target.fontSize);
         } else if (event.target.customType === "shape") {
           const slider: any = document.getElementById("slider-shape");
 
           if (!slider) return;
           slider.value = String(event.target.width * event.target.scaleX);
+
+          const value =
+            ((event.target.width * event.target.scaleX - 1) / (800 - 1)) * 100;
+          slider.style.background =
+            "linear-gradient(to right, #859ffd 0%, #859ffd " +
+            value +
+            "%, #eef0f6 " +
+            value +
+            "%, #eef0f6 100%)";
+
           setShapeSize(Math.round(event.target.width * event.target.scaleX));
         }
       });
 
-      c.on("mouse:down", (event) => {
+      c.on("mouse:down", (event: any) => {
         // TODO: 마우스 우클릭 ContextMenu 이벤트
         if (event.button !== 3) return;
         setVisible(false);
@@ -278,6 +304,13 @@ export default function Editor() {
       sessionStorage.removeItem("canvas");
     }
 
+    if (sessionStorage.getItem("sample")) {
+      const json = sessionStorage.getItem("sample");
+      c.clear();
+      c.loadFromJSON(json, c.renderAll.bind(c));
+      sessionStorage.removeItem("sample");
+    }
+
     window.addEventListener("keydown", hamdleEventKeyDown);
     window.addEventListener("resize", handleResizeEvent, false);
 
@@ -348,48 +381,64 @@ export default function Editor() {
         <div className="container-tabs">{components[index]}</div>
         <div className="container-tab-buttons">
           <button
+            className={index === 0 ? "selected" : ""}
             onClick={() => {
               handleIndexNumber(0);
             }}
           >
+            <FontAwesomeIcon icon={faTint} />
+            <br />
             팔레트
           </button>
           <button
+            className={index === 1 ? "selected" : ""}
             onClick={() => {
               handleIndexNumber(1);
             }}
           >
+            <FontAwesomeIcon icon={faFont} />
+            <br />
             텍스트
           </button>
           <button
+            className={index === 2 ? "selected" : ""}
             onClick={() => {
               handleIndexNumber(2);
             }}
           >
-            모양
+            <FontAwesomeIcon icon={faSquare} />
+            <br />
+            도형
           </button>
           <button
+            className={index === 5 ? "selected" : ""}
             onClick={() => {
               handleIndexNumber(5);
             }}
           >
+            <FontAwesomeIcon icon={faPalette} />
+            <br />
             클립아트
           </button>
 
           <button
+            className={index === 3 ? "selected" : ""}
             onClick={() => {
               handleIndexNumber(3);
             }}
           >
+            <FontAwesomeIcon icon={faImage} />
+            <br />
             배경
           </button>
-          <button
+          {/* <button
+            className={index === 4 ? "selected" : ""}
             onClick={() => {
               handleIndexNumber(4);
             }}
           >
             배치
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

@@ -1,6 +1,9 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 export default function Results() {
+  const history = useHistory();
+
   return (
     <React.Fragment>
       <div id="section-creator">
@@ -32,7 +35,9 @@ export default function Results() {
         </div>
       </div>
       <div id="footer-creator">
-        <button>이전으로 돌아가기</button>
+        <button onClick={() => history.push("/maker")}>
+          이전으로 돌아가기
+        </button>
       </div>
     </React.Fragment>
   );

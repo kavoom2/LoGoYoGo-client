@@ -1,18 +1,41 @@
-// TODO: 미디어 쿼리 분기점 변수입니다.
-// * map-get($breakpoints, mobile)으로 값을 가져올 수 있다.
-$breakpoints: (
-  //   "mobile": 320px,
-  "mobile": 768px,
-  "desktop": 1024px
-);
+// TODO: 변수 설정
 
-// TODO: 사용 예시입니다. 수치 대신 변수를 대입하면 됩니다.
-@media (max-width: 768px,) {
-  // * MOBILE: max-width: 768px;
-}
+// Color
+$color-nav: #3457dc;
+$color-background: #eef0f6;
+$color-container: #ffffff;
+$color-cotainer-uncommon: #363c4d;
+$color-item-container: #f8f9fd;
+$color-item-container-hover: #b4c2f1;
+$color-editor-tab: #ffffff;
+$color-editor-tab-hover: #596bd8;
+$color-button: #3457dc;
 
-@media (min-width: 1024px) {
-  // * DESKTOP: min-width: 768px;
-}
+$color-slider-background: #eef0f6;
+$color-slider-fill: #859ffd;
 
-// ? TABLET: min-width: 768px, max-width: 1024px; (제외)
+$color-border: #dee0e6;
+
+$color-item-hightlight: #e4f9fe;
+$color-item-highlight: #29b8e5;
+
+$color-item-input: #ffffff;
+
+$color-item-button: #596bd8;
+$color-item-button-text: #ffffff;
+
+$color-modal-container-1: #e5eef3;
+
+$color-font-main: #2d313c;
+$color-font-sub: #72757b;
+$color-font-editor-tab: #727889;
+$color-font-editor-tab-hover: #ffffff;
+
+// Fontsize
+$font-size-H1: 3.6rem;
+$font-size-H2: 3rem;
+$font-size-H3: 2.4rem;
+$font-size-H4: 1.8rem;
+$font-size-H5: 1.4rem;
+$font-size-H6: 1.2rem;
+$font-size-H7: 1rem;

@@ -1,3 +1,5 @@
+@import "../_varaiables.scss";
+
 .palette-item-container {
   position: relative;
   top: 0;
@@ -5,27 +7,48 @@
   margin-top: 3rem;
   margin-left: 1rem;
   padding: 1rem;
+  border-radius: 0.6rem;
+  border: 2px solid transparent;
 
   .palette-item {
     display: flex;
     margin-top: 0.5rem;
-    height: 3rem;
+    height: 2.5rem;
     width: 100%;
 
     .palette-item-child {
+      height: 100%;
       flex: 1;
+      border-top: 1.5px solid $color-border;
+      border-bottom: 1.5px solid $color-border;
+    }
+
+    :nth-child(1) {
+      border-left: 1.5px solid $color-border;
+      border-top-left-radius: 0.6rem;
+      border-bottom-left-radius: 0.6rem;
+    }
+
+    :nth-child(4) {
+      border-right: 1.5px solid $color-border;
+      border-top-right-radius: 0.6rem;
+      border-bottom-right-radius: 0.6rem;
     }
   }
 
-  box-shadow: 1px 2px 8px 1px #ccc;
-  transition: 0.3s;
+  background: $color-background;
+  transition: 0.2s;
 }
 
 .palette-item-container:hover {
   cursor: pointer;
+  border: 2px solid $color-item-container-hover;
 
-  top: -6px;
+  top: -4px;
   left: -2px;
-  box-shadow: 2px 3px 7px 2px #ccc;
-  cursor: pointer;
+  box-shadow: 2px 3px 5px 0px #dce0ee;
+}
+
+.selected {
+  border: 2px solid $color-item-container-hover;
 }

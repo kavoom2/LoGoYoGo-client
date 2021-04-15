@@ -1,4 +1,25 @@
+import { useHistory } from "react-router-dom";
+import sample from "../dummy/sample";
+
 export default function LandingPart1({ handleLogoName }) {
+  const history = useHistory();
+
+  const logoname = () => {
+    if (sessionStorage.getItem("logo")) {
+      for (let i = 0; i <= 2; i++) {
+        sample[i].objects[1].text = sessionStorage.getItem("logo");
+      }
+      sessionStorage.removeItem("logo");
+      history.push("/maker");
+    } else {
+      for (let i = 0; i <= 2; i++) {
+        sample[i].objects[1].text = `sample ${i + 1}`;
+      }
+      sessionStorage.removeItem("logo");
+      history.push("/maker");
+    }
+  };
+
   return (
     <div id="section">
       <div className="container">
@@ -19,8 +40,9 @@ export default function LandingPart1({ handleLogoName }) {
           placeholder="로고를 입력하세요"
           onChange={handleLogoName}
         ></input>
-
-        <button className="btn-logoname-confirm">시작하기</button>
+        <button className="btn-logoname-confirm" onClick={logoname}>
+          시작하기
+        </button>
         <button className="btn-search-template">로고 템플릿 둘러보기</button>
       </div>
 
