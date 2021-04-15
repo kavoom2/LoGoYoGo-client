@@ -6,13 +6,18 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Loading from "./Loading";
 import NoResult from "./NoResult";
 import BeforeSearch from "./BeforeSearch";
+import ColorPicker from "./ColorPicker";
 
 export default function ClipArt({
   canvas,
   clipItems,
+  clipGroup,
+  clipColors,
   isLoading,
   setClipItems,
   setIsLoading,
+  setClipGroup,
+  setClipColors,
 }) {
   const [keyword, setKeyword] = useState<string>("");
   const [imgs, setImgs] = useState<Array<any>>([]);
@@ -21,7 +26,31 @@ export default function ClipArt({
 
   useEffect(() => {
     setImgs(clipItems);
+
+    return () => {};
   }, [clipItems]);
+
+  useEffect(() => {
+    const colorFilters = {};
+    for (let i = 0; i < clipGroup.length; i++) {
+      const item = clipGroup[i];
+      const color = item.fill;
+      if (!colorFilters[color]) {
+        colorFilters[color] = [i];
+      } else {
+        colorFilters[color] = [...colorFilters[color], i];
+      }
+    }
+
+    const keys = Object.keys(colorFilters);
+    const colorStates = {};
+    for (let i = 0; i < keys.length; i++) {
+      colorStates[keys[i]] = keys[i];
+    }
+    setClipColors(colorStates);
+  }, [clipGroup]);
+
+  useEffect(() => {}, [clipColors]);
 
   const handleOnChange = (event) => {
     setKeyword(event.target.value);
@@ -54,9 +83,6 @@ export default function ClipArt({
     const svg = await Fetch_Icon.getImageByUrl(svgUrl);
 
     fabric.loadSVGFromString(svg, (objects, options) => {
-      objects.forEach((el: any) => {
-        el.set({ customType: "shape" });
-      });
       const groupObj: any = new fabric.Group(objects, {});
 
       groupObj.set({
@@ -69,6 +95,7 @@ export default function ClipArt({
       groupObj.set({
         scaleX: canvas.width / groupObj.get("width") / 3,
         scaleY: canvas.width / groupObj.get("width") / 3,
+        customType: "clipArt",
       });
 
       groupObj.set({
@@ -84,6 +111,21 @@ export default function ClipArt({
       canvas.add(groupObj);
       setIsLoading(true);
     });
+  };
+
+  const handleChangeColor = (color, indexs, keyName) => {
+    for (let i = 0; i < clipGroup.length; i++) {
+      if (!indexs.includes(i)) continue;
+      const item = clipGroup[i];
+      item.set({ fill: color.hex });
+    }
+
+    setClipColors({
+      ...clipColors,
+      keyName: color,
+    });
+
+    canvas.renderAll();
   };
 
   const renderImgs = () => {
@@ -110,16 +152,56 @@ export default function ClipArt({
     return result;
   };
 
+  const renderColors = () => {
+    const colorFilters = {};
+    for (let i = 0; i < clipGroup.length; i++) {
+      const item = clipGroup[i];
+      const color = item.fill;
+      if (!colorFilters[color]) {
+        colorFilters[color] = [i];
+      } else {
+        colorFilters[color] = [...colorFilters[color], i];
+      }
+    }
+
+    const keys = Object.keys(colorFilters);
+
+    const result = [];
+    for (let i = 0; i < keys.length; i++) {
+      const indexs = colorFilters[keys[i]];
+      const itemIndex = colorFilters[keys[i]][0];
+      const item = clipGroup[itemIndex];
+      const keyName = keys[i];
+      result.push(
+        <ColorPicker
+          key={i}
+          id={i}
+          color={item.fill}
+          handleChangeColor={(color) => {
+            handleChangeColor(color, indexs, keyName);
+          }}
+        />
+      );
+    }
+
+    return result;
+  };
+
   return (
     <React.Fragment>
       <div className="header">
         <div className="title">클립아트</div>
-        <div className="description">
-          원하는 클립아트를 선택하세요.
-          <br />
-          키워드로 검색할 수 있습니다.
-        </div>
+        <div className="description">원하는 클립아트를 선택하세요.</div>
       </div>
+
+      {clipGroup.length > 0 ? (
+        <div className="content">
+          <div className="title">색상 테이블</div>
+          <div className="clipart-colors">{renderColors()}</div>
+        </div>
+      ) : (
+        ""
+      )}
 
       <div className="content">
         <div className="title">키워드 검색</div>

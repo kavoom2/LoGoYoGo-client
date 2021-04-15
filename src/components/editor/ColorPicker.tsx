@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import reactCSS from "reactcss";
 import { ChromePicker } from "react-color";
 
-export default function ColorPicker({ color, handleChangeColor }) {
+export default function ColorPicker({ color, handleChangeColor, id }) {
   const [displayColorPicker, setDisplayColorPicker] = useState<boolean>(false);
   const [top, setTop] = useState<number>(0);
   const [left, setLeft] = useState<number>(0);
@@ -101,7 +101,7 @@ export default function ColorPicker({ color, handleChangeColor }) {
   });
 
   return (
-    <div className="color-picker-container">
+    <div className="color-picker-container" id={id}>
       <div
         className="color-picker-box"
         style={styles.swatch}
