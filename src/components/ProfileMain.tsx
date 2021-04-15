@@ -27,7 +27,7 @@ function ProfileMain() {
   return (
     <div>
       <div>
-        <header>
+        <header className="profile-header">
           <nav onClick={handleRedirectProfile}>
             <h1>Profile</h1>
           </nav>
@@ -37,19 +37,23 @@ function ProfileMain() {
         </header>
         <section>
           <div>
-            <div>
-              <label>username</label>
+            <div className="profile-label">
+              <label className="profile-label-content">username</label>
             </div>
-            <div>
-              <span>{userInfoState.username}</span>
+            <div className="profile-info">
+              <span className="profile-info-content">
+                {userInfoState.username}
+              </span>
             </div>
           </div>
           <div>
-            <div>
-              <label>email</label>
+            <div className="profile-label">
+              <label className="profile-label-content">email</label>
             </div>
-            <div>
-              <span>{userInfoState.email}</span>
+            <div className="profile-info">
+              <span className="profile-info-content">
+                {userInfoState.email}
+              </span>
             </div>
           </div>
         </section>
