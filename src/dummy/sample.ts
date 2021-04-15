@@ -338,7 +338,7 @@ export default [
         globalCompositeOperation: "source-over",
         skewX: 0,
         skewY: 0,
-        text: "sample 1",
+        text: "sample",
         fontSize: "70",
         fontWeight: "600",
         fontFamily: "Noto Sans KR",
