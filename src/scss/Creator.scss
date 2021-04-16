@@ -72,6 +72,19 @@
       .item:hover {
         cursor: pointer;
       }
+
+      .item-position {
+        display: inline-block;
+        width: 21.3vw;
+        height: 21.3vw;
+        margin: 4rem;
+        background-color: lightseagreen;
+        background-size: cover;
+      }
+
+      .item-position:hover {
+        cursor: pointer;
+      }
     }
   }
 }
@@ -104,6 +117,13 @@
         height: 60vw !important;
         margin-left: auto !important;
         margin-right: auto !important;
+      }
+
+      .item-position {
+        width: 20vw !important;
+        height: 20vw !important;
+        margin-left: 2rem !important;
+        margin-right: 2rem !important;
       }
     }
   }

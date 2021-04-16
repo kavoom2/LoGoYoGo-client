@@ -28,7 +28,7 @@ export default function Creator() {
         <div className="body-item-outer-container">
           <div className="body-item-container">
             <div
-              className="item sample1"
+              className="item"
               onClick={() => samplemaker(0)}
               style={{
                 backgroundImage: `url(${sampleimage1}) `,
