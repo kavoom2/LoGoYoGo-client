@@ -74,14 +74,14 @@ function ProfilePassword(props) {
   return (
     <div>
       <header className="profile-header">
-        <nav onClick={handleRedirectProfile}>
+        <nav className="profile-header-profile" onClick={handleRedirectProfile}>
           <h1>Profile</h1>
         </nav>
-        <nav onClick={handleRedirectPassword}>
+        <nav className="profile-header-pwd" onClick={handleRedirectPassword}>
           <h1>비밀번호 변경</h1>
         </nav>
       </header>
-      <section>
+      <section id="profile-section2">
         <div>
           <span>현재 비밀번호</span>
           <br></br>

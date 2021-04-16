@@ -35,7 +35,7 @@ function ProfileMain() {
             <h1>비밀번호 변경</h1>
           </nav>
         </header>
-        <section>
+        <section id="profile-section1">
           <div>
             <div className="profile-label">
               <label className="profile-label-content">username</label>
