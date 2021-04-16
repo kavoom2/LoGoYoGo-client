@@ -1,6 +1,9 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import sample from "../dummy/sample";
+import leftposition from "../images/position/leftposition.png";
+import middleposition from "../images/position/middleposition.png";
+import rightposition from "../images/position/rightposition.png";
 
 export default function selectShape() {
   const history = useHistory();
@@ -28,15 +31,27 @@ export default function selectShape() {
         </div>
         <div className="body-item-outer-container">
           <div className="body-item-container">
-            <div className="item" onClick={() => handlePosition(-50)}>
-              왼쪽
-            </div>
-            <div className="item" onClick={() => handlePosition(80)}>
-              가운데
-            </div>
-            <div className="item" onClick={() => handlePosition(200)}>
-              오른쪽
-            </div>
+            <div
+              className="item-position"
+              onClick={() => handlePosition(-50)}
+              style={{
+                backgroundImage: `url(${leftposition}) `,
+              }}
+            ></div>
+            <div
+              className="item-position"
+              onClick={() => handlePosition(80)}
+              style={{
+                backgroundImage: `url(${middleposition}) `,
+              }}
+            ></div>
+            <div
+              className="item-position"
+              onClick={() => handlePosition(200)}
+              style={{
+                backgroundImage: `url(${rightposition}) `,
+              }}
+            ></div>
           </div>
         </div>
       </div>
