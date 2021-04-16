@@ -2,7 +2,9 @@ import { RootState } from "../reducers/index";
 import { useSelector, useDispatch } from "react-redux";
 import { Actions } from "../actions/index";
 import { useHistory } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 export default function Nav() {
   const dispatch = useDispatch();
@@ -21,6 +23,9 @@ export default function Nav() {
   const isModalOpen = useSelector(
     (state: RootState) => state.modalStatusReducer.isModalOpen
   );
+
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   // TODO: ---------- Event Handler ---------- //
 
@@ -52,6 +57,10 @@ export default function Nav() {
     history.push("/profile");
   };
 
+  const handleHamburger = (): void => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   useEffect(() => {
     if (sessionStorage.getItem("userinfo")) {
       let userinfo = JSON.parse(sessionStorage.getItem("userinfo"));
@@ -65,40 +74,144 @@ export default function Nav() {
     }
   }, []);
 
+  const handleCloseHamburgerEvent = useCallback(() => {
+    if (isMenuOpen) setIsMenuOpen(false);
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const handleResizeEvent = () => {
+      const stageWidth = document.body.clientWidth;
+      if (stageWidth <= 768) setIsMobile(true);
+      if (stageWidth > 768) setIsMobile(false);
+    };
+
+    window.addEventListener("resize", handleResizeEvent);
+    handleResizeEvent();
+    return () => {
+      window.removeEventListener("resize", handleResizeEvent);
+    };
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("click", handleCloseHamburgerEvent, false);
+    return () => {
+      window.removeEventListener("click", handleCloseHamburgerEvent);
+    };
+  }, [handleCloseHamburgerEvent]);
+
+  const renderNav = () => {
+    if (isMobile) {
+      return "";
+    } else {
+      return (
+        <>
+          {isLogin ? (
+            <span>
+              <button className="btn-nav" onClick={handleLogout}>
+                로그아웃
+              </button>
+              <button className="btn-nav" onClick={handleRedirectProfile}>
+                프로필
+              </button>
+            </span>
+          ) : (
+            <span>
+              <button
+                className="btn-nav"
+                onClick={() => {
+                  handleModalOpen("LOGIN");
+                }}
+              >
+                로그인
+              </button>
+              <button
+                className="btn-nav"
+                onClick={() => {
+                  handleModalOpen("SIGNUP");
+                }}
+              >
+                회원가입
+              </button>
+            </span>
+          )}
+        </>
+      );
+    }
+  };
+
+  const renderHambuger = () => {
+    if (isMobile) {
+      return (
+        <div id="nav-hamburger" className={isMenuOpen ? "active" : "inactive"}>
+          {isLogin ? (
+            <div
+              className={
+                isMenuOpen
+                  ? "hamburger-items active"
+                  : "hamburger-items inactive"
+              }
+            >
+              <div className="hamburger-item" onClick={handleLogout}>
+                로그아웃
+              </div>
+              <div className="hamburger-item" onClick={handleRedirectProfile}>
+                프로필
+              </div>
+            </div>
+          ) : (
+            <div
+              className={
+                isMenuOpen
+                  ? "hamburger-items active"
+                  : "hamburger-items inactive"
+              }
+            >
+              <div
+                className="hamburger-item"
+                onClick={() => {
+                  handleModalOpen("LOGIN");
+                }}
+              >
+                로그인
+              </div>
+              <div
+                className="hamburger-item"
+                onClick={() => {
+                  handleModalOpen("SIGNUP");
+                }}
+              >
+                회원가입
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    } else return "";
+  };
+
   return (
-    <div id="nav">
-      <span className="title" onClick={() => history.push("/")}>
-        LOGOYOGO
-      </span>
-      {isLogin ? (
-        <span>
-          <button className="btn-nav" onClick={handleLogout}>
-            로그아웃
-          </button>
-          <button className="btn-nav" onClick={handleRedirectProfile}>
-            프로필
-          </button>
+    <>
+      <div id="nav">
+        <span className="title" onClick={() => history.push("/")}>
+          LOGOYOGO
         </span>
-      ) : (
-        <span>
-          <button
-            className="btn-nav"
-            onClick={() => {
-              handleModalOpen("LOGIN");
-            }}
-          >
-            로그인
-          </button>
-          <button
-            className="btn-nav"
-            onClick={() => {
-              handleModalOpen("SIGNUP");
-            }}
-          >
-            회원가입
-          </button>
-        </span>
-      )}
-    </div>
+        {isMobile ? (
+          !isMenuOpen ? (
+            <span className="title-burger">
+              <FontAwesomeIcon icon={faBars} onClick={handleHamburger} />
+            </span>
+          ) : (
+            <span className="title-burger">
+              <FontAwesomeIcon icon={faTimes} onClick={handleHamburger} />
+            </span>
+          )
+        ) : (
+          ""
+        )}
+
+        {renderNav()}
+      </div>
+      {renderHambuger()}
+    </>
   );
 }
