@@ -9,12 +9,15 @@ export default function selectShape() {
 
   const handleIndex = (idx: number): void => {
     if (idx === 0) {
+      sample[4].objects[0].type = "ellipse";
       sample[4].objects[0].rx = 100;
       sample[4].objects[0].ry = 100;
       history.push("/maker/selectcolor");
     } else {
       sample[4].objects[0].type = "path";
       sample[4].objects[0].path = shape[idx - 1];
+      delete sample[4].objects[0].rx;
+      delete sample[4].objects[0].ry;
       history.push("/maker/selectcolor");
     }
   };

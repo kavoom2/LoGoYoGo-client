@@ -40,11 +40,13 @@ export default function Login(props) {
         const token = data.data.accessToken;
         dispatch(Actions.setAccessToken(token));
         dispatch(Actions.setLoginStatus(true));
+        sessionStorage.setItem("accessToken", JSON.stringify(token));
         return axios.post(`${scheme}://${host}:${port}/user/userinfo`, {
           accessToken: token,
         });
       })
       .then((data) => {
+        console.log(data);
         const username = data.data.data.name;
         const email = data.data.data.email;
         const json = { username: username, email: email };
