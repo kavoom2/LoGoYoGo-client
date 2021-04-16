@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../reducers/index";
 import { Actions } from "../actions/index";
 import "../scss/Profile.scss";
+import Nav from "../components/Nav";
 
 const axios: any = require("axios");
 axios.default.withCredentials = true;
@@ -42,6 +43,8 @@ export default function Profile() {
         accessToken: accessToken,
       })
       .then(() => {
+        sessionStorage.removeItem("userinfo");
+        sessionStorage.removeItem("accessToken");
         history.push("/");
         dispatch(Actions.setUserInfo("", ""));
         dispatch(Actions.setLoginStatus(false));
@@ -54,58 +57,50 @@ export default function Profile() {
 
   return (
     <div>
-      <div>
-        <header>
-          <div id="nav">
-            <span className="title" onClick={handleRedirectMain}>
-              LOGOYOGO
-            </span>
-          </div>
-        </header>
-        <aside className="profile-aside">
+      <Nav />
+      <aside className="profile-aside">
+        <div>
+          <div onClick={handleRedirectMain}>LOGOYOGO</div>
+        </div>
+        <div>
+          <button className="profile-aside-btn" onClick={handelMyLogo}>
+            내 로고
+          </button>
+        </div>
+        <div>
+          <button className="profile-aside-btn" onClick={handleProfileMain}>
+            내 프로필
+          </button>
+        </div>
+      </aside>
+      <section className="profile-container">
+        {!profileOn ? (
+          <div>내 로고가 들어올 예정</div>
+        ) : (
           <div>
-            <div onClick={handleRedirectMain}>LOGOYOGO</div>
-          </div>
-          <div>
-            <button className="profile-aside-btn" onClick={handelMyLogo}>
-              내 로고
-            </button>
-          </div>
-          <div>
-            <button className="profile-aside-btn" onClick={handleProfileMain}>
-              내 프로필
-            </button>
-          </div>
-        </aside>
-        <section className="profile-container">
-          {!profileOn ? (
-            <div>내 로고가 들어올 예정</div>
-          ) : (
             <div>
-              <div>
-                <Router>
-                  <Switch>
-                    <Route exact path="/profile">
-                      <ProfileMain />
-                      <div>
-                        <button
-                          className="profile-inner-btn"
-                          onClick={handleDeleteId}
-                        >
-                          회원탈퇴
-                        </button>
-                      </div>
-                    </Route>
-                    <Route exact path="/profile/password">
-                      <ProfilePassword />
-                    </Route>
-                  </Switch>
-                </Router>
-              </div>
+              <Router>
+                <Switch>
+                  <Route exact path="/profile">
+                    <ProfileMain />
+                    <div>
+                      <button
+                        className="profile-inner-btn"
+                        onClick={handleDeleteId}
+                      >
+                        회원탈퇴
+                      </button>
+                    </div>
+                  </Route>
+                  <Route exact path="/profile/password">
+                    <ProfilePassword />
+                  </Route>
+                </Switch>
+              </Router>
             </div>
-          )}
-        </section>
-      </div>
+          </div>
+        )}
+      </section>
     </div>
   );
 }
