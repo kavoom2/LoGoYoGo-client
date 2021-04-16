@@ -187,6 +187,12 @@ export default function ClipArt({
     return result;
   };
 
+  const enter = (e): void => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <React.Fragment>
       <div className="header">
@@ -209,6 +215,7 @@ export default function ClipArt({
           <input
             onChange={handleOnChange}
             placeholder="Apple, Cafe, Mouse....."
+            onKeyPress={enter}
           />
           <button onClick={handleSearch}>
             <FontAwesomeIcon icon={faSearch} />

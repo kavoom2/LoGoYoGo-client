@@ -37,12 +37,15 @@ export default function Nav() {
     dispatch(Actions.setAccessToken(""));
 
     sessionStorage.removeItem("userinfo");
+    sessionStorage.removeItem("accessToken");
 
     const url = new URL(window.location.href);
     const authorizationCode = url.searchParams.get("code");
     if (authorizationCode) {
       history.push("/");
     }
+
+    history.push("/");
   };
 
   const handleRedirectProfile = (): void => {
@@ -55,6 +58,10 @@ export default function Nav() {
       const { username, email } = userinfo;
       dispatch(Actions.setUserInfo(username, email));
       dispatch(Actions.setLoginStatus(true));
+    }
+    if (sessionStorage.getItem("accessToken")) {
+      let accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
+      dispatch(Actions.setAccessToken(accessToken));
     }
   }, []);
 
