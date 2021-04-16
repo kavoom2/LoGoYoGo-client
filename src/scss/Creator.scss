@@ -72,6 +72,32 @@
       .item:hover {
         cursor: pointer;
       }
+
+      .item-color {
+        width: 9vw;
+        height: 35vw;
+        padding: 1rem;
+        display: table-cell;
+        vertical-align: middle;
+        transition: 0.5s ease;
+        border-radius: 5px;
+      }
+
+      .item-color:hover {
+        background-color: rgb(233, 233, 233);
+      }
+
+      .item-color-inner {
+        display: inline-block;
+        width: 6.5vw;
+        height: 6.5vw;
+        border-radius: 100%;
+      }
+
+      .item-color-inner:hover {
+        cursor: pointer;
+        border: solid 2.5px;
+      }
     }
   }
 }
@@ -104,6 +130,25 @@
         height: 60vw !important;
         margin-left: auto !important;
         margin-right: auto !important;
+      }
+
+      .item-color {
+        width: 100vw !important;
+        height: 16vw !important  ;
+        padding: 1rem !important;
+        display: table-cell !important;
+        vertical-align: middle !important;
+        transition: 0.5s ease !important;
+        border-radius: 5px !important;
+        float: left !important;
+      }
+
+      .item-color-inner {
+        display: inline-block;
+        width: 12vw !important;
+        height: 12vw !important;
+        border-radius: 100% !important;
+        margin: 0.5rem !important;
       }
     }
   }

@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
+
+  .profile-header-profile .profile-header-pwd {
+    cursor: pointer;
+  }
 }
 
 .profile-inner-btn {
@@ -35,10 +39,6 @@
 
   display: flex;
   flex-direction: column;
-}
-
-#profile-title-profile #profile-title-password {
-  cursor: pointer;
 }
 
 .profile-input-changepw {
