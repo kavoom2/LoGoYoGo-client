@@ -464,6 +464,17 @@ export default function Editor() {
     };
   }, []);
 
+  useEffect(() => {
+    // TODO: Nav position 변경(Styling에 문제있음)
+    const navEl = document.getElementById("nav");
+    navEl.style.position = "absolute";
+
+    return () => {
+      const navEl = document.getElementById("nav");
+      navEl.style.position = "sticky";
+    };
+  }, []);
+
   const components = [
     <ColorPalette canvas={canvas} setBgColor={setBgColor} />,
     <Text
