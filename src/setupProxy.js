@@ -6,7 +6,6 @@ module.exports = function (app) {
     createProxyMiddleware({
       target: "https://api.iconfinder.com",
       pathRewrite: { "^/api": "" },
-
       changeOrigin: true,
     })
   );

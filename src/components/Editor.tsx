@@ -209,10 +209,11 @@ export default function Editor() {
         for (let i = items.length - 1; i >= 0; i--) {
           if (items[i].containsPoint(pointer)) {
             isMouseOver = true;
-
-            items.forEach((el) => {
-              c.setActiveObject(el);
-            });
+            if (items.length === 1) c.setActiveObject(items[0]);
+            else {
+              const newGroup = new fabric.ActiveSelection(items);
+              c.setActiveObject(newGroup);
+            }
             break;
           }
         }

@@ -22,11 +22,10 @@ export default function ContextMenu({ canvas, visible, pointer, setVisible }) {
   }, []);
 
   const handleDeleteObject = () => {
-    const items = canvas.getObjects();
-    for (let i = 0; i < items.length; i++) {
-      canvas.remove(items[i]);
-    }
-
+    const items = canvas.getActiveObjects();
+    items.forEach((item) => {
+      canvas.remove(item);
+    });
     canvas.discardActiveObject().renderAll();
   };
 
@@ -38,15 +37,13 @@ export default function ContextMenu({ canvas, visible, pointer, setVisible }) {
       canvas.bringForward(items[i]);
     }
 
-    if (items.length > 1) canvas.bringForward(lastItem);
-
     canvas.discardActiveObject().renderAll();
   };
 
   const handleSendBackwards = () => {
     const items = canvas.getActiveObjects();
 
-    for (let i = 0; i < items.length; i++) {
+    for (let i = items.length - 1; i >= 0; i--) {
       canvas.sendBackwards(items[i]);
     }
 
