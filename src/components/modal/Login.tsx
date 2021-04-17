@@ -126,7 +126,10 @@ export default function Login(props) {
 
   return (
     <React.Fragment>
-      <div className="modal-title">로그인</div>
+      <div className="modal-title">
+        <span className="logo">logoyogo</span>
+        <span className="title">로그인</span>
+      </div>
       <div className="modal-group">
         <input
           className={isEmailValid ? "" : "invalid"}

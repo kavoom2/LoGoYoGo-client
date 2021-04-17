@@ -193,7 +193,7 @@ export default function Nav() {
     <>
       <div id="nav">
         <span className="title" onClick={() => history.push("/")}>
-          LOGOYOGO
+          logoyogo
         </span>
         {isMobile ? (
           !isMenuOpen ? (

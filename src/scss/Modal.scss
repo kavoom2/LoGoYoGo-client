@@ -14,7 +14,11 @@
   background-color: rgba(54, 60, 77, 0.8);
 
   #modal-container {
-    // height: 60rem;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 
     background: #ffffff;
     opacity: 1;
@@ -50,11 +54,31 @@
       }
 
       .modal-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         margin: 0rem;
         margin-top: -7rem;
         margin-bottom: 1.5rem;
         padding: 0rem;
-        font-size: $font-size-H3;
+        .logo {
+          font-size: $font-size-H3;
+          font-family: "Questrial";
+          letter-spacing: 0.2rem;
+          font-weight: 600;
+
+          background: linear-gradient(
+            39deg,
+            rgba(70, 101, 217, 1) 9%,
+            rgba(161, 118, 253, 1) 88%
+          );
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .title {
+          margin-top: 0.5rem;
+          font-size: $font-size-H3;
+        }
       }
 
       button {
