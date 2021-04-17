@@ -124,7 +124,7 @@ export default function SignUp(props) {
       if (event.target.value.length === 0) {
         setIsRePasswordValid(true);
         setMsgRePassword("");
-      } else if (password === rePassword) {
+      } else if (password === event.target.value) {
         setIsRePasswordValid(true);
         setMsgRePassword("");
       } else {
@@ -136,7 +136,10 @@ export default function SignUp(props) {
 
   return (
     <React.Fragment>
-      <div className="modal-title">회원가입</div>
+      <div className="modal-title">
+        <span className="logo">logoyogo</span>
+        <span className="title">회원가입</span>
+      </div>
       <div className="modal-group">
         <input
           className={isUsernameValid ? "" : "invalid"}

@@ -6,6 +6,10 @@ export default function Preview(props) {
 
   return (
     <React.Fragment>
+      <div className="modal-title">
+        <span className="logo">logoyogo</span>
+        <span className="title">미리보기</span>
+      </div>
       <div className="preview-scroll">
         <div className="preview-container">
           <span id="WebPage" className="preview-item">
