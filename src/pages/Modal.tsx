@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import Login from "../components/modal/Login";
 import SignUp from "../components/modal/SignUp";
 import Preview from "../components/modal/Preview";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 export default function Modal() {
   const dispatch = useDispatch();
@@ -41,6 +43,11 @@ export default function Modal() {
     dispatch(Actions.setModalType(""));
   };
 
+  const handleCloseModalInstant = () => {
+    dispatch(Actions.setModalStatus(false));
+    dispatch(Actions.setModalType(""));
+  };
+
   const handleModal = (status: boolean, type: string) => {
     dispatch(Actions.setModalStatus(status));
     dispatch(Actions.setModalType(type));
@@ -65,8 +72,12 @@ export default function Modal() {
         handleCloseModal(e);
       }}
     >
-      <div id="modal-header">LOGOYOGO</div>
       <div id="modal-container">
+        <div id="modal-header">
+          <button onClick={handleCloseModalInstant}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+        </div>
         <div id="modal-section">
           {ModalTypes[ModalTypesIndex.indexOf(modalType)]}
         </div>

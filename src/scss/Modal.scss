@@ -11,20 +11,30 @@
 
   justify-content: center;
   align-items: center;
-  background-color: rgba(9, 17, 24, 0.95);
-
-  #modal-header {
-    font-size: 6rem;
-    font-weight: 700;
-    color: white;
-  }
+  background-color: rgba(54, 60, 77, 0.8);
 
   #modal-container {
-    height: 60rem;
+    // height: 60rem;
 
-    background: $color-background;
+    background: #ffffff;
     opacity: 1;
     border-radius: 0.5rem;
+
+    #modal-header {
+      margin-top: -1rem;
+      text-align: right;
+      button {
+        color: $color-font-sub;
+        font-size: $font-size-H3;
+        opacity: 0.8;
+        transition: 0.2s;
+      }
+
+      button:hover {
+        color: $color-font-main;
+        opacity: 0.8;
+      }
+    }
 
     #modal-section {
       display: flex;
@@ -39,21 +49,146 @@
         display: block;
       }
 
-      input {
-        width: 40rem;
-        // height: 3.5rem;
+      .modal-title {
+        margin: 0rem;
+        margin-top: -7rem;
+        margin-bottom: 1.5rem;
+        padding: 0rem;
+        font-size: $font-size-H3;
       }
 
       button {
         width: 100%;
+        max-width: 80vw;
+        background: #a176fd;
+        color: $color-item-container !important;
+        transition: 0.2s;
+
+        &:hover {
+          background-color: rgb(215, 134, 223);
+        }
+      }
+
+      .modal-social {
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .social-btns {
+        display: flex;
+        margin-top: 3rem;
+        button {
+          display: flex;
+          justify-content: center;
+          background: transparent;
+
+          padding: 0rem;
+          margin: 0rem;
+          padding-left: 0.7rem;
+          padding-right: 0.7rem;
+          transition: 0.2s;
+
+          * {
+            color: #a176fd;
+            font-size: 4.8rem;
+          }
+
+          &:hover {
+            * {
+              color: rgb(215, 134, 223);
+            }
+          }
+        }
+      }
+
+      .modal-comment {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        margin-bottom: 0rem;
+
+        .btn-login {
+          margin-left: 0.8rem;
+          color: #a176fd;
+
+          &:hover {
+            cursor: pointer;
+            color: rgb(215, 134, 223);
+          }
+        }
+      }
+
+      .modal-group {
+        position: relative;
+        margin-bottom: 2rem;
+
+        input {
+          display: block;
+          width: 40rem;
+          padding: 0rem;
+          padding-top: 1.5rem;
+          background: transparent;
+          border-bottom: 1.5px solid $color-font-sub;
+          border-radius: 0rem;
+          opacity: 0.8;
+          outline: none;
+
+          font-size: $font-size-H5;
+          height: 5rem;
+          letter-spacing: 0.1rem;
+
+          &[type*="password"] {
+            letter-spacing: 0.6rem;
+          }
+
+          &:focus {
+            border-bottom: 1.5px solid #22cc87;
+          }
+
+          &:valid {
+            border-bottom: 1.5px solid #22cc87;
+          }
+
+          &[class*="invalid"] {
+            border-bottom: 1.5px solid #dc0812;
+          }
+        }
+
+        label {
+          color: $color-font-sub;
+          font-size: $font-size-H5;
+          position: absolute;
+          top: 2.2rem;
+          left: 0rem;
+
+          transition: 0.2s;
+        }
+
+        input:focus ~ label,
+        input:valid ~ label {
+          transform-origin: left;
+          top: -0.2rem;
+          transform: scale(0.85);
+          color: #22cc87;
+        }
+
+        input[class*="invalid"] ~ label {
+          color: #dc0812;
+        }
+
+        span {
+          height: $font-size-H6;
+          font-size: $font-size-H6;
+          color: #dc0812;
+          padding-top: 0.3rem;
+        }
       }
 
       div {
         margin-bottom: 1.5rem;
-      }
-
-      .btn-login {
-        color: gray;
       }
 
       .preview-container {
@@ -140,26 +275,32 @@
   #modal-background {
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  #modal-header {
-    font-size: 4rem !important;
-    font-weight: 700;
-    color: white;
+    width: 100vw;
+    height: 100vh;
+    margin: 0rem !important;
+    padding: 0rem !important;
   }
 
   #modal-container {
-    height: 70vh !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0rem !important;
 
     #modal-section {
-      width: 95vw !important;
+      width: 100% !important;
+    }
+
+    .modal-group {
       * {
-        width: 100% !important;
+        width: 80vw !important;
       }
     }
 
-    overflow-y: auto;
+    .preview-scroll {
+      width: 100vw;
+      overflow: auto;
+      margin-top: -5rem;
+    }
 
     .preview-container {
       display: block !important;
@@ -168,10 +309,8 @@
       align-items: center;
 
       .preview-item {
-        background-color: khaki;
         width: 90vw !important;
         height: 90vw !important;
-        margin: auto !important;
         margin-bottom: 5rem !important;
         padding: 0 !important;
       }
@@ -205,8 +344,8 @@
         width: 17vw !important;
         height: 17vw !important;
         position: relative;
-        left: 38% !important;
-        top: 36.9% !important;
+        left: 39% !important;
+        top: 37.3% !important;
       }
 
       #b-card1 {
@@ -218,11 +357,11 @@
       }
 
       #b-card2 {
-        width: 15vw !important;
-        height: 15vw !important;
+        width: 18vw !important;
+        height: 18vw !important;
         position: relative;
         left: 39% !important;
-        top: 33.5% !important;
+        top: 31% !important;
       }
     }
   }

@@ -57,8 +57,10 @@ input {
 
   .title {
     font-size: $font-size-H3;
+    font-family: "Questrial";
     color: $color-container;
-    font-weight: 700;
+    letter-spacing: -0.1rem;
+    font-weight: 600;
   }
 }
 

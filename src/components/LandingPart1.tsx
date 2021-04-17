@@ -31,7 +31,7 @@ export default function LandingPart1({ handleLogoName }) {
         </div>
         <div className="subtitle">
           과제, 프로젝트에 쓸 로고가 필요한가요? 누구나 3분이면 간단히 만들 수
-          있습니다. 아래 로고를 입력하여 지금 바로 시작해보세요.
+          있습니다. 아래 로고를 입력하고 지금 바로 시작해보세요.
         </div>
         <div className="landing1-button-container">
           <input
