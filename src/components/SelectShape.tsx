@@ -35,34 +35,47 @@ export default function selectShape() {
         </div>
         <div className="body-item-outer-container">
           <div className="body-item-container">
-            <div className="item" onClick={() => handleIndex(0)}>
-              원
-            </div>
-            <div className="item" onClick={() => handleIndex(1)}>
-              직각 삼각형
-            </div>
-            <div className="item" onClick={() => handleIndex(2)}>
-              정상각형
-            </div>
-            <div className="item" onClick={() => handleIndex(3)}>
-              사다리꼴
-            </div>
-            <div className="item" onClick={() => handleIndex(4)}>
-              별
-            </div>
-            <div className="item" onClick={() => handleIndex(5)}>
-              말풍선
-            </div>
-            <div className="item" onClick={() => handleIndex(6)}>
-              구름
-            </div>
             <div
-              className="item"
+              id="sample1"
+              className="item-Shape"
+              onClick={() => handleIndex(0)}
+            ></div>
+            <div
+              id="sample2"
+              className="item-Shape"
+              onClick={() => handleIndex(1)}
+            ></div>
+            <div
+              id="sample3"
+              className="item-Shape"
+              onClick={() => handleIndex(2)}
+            ></div>
+            <div
+              id="sample4"
+              className="item-Shape"
+              onClick={() => handleIndex(3)}
+            ></div>
+            <div
+              id="sample5"
+              className="item-Shape"
+              onClick={() => handleIndex(4)}
+            ></div>
+            <div
+              id="sample6"
+              className="item-Shape"
+              onClick={() => handleIndex(5)}
+            ></div>
+            <div
+              id="sample7"
+              className="item-Shape"
+              onClick={() => handleIndex(6)}
+            ></div>
+            <div
+              id="sample8"
+              className="item-Shape"
               onClick={() => history.push("/maker/editor")}
               style={{ backgroundImage: `url(${sampleimage4})` }}
-            >
-              SAMPLE
-            </div>
+            ></div>
             {/* <div className="item">SAMPLE</div>
             <div className="item">SAMPLE</div>
             <div className="item">SAMPLE</div>
