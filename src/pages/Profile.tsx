@@ -22,9 +22,6 @@ export default function Profile() {
   const accessToken = useSelector(
     (state: RootState) => state.accessTokenReducer.accessToken
   );
-  const handleRedirectMain = (): void => {
-    history.push("/");
-  };
 
   console.log("profile islogin", isLogin);
   const [profileOn, setProfileOn] = useState(false);
@@ -59,9 +56,6 @@ export default function Profile() {
     <div>
       <Nav />
       <aside className="profile-aside">
-        <div>
-          <div onClick={handleRedirectMain}>LOGOYOGO</div>
-        </div>
         <div>
           <button className="profile-aside-btn" onClick={handelMyLogo}>
             내 로고

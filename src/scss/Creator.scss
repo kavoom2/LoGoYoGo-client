@@ -84,7 +84,19 @@
 
       .item-position:hover {
         cursor: pointer;
+        opacity: 0.7;
       }
+
+      .item-position-margin {
+        display: inline-block;
+        border-radius: 3rem;
+        transition: 0.5s ease;
+      }
+
+      .item-position-margin:hover {
+        background-color: rgb(233, 233, 233);
+      }
+
       .item-Shape {
         display: inline-block;
         width: 20vw;

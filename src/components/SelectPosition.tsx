@@ -31,27 +31,33 @@ export default function selectShape() {
         </div>
         <div className="body-item-outer-container">
           <div className="body-item-container">
-            <div
-              className="item-position"
-              onClick={() => handlePosition(-50)}
-              style={{
-                backgroundImage: `url(${leftposition}) `,
-              }}
-            ></div>
-            <div
-              className="item-position"
-              onClick={() => handlePosition(80)}
-              style={{
-                backgroundImage: `url(${middleposition}) `,
-              }}
-            ></div>
-            <div
-              className="item-position"
-              onClick={() => handlePosition(200)}
-              style={{
-                backgroundImage: `url(${rightposition}) `,
-              }}
-            ></div>
+            <div className="item-position-margin">
+              <div
+                className="item-position"
+                onClick={() => handlePosition(-50)}
+                style={{
+                  backgroundImage: `url(${leftposition}) `,
+                }}
+              ></div>
+            </div>
+            <div className="item-position-margin">
+              <div
+                className="item-position"
+                onClick={() => handlePosition(80)}
+                style={{
+                  backgroundImage: `url(${middleposition}) `,
+                }}
+              ></div>
+            </div>
+            <div className="item-position-margin">
+              <div
+                className="item-position"
+                onClick={() => handlePosition(200)}
+                style={{
+                  backgroundImage: `url(${rightposition}) `,
+                }}
+              ></div>
+            </div>
           </div>
         </div>
       </div>
