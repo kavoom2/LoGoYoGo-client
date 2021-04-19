@@ -7,6 +7,7 @@ const PORT = process.env.REACT_APP_SERVER_PORT;
 const URL_SERVER = `${SCHEME}://${HOST}:${PORT}`;
 const API_ICON = process.env.REACT_APP_SERVER_API_ICONFINDER;
 const API_FONT = process.env.REACT_APP_SERVER_API_GOOGLEFONT;
+const URL_ICONFINDER = process.env.REACT_APP_SERVER_URL_ICONFINDER;
 
 // --------- 유효성 검사 메서드입니다 --------- //
 
@@ -34,7 +35,7 @@ export const isValidPassword = (str: any) => {
 export const Fetch_Icon = {
   searchIcons: (keyword: string): Array<Object> => {
     const count = 60;
-    const URL = `/api/v4/icons/search?query=${keyword}&vector=1&count=${count}&premium=0`;
+    const URL = `${URL_ICONFINDER}/v4/icons/search?query=${keyword}&vector=1&count=${count}&premium=0`;
     console.log(URL);
 
     const result = axios
@@ -48,6 +49,7 @@ export const Fetch_Icon = {
       })
       .then((data: any) => {
         console.log(data);
+        console.log(data.data);
         return data.data.icons;
       })
       .catch((err: any) => console.log(err));
@@ -56,7 +58,7 @@ export const Fetch_Icon = {
   },
 
   getIcon: (iconId: number): any => {
-    const URL = `/api/v4/icons/${iconId}`;
+    const URL = `${URL_ICONFINDER}/v4/icons/${iconId}`;
 
     const result = axios
       .get(URL, {
@@ -77,7 +79,7 @@ export const Fetch_Icon = {
 
   getImageByUrl: (url: string): any => {
     const cuttedUrl = url.split("https://api.iconfinder.com/v4/icons/")[1];
-    const URL = `/api/v4/icons/${cuttedUrl}`;
+    const URL = `${URL_ICONFINDER}/v4/icons/${cuttedUrl}`;
 
     const result = axios
       .get(URL, {
