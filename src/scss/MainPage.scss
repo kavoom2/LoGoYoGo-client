@@ -26,6 +26,7 @@
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  word-break: keep-all;
   #section2,
   #section3,
   #section4 {
@@ -366,25 +367,47 @@
   .container {
     display: flex;
     flex-direction: column;
-    max-width: 50rem;
-    height: 30rem;
+    max-width: 40rem;
+    height: 100%;
+    justify-content: center;
+
+    .label {
+      width: auto;
+      height: auto;
+      span {
+        background: #ece9ff;
+        text-align: center;
+        border-radius: 5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 1.2rem;
+        padding-bottom: 0.9rem;
+
+        color: #725fd8;
+        font-size: 1.4rem;
+        font-family: "NanumBarunGothic";
+        font-weight: 800;
+        letter-spacing: 0.05rem;
+      }
+      margin-bottom: 1.5rem;
+    }
 
     .title {
-      font-size: $font-size-H1;
-      font-weight: 700;
+      font-size: 4.3rem;
+      font-weight: 800;
       letter-spacing: 0.2rem;
-      line-height: 5rem;
+      line-height: 6.5rem;
       font-family: "NanumBarunGothic";
-      color: #0a0916;
+      color: #3f3c4e;
 
       margin-bottom: 2.5rem;
     }
     .subtitle {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-family: NanumSquareRound;
       letter-spacing: 0.05rem;
-      line-height: 3.7rem;
-      color: #323137;
+      line-height: 3rem;
+      color: #8ca0b7;
     }
   }
   .container2 {
@@ -402,11 +425,68 @@
     margin-left: 8rem;
     z-index: 1;
   }
+
+  .container3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100rem;
+    min-width: 60rem;
+    width: 100vw;
+
+    margin-left: -5rem;
+    z-index: 1;
+
+    img {
+      margin-right: -10rem;
+      width: 100%;
+    }
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
 }
 @media (max-width: 768px,) {
   // * MOBILE: max-width: 768px;
   #container-mainpage > #section2 {
+    height: auto;
     flex-direction: column;
+    padding: 0rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+    .container {
+      height: auto;
+      text-align: center;
+
+      .title {
+        font-size: 2.8rem;
+        line-height: 4.2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+      }
+    }
+
+    .container3 {
+      max-width: 98vw;
+      min-width: 98vw;
+      width: 98vw;
+      margin: 0rem;
+      margin-top: 3rem;
+
+      img {
+        margin: 0rem;
+      }
+    }
   }
 }
 
@@ -423,7 +503,6 @@
 
   width: 100%;
   height: 100%;
-  display: flex;
 
   padding-left: 10rem;
   padding-right: 10rem;
@@ -431,26 +510,48 @@
   .container {
     display: flex;
     flex-direction: column;
-    max-width: 50rem;
-    height: 30rem;
+    max-width: 40rem;
+    height: 100%;
+    justify-content: center;
     margin-left: 8rem;
 
+    .label {
+      width: auto;
+      height: auto;
+      span {
+        background: #ece9ff;
+        text-align: center;
+        border-radius: 5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 1.2rem;
+        padding-bottom: 0.9rem;
+
+        color: #725fd8;
+        font-size: 1.4rem;
+        font-family: "NanumBarunGothic";
+        font-weight: 800;
+        letter-spacing: 0.05rem;
+      }
+      margin-bottom: 1.5rem;
+    }
+
     .title {
-      font-size: $font-size-H1;
-      font-weight: 700;
+      font-size: 4.3rem;
+      font-weight: 800;
       letter-spacing: 0.2rem;
-      line-height: 5rem;
+      line-height: 6.5rem;
       font-family: "NanumBarunGothic";
-      color: #0a0916;
+      color: #3f3c4e;
 
       margin-bottom: 2.5rem;
     }
     .subtitle {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-family: NanumSquareRound;
       letter-spacing: 0.05rem;
-      line-height: 3.7rem;
-      color: #323137;
+      line-height: 3rem;
+      color: #8ca0b7;
     }
   }
   .container2 {
