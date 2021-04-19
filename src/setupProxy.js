@@ -7,6 +7,7 @@ module.exports = function (app) {
       target: "https://api.iconfinder.com",
       pathRewrite: { "^/api": "" },
       changeOrigin: true,
+      headers: { Accept: "application/json" },
     })
   );
 };
