@@ -1,12 +1,12 @@
 import { useHistory } from "react-router-dom";
-import sample from "../dummy/sample";
+import creator from "../dummy/creator";
 
 export default function LandingPart1({ handleLogoName }) {
   const history = useHistory();
 
   const logoname = (): void => {
     if (sessionStorage.getItem("logo")) {
-      sample[4].objects[1].text = sessionStorage.getItem("logo");
+      creator[0].objects[1].text = sessionStorage.getItem("logo");
       sessionStorage.removeItem("logo");
       history.push("/maker/selectshape");
     } else {
