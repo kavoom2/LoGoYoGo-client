@@ -1,23 +1,23 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import sample from "../dummy/sample";
+import creator from "../dummy/creator";
 import shape from "../dummy/shape";
-import sampleimage4 from "../images/sample4.png";
+import samplemake from "../images/sample/samplemake.png";
 
 export default function selectShape() {
   const history = useHistory();
 
   const handleIndex = (idx: number): void => {
     if (idx === 0) {
-      sample[4].objects[0].type = "ellipse";
-      sample[4].objects[0].rx = 100;
-      sample[4].objects[0].ry = 100;
+      creator[0].objects[0].type = "ellipse";
+      creator[0].objects[0].rx = 100;
+      creator[0].objects[0].ry = 100;
       history.push("/maker/selectcolor");
     } else {
-      sample[4].objects[0].type = "path";
-      sample[4].objects[0].path = shape[idx - 1];
-      delete sample[4].objects[0].rx;
-      delete sample[4].objects[0].ry;
+      creator[0].objects[0].type = "path";
+      creator[0].objects[0].path = shape[idx - 1];
+      delete creator[0].objects[0].rx;
+      delete creator[0].objects[0].ry;
       history.push("/maker/selectcolor");
     }
   };
@@ -74,7 +74,7 @@ export default function selectShape() {
               id="sample8"
               className="item-Shape"
               onClick={() => history.push("/maker/editor")}
-              style={{ backgroundImage: `url(${sampleimage4})` }}
+              style={{ backgroundImage: `url(${samplemake})` }}
             ></div>
             {/* <div className="item">SAMPLE</div>
             <div className="item">SAMPLE</div>

@@ -49,3 +49,16 @@
 .profile-label {
   border-top: 1px solid gray;
 }
+
+.mylogo {
+  display: inline-block;
+  width: 23vw;
+  height: 20vw;
+  margin: 1rem;
+  background-size: cover;
+}
+
+.mylogo:hover {
+  border: solid black;
+  border-radius: 20px;
+}

@@ -153,6 +153,20 @@
         cursor: pointer;
         border: solid 2.5px;
       }
+
+      .item-sample {
+        display: inline-block;
+        width: 23vw;
+        height: 20vw;
+        margin: 1rem;
+        background-size: cover;
+      }
+
+      .item-sample:hover {
+        cursor: pointer;
+        border: solid black;
+        border-radius: 20px;
+      }
     }
   }
 }
@@ -243,6 +257,14 @@
         height: 12vw !important;
         border-radius: 100% !important;
         margin: 0.5rem !important;
+      }
+
+      .item-sample {
+        display: inline-block;
+        width: 40vw !important;
+        height: 30vw !important;
+        margin: 0.5rem !important;
+        background-size: cover;
       }
     }
   }

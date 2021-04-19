@@ -1,10 +1,14 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import sample from "../dummy/sample";
-import sampleimage1 from "../images/sample1.png";
-import sampleimage2 from "../images/sample2.png";
-import sampleimage3 from "../images/sample3.png";
-import sampleimage4 from "../images/sample4.png";
+import sampleimage1 from "../images/sample/sample1.png";
+import sampleimage2 from "../images/sample/sample2.png";
+import sampleimage3 from "../images/sample/sample3.png";
+import sampleimage4 from "../images/sample/sample4.png";
+import sampleimage5 from "../images/sample/sample5.png";
+import sampleimage6 from "../images/sample/sample6.png";
+import sampleimage7 from "../images/sample/sample7.png";
+import samplemake from "../images/sample/samplemake.png";
 
 export default function Creator() {
   const history = useHistory();
@@ -28,37 +32,47 @@ export default function Creator() {
         <div className="body-item-outer-container">
           <div className="body-item-container">
             <div
-              className="item"
+              className="item-sample"
               onClick={() => samplemaker(0)}
               style={{
                 backgroundImage: `url(${sampleimage1}) `,
               }}
             ></div>
             <div
-              className="item"
+              className="item-sample"
               onClick={() => samplemaker(1)}
               style={{ backgroundImage: `url(${sampleimage2})` }}
             ></div>
             <div
-              className="item"
+              className="item-sample"
               onClick={() => samplemaker(2)}
               style={{ backgroundImage: `url(${sampleimage3})` }}
             ></div>
             <div
-              className="item"
+              className="item-sample"
+              onClick={() => samplemaker(3)}
               style={{ backgroundImage: `url(${sampleimage4})` }}
+            ></div>
+            <div
+              className="item-sample"
+              onClick={() => samplemaker(4)}
+              style={{ backgroundImage: `url(${sampleimage5})` }}
+            ></div>
+            <div
+              className="item-sample"
+              onClick={() => samplemaker(5)}
+              style={{ backgroundImage: `url(${sampleimage6})` }}
+            ></div>
+            <div
+              className="item-sample"
+              onClick={() => samplemaker(6)}
+              style={{ backgroundImage: `url(${sampleimage7})` }}
+            ></div>
+            <div
+              className="item-sample"
+              style={{ backgroundImage: `url(${samplemake})` }}
               onClick={() => history.push("/maker/editor")}
             ></div>
-            {/* <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div> */}
           </div>
         </div>
       </div>
