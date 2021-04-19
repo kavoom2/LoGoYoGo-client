@@ -3,8 +3,11 @@ export default function LandingPart3() {
     <div id="section3">
       <div className="container2"></div>
       <div className="container">
+        <div className="label">
+          <span>더 수정하고 싶어요....</span>
+        </div>
         <div className="title">
-          쉽고 다양한 커스터마이징 기능을 사용해보세요
+          쉽고 다양한 커스터마이징 기능을 사용해보세요.
         </div>
         <div className="subtitle">
           에디터에서 로고의 컬러 팔레트, 텍스트 상자, 도형, 클립아트 등을
