@@ -87,8 +87,8 @@
       }
       .item-Shape {
         display: inline-block;
-        width: 20vw;
-        height: 21.3vw;
+        width: 18vw;
+        height: 18vw;
         margin: 2rem;
         border: solid black;
         border-radius: 7vw;
@@ -96,22 +96,23 @@
       }
       .item-Shape:hover {
         cursor: pointer;
+        transform: scale(1.1);
       }
       #sample1 {
         background-image: url(../images/test/sample1.png);
-        background-position: -2.3vw;
+        background-position: -3vw;
       }
       #sample2 {
         background-image: url(../images/test/sample2.png);
-        background-position: -2vw;
+        background-position: -1.3vw;
       }
       #sample3 {
         background-image: url(../images/test/sample3.png);
-        background-position: -2.3vw;
+        background-position: -0.2vw;
       }
       #sample4 {
         background-image: url(../images/test/sample4.png);
-        background-position: -2.5vw;
+        background-position: -1vw;
       }
       #sample5 {
         background-image: url(../images/test/sample5.png);
@@ -119,14 +120,15 @@
       }
       #sample6 {
         background-image: url(../images/test/sample6.png);
-        background-position: -3vw;
+        background-position: -0.6vw;
       }
       #sample7 {
         background-image: url(../images/test/sample7.png);
-        background-position: -2.5vw;
+        background-position: -1.4vw;
       }
       #sample8 {
-        background-position: -4vw;
+        background-image: url(../images/test/test1.png);
+        background-position: -2.7vw;
       }
       .item-color {
         width: 9vw;
@@ -208,12 +210,12 @@
         margin-right: 2rem !important;
       }
       .item-Shape {
-        width: 19.5vw !important;
+        width: 18vw !important;
         height: 16vw !important;
         border-radius: 4vmin !important;
       }
       #sample1 {
-        background-position: 0.1px !important;
+        background-position: -1.5vw !important;
       }
       #sample2 {
         background-position: 0.1px !important;
@@ -225,7 +227,7 @@
         background-position: 0.1px !important;
       }
       #sample5 {
-        background-position: 0.1px !important;
+        background-position: -1vw !important;
       }
       #sample6 {
         background-position: 0.1px !important;
@@ -234,8 +236,8 @@
         background-position: 0.1px !important;
       }
       #sample8 {
-        background-position: 0.1vmin !important;
-        background-image: url(../images/test/sample8.png) !important;
+        background-position: -1vw !important;
+        background-image: url(../images/test/test1.png) !important;
         background-size: 150px !important;
         background-repeat: no-repeat !important;
       }
