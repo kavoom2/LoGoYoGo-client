@@ -2,14 +2,12 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ProfileMain from "../components/ProfileMain";
 import ProfilePassword from "../components/ProfilePassword";
 import { useHistory } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../reducers/index";
 import { Actions } from "../actions/index";
 import "../scss/Profile.scss";
 import Nav from "../components/Nav";
-import Mylogo from "../components/Mylogo";
-import { logRoles } from "@testing-library/dom";
 
 const axios: any = require("axios");
 axios.default.withCredentials = true;
@@ -77,7 +75,7 @@ export default function Profile() {
       </aside>
       <section className="profile-container">
         {!profileOn ? (
-          <div>{/* <Mylogo logos={logos} />내 로고가 들어올 예정 */}</div>
+          <div>내 로고가 들어올 예정</div>
         ) : (
           <div>
             <div>
