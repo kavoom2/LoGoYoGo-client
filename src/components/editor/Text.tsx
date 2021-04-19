@@ -27,7 +27,7 @@ export default function Text({
 
     // TODO: 슬라이더 Rerender 바 색상 렌더
     const slider = document.getElementById("slider-text");
-    const value = ((textSize - 1) / (100 - 1)) * 100;
+    const value = ((textSize - 1) / (250 - 1)) * 100;
     slider.style.background =
       "linear-gradient(to right, #859ffd 0%, #859ffd " +
       value +
@@ -221,7 +221,7 @@ export default function Text({
           <input
             type="range"
             min="1"
-            max="100"
+            max="250"
             id="slider-text"
             className="slider"
             onChange={handleChangeSize}
