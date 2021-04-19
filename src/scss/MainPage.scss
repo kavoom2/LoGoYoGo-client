@@ -26,6 +26,11 @@
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  #section2,
+  #section3,
+  #section4 {
+    border-top: 1px solid $color-border-landing;
+  }
 }
 
 #container-mainpage > #section1 {
@@ -343,130 +348,124 @@
 // TODO: Main Page Part 2
 
 #container-mainpage > #section2 {
+  display: flex;
+  flex-direction: row;
   position: relative;
   z-index: 1;
-  height: 100%;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: #f3f5f7;
 
-  * {
-    margin: auto;
-  }
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  padding-left: 10rem;
+  padding-right: 10rem;
 
   .container {
     display: flex;
     flex-direction: column;
-    width: 80rem;
+    max-width: 50rem;
     height: 30rem;
-    border: solid black;
 
     .title {
-      text-align: center;
-      border: solid black;
-      font-size: 6rem;
+      font-size: $font-size-H1;
       font-weight: 700;
+      letter-spacing: 0.2rem;
+      line-height: 5rem;
       font-family: "NanumBarunGothic";
-      margin-top: 50px;
+      color: #0a0916;
+
+      margin-bottom: 2.5rem;
     }
     .subtitle {
-      border: solid black;
-      text-align: center;
-      margin-bottom: 80px;
+      font-size: 2rem;
       font-family: NanumSquareRound;
+      letter-spacing: 0.05rem;
+      line-height: 3.7rem;
+      color: #323137;
     }
   }
   .container2 {
     display: flex;
-    flex-direction: row;
-    padding: 0.5rem;
-    margin: 5rem;
-    border: solid black;
+    flex-direction: column;
+    max-width: 70rem;
+    width: 100%;
+    height: 50rem;
+    background-position: center;
+    background-size: 600px;
+    border-radius: 1rem;
+    background: #eeeeee;
+    border: 1px solid $color-border-landing;
+
+    margin-left: 8rem;
+    z-index: 1;
   }
 }
 @media (max-width: 768px,) {
   // * MOBILE: max-width: 768px;
   #container-mainpage > #section2 {
     flex-direction: column;
-    padding-top: 5rem;
-
-    :nth-child(1) {
-      display: none;
-    }
-
-    .container {
-      height: 80%;
-      width: 100%;
-      margin: 0;
-
-      .title {
-        font-size: 3.5rem;
-        text-align: center;
-      }
-
-      input {
-        font-size: 2.5rem;
-      }
-
-      .subtitle {
-        font-size: 1.5rem;
-        text-align: center;
-      }
-    }
   }
 }
 
 ////////////////////////////main3
 
 #container-mainpage > #section3 {
-  height: 100%;
   display: flex;
   flex-direction: row;
+  position: relative;
+  z-index: 1;
   justify-content: center;
   align-items: center;
+  background-color: $color-background;
 
-  :nth-child(1) {
-    margin-right: 5rem;
-  }
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  padding-left: 10rem;
+  padding-right: 10rem;
 
   .container {
     display: flex;
     flex-direction: column;
-    width: 60rem;
-    height: 50rem;
-    border: solid black;
-
-    * {
-      padding: 1rem;
-      margin: 0.5rem;
-    }
-
-    :nth-child(2) {
-      // TODO 임시용입니다.
-      background-color: transparent;
-    }
+    max-width: 50rem;
+    height: 30rem;
+    margin-left: 8rem;
 
     .title {
-      font-size: 5rem;
+      font-size: $font-size-H1;
       font-weight: 700;
-      border: solid black;
-    }
+      letter-spacing: 0.2rem;
+      line-height: 5rem;
+      font-family: "NanumBarunGothic";
+      color: #0a0916;
 
+      margin-bottom: 2.5rem;
+    }
     .subtitle {
       font-size: 2rem;
-      font-weight: 500;
-      border: solid black;
+      font-family: NanumSquareRound;
+      letter-spacing: 0.05rem;
+      line-height: 3.7rem;
+      color: #323137;
     }
+  }
+  .container2 {
+    display: flex;
+    flex-direction: column;
+    max-width: 70rem;
+    width: 100%;
+    height: 50rem;
+    background-position: center;
+    background-size: 600px;
+    border-radius: 1rem;
+    background: #eeeeee;
+    border: 1px solid $color-border-landing;
 
-    input {
-      font-size: 3rem;
-      padding: 1rem;
-    }
-
-    button {
-      font-size: 2rem;
-    }
+    z-index: 1;
   }
 }
 @media (max-width: 768px,) {

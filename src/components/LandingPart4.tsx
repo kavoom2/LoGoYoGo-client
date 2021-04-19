@@ -26,7 +26,7 @@ export default function LandingPart4({ handleLogoName }) {
   return (
     <div id="Footer">
       <div className="container">
-        <div className="title">나만의 멋진로고를 지금 만들어볼까요?</div>
+        <div className="title">나만의 멋진 로고를 지금 만들어볼까요?</div>
         <div className="subtitle">
           간단한 몇 가지의 질의응답 통해 자신만의 로고를 제작할수 있습니다.
           <br />
