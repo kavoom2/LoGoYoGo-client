@@ -41,7 +41,7 @@ export const Fetch_Icon = {
       .get(URL, {
         headers: {
           Authorization: `Bearer ${API_ICON}`,
-          // "Content-Type": "application/json",
+          "Content-Type": "application/json",
         },
         // withCredentials: true,
         // crossDomain: true,
@@ -62,7 +62,7 @@ export const Fetch_Icon = {
       .get(URL, {
         headers: {
           Authorization: `Bearer ${API_ICON}`,
-          // "Content-Type": "application/json",
+          "Content-Type": "application/json",
         },
         // withCredentials: true,
         // crossDomain: true,
@@ -83,7 +83,7 @@ export const Fetch_Icon = {
       .get(URL, {
         headers: {
           Authorization: `Bearer ${API_ICON}`,
-          // "Content-Type": "application/json",
+          "Content-Type": "application/json",
         },
         // withCredentials: true,
         // crossDomain: true,
