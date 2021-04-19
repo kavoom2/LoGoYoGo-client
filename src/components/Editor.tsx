@@ -164,7 +164,7 @@ export default function Editor() {
 
           if (!slider) return;
           slider.value = String(event.target.fontSize);
-          const value = ((event.target.fontSize - 1) / (100 - 1)) * 100;
+          const value = ((event.target.fontSize - 1) / (250 - 1)) * 100;
           slider.style.background =
             "linear-gradient(to right, #859ffd 0%, #859ffd " +
             value +
@@ -309,7 +309,7 @@ export default function Editor() {
         fontFamily.value = String(event.target.fontFamily);
         fontWeight.value = String(event.target.fontWeight);
 
-        const value = ((event.target.fontSize - 1) / (100 - 1)) * 100;
+        const value = ((event.target.fontSize - 1) / (250 - 1)) * 100;
         slider.style.background =
           "linear-gradient(to right, #859ffd 0%, #859ffd " +
           value +
@@ -376,7 +376,7 @@ export default function Editor() {
         fontFamily.value = String(event.target.fontFamily);
         fontWeight.value = String(event.target.fontWeight);
 
-        const value = ((event.target.fontSize - 1) / (100 - 1)) * 100;
+        const value = ((event.target.fontSize - 1) / (250 - 1)) * 100;
         slider.style.background =
           "linear-gradient(to right, #859ffd 0%, #859ffd " +
           value +

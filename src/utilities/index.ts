@@ -35,6 +35,7 @@ export const Fetch_Icon = {
   searchIcons: (keyword: string): Array<Object> => {
     const count = 60;
     const URL = `/api/v4/icons/search?query=${keyword}&vector=1&count=${count}&premium=0`;
+    console.log(URL);
 
     const result = axios
       .get(URL, {
@@ -46,6 +47,7 @@ export const Fetch_Icon = {
         // crossDomain: true,
       })
       .then((data: any) => {
+        console.log(data);
         return data.data.icons;
       })
       .catch((err: any) => console.log(err));
