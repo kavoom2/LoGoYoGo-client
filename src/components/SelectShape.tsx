@@ -74,7 +74,7 @@ export default function selectShape() {
               id="sample8"
               className="item-Shape"
               onClick={() => history.push("/maker/editor")}
-              style={{ backgroundImage: `url(${sampleimage4})` }}
+              // style={{ backgroundImage: `url(${sampleimage4})` }}
             ></div>
             {/* <div className="item">SAMPLE</div>
             <div className="item">SAMPLE</div>

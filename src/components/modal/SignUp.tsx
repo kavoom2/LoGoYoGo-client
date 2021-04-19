@@ -64,7 +64,7 @@ export default function SignUp(props) {
 
     // * 회원가입이 정상적으로 완료되면 로그인 화면으로 전환합니다.
     axios
-      .post(`${scheme}://${host}:${port}/user/signup`, {
+      .post(`https://server.logoyogo.ga/user/signup`, {
         email,
         username,
         password,
