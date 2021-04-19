@@ -1,13 +1,13 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import sample from "../dummy/sample";
+import creator from "../dummy/creator";
 
 export default function selectShape() {
   const history = useHistory();
 
   const handleColor = (string: string): void => {
-    sample[4].objects[0].fill = string;
-    sample[4].objects[1].fill = string;
+    creator[0].objects[0].fill = string;
+    creator[0].objects[1].fill = string;
     history.push("/maker/selectposition");
   };
 

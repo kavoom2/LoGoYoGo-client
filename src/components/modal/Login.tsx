@@ -56,6 +56,7 @@ export default function Login(props) {
         const token = data.data.accessToken;
         dispatch(Actions.setAccessToken(token));
         dispatch(Actions.setLoginStatus(true));
+
         sessionStorage.setItem("accessToken", JSON.stringify(token));
         return axios.post(`${scheme}://${host}:${port}/user/userinfo`, {
           accessToken: token,
@@ -78,6 +79,7 @@ export default function Login(props) {
         setMsgPassword("아이디 또는 비밀번호가 일치하지 않습니다.");
         console.log(err);
       });
+
     // TODO 3. 정상적으로 로그인되면 모달을 종료합니다.
   };
 

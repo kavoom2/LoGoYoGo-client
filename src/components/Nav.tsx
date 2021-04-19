@@ -43,6 +43,7 @@ export default function Nav() {
 
     sessionStorage.removeItem("userinfo");
     sessionStorage.removeItem("accessToken");
+    // sessionStorage.removeItem("logos");
 
     const url = new URL(window.location.href);
     const authorizationCode = url.searchParams.get("code");

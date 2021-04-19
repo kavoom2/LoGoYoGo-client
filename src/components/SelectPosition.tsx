@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import sample from "../dummy/sample";
+import creator from "../dummy/creator";
 import leftposition from "../images/position/leftposition.png";
 import middleposition from "../images/position/middleposition.png";
 import rightposition from "../images/position/rightposition.png";
@@ -9,14 +9,14 @@ export default function selectShape() {
   const history = useHistory();
 
   const handlePosition = (idx: number): void => {
-    const position1 = sample[4].objects[0].left;
-    const position2 = sample[4].objects[1].left;
-    sample[4].objects[0].left = position1 + idx;
-    sample[4].objects[1].left = position2 + idx;
-    const makesample = sample[4];
+    const position1 = creator[0].objects[0].left;
+    const position2 = creator[0].objects[1].left;
+    creator[0].objects[0].left = position1 + idx;
+    creator[0].objects[1].left = position2 + idx;
+    const makesample = creator[0];
     sessionStorage.setItem("sample", JSON.stringify(makesample));
-    sample[4].objects[0].left = position1;
-    sample[4].objects[1].left = position2;
+    creator[0].objects[0].left = position1;
+    creator[0].objects[1].left = position2;
     history.push("/maker/editor");
   };
 
