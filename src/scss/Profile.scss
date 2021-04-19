@@ -3,49 +3,121 @@
   flex-direction: row;
   margin-bottom: 20px;
 
-  .profile-header-profile .profile-header-pwd {
+  .profile-header-a {
     cursor: pointer;
+    transition: 0.5s ease;
+  }
+  .profile-header-b {
+    cursor: pointer;
+    transition: 0.5s ease;
+  }
+}
+
+.profile-header-a {
+  padding: 0px 15px;
+
+  :hover {
+    color: gray;
+  }
+}
+
+.profile-header-b {
+  padding: 0px 15px;
+  :hover {
+    color: gray;
   }
 }
 
 .profile-inner-btn {
+  margin-left: 0%;
+  margin-right: 0%;
+  margin-top: 1vw;
+  margin-bottom: 0%;
   width: 100px;
   border: 0.5px solid gray;
   color: black;
+  transition: 0.4s ease;
+}
+
+.profile-inner-btn:hover {
+  background-color: rgb(212, 212, 212);
 }
 
 .profile-aside {
-  display: flex;
   flex-direction: column;
-  padding-top: 15rem;
-  width: 10%;
+  padding-top: 8rem;
+  padding-left: 4%;
+  width: 10vw;
   align-items: center;
-  margin: 0%;
   float: left;
 }
 
 .profile-aside-btn {
-  width: 100px;
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  border-radius: 0rem;
+  width: 12rem;
   border: 0.5px solid gray;
+  transition: 0.4s ease;
   color: black;
 }
 
+.profile-aside-btn:hover {
+  background-color: rgb(212, 212, 212);
+}
+
 .profile-container {
-  padding-top: 15rem;
-  margin-left: 30rem;
-  margin-right: 30rem;
+  padding-top: 8rem;
+  margin-left: 23%;
+  margin-right: 23%;
   box-sizing: border-box;
-  flex: 1;
 
   display: flex;
+  flex: 1;
   flex-direction: column;
 }
 
+.profile-section {
+  margin: auto;
+}
+
 .profile-input-changepw {
-  border: solid gray;
-  border-width: 1px;
+  width: 30vw;
+  border-radius: 0%;
+  border-bottom: solid;
+  border-width: 0.5px;
 }
 
 .profile-label {
   border-top: 1px solid gray;
+}
+
+@media (max-width: 768px,) {
+  // * MOBILE: max-width: 768px;
+  .profile-aside {
+    float: none !important;
+    display: table !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0% !important;
+  }
+
+  .profile-aside-btn {
+    width: 60vw;
+  }
+
+  .profile-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 60vw !important;
+  }
+
+  .profile-input-changepw {
+    width: 60vw !important;
+  }
+
+  .profile-inner-btn {
+    margin-top: 3vw !important;
+    width: 60vw !important;
+  }
 }

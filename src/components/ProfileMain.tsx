@@ -28,14 +28,14 @@ function ProfileMain() {
     <div>
       <div>
         <header className="profile-header">
-          <nav onClick={handleRedirectProfile}>
+          <nav className="profile-header-a" onClick={handleRedirectProfile}>
             <h1>Profile</h1>
           </nav>
-          <nav onClick={handleRedirectPassword}>
+          <nav className="profile-header-b" onClick={handleRedirectPassword}>
             <h1>비밀번호 변경</h1>
           </nav>
         </header>
-        <section id="profile-section1">
+        <section id="profile-section">
           <div>
             <div className="profile-label">
               <label className="profile-label-content">username</label>
