@@ -24,6 +24,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  min-height: 70rem;
   overflow-x: hidden;
   overflow-y: auto;
   word-break: keep-all;
@@ -50,8 +51,6 @@
   padding-right: 10rem;
 
   .container2 {
-    // background-image: url("../images/test/LOGOYOGO.jpg");
-    // background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     max-width: 60rem;
@@ -237,6 +236,9 @@
 
 @media (max-width: 768px,) {
   // * MOBILE: max-width: 768px;
+  #container-mainpage {
+    min-height: auto !important;
+  }
   #section1 .container2 {
     display: none !important;
   }
@@ -490,15 +492,17 @@
   }
 }
 
-////////////////////////////main3
+// TODO: Main Page Part3
 
 #container-mainpage > #section3 {
+  position: relative;
   display: flex;
   flex-direction: column;
 
   justify-content: center;
 
   background-color: $color-background;
+  background: #f8fcff;
 
   width: 100%;
   height: 100%;
@@ -516,7 +520,7 @@
       position: relative;
       height: 23rem;
       max-width: 120rem;
-      margin-top: 5rem;
+      margin-top: 7rem;
       background: $color-container;
       border: 1.5px solid $color-border-landing;
       border-radius: 0.6rem;
@@ -838,6 +842,7 @@
 
           .subtitle {
             font-size: 1.3rem !important;
+            justify-content: center;
             text-align: center !important;
             padding-left: 0.6rem !important;
             padding-right: 0.6rem !important;
