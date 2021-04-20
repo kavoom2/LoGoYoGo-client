@@ -69,7 +69,7 @@
 .profile-container {
   padding-top: 8rem;
   margin-left: 23%;
-  margin-right: 23%;
+  // margin-right: 23%;
   box-sizing: border-box;
 
   display: flex;
@@ -92,6 +92,16 @@
   border-top: 1px solid gray;
 }
 
+.mylogo {
+  display: flex;
+  flex-direction: row;
+}
+
+.mylogo:hover {
+  border: solid black;
+  cursor: pointer;
+}
+
 @media (max-width: 768px,) {
   // * MOBILE: max-width: 768px;
   .profile-aside {
@@ -107,6 +117,7 @@
   }
 
   .profile-container {
+    display: flex;
     margin-left: auto !important;
     margin-right: auto !important;
     width: 60vw !important;
@@ -119,5 +130,12 @@
   .profile-inner-btn {
     margin-top: 3vw !important;
     width: 60vw !important;
+  }
+
+  .mylogo {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex;
+    flex-direction: column;
   }
 }
