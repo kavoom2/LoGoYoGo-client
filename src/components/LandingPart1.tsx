@@ -1,5 +1,6 @@
 import { useHistory } from "react-router-dom";
 import creator from "../dummy/creator";
+import imgPath from "../images/main/landing1.png";
 
 export default function LandingPart1({ handleLogoName }) {
   const history = useHistory();
@@ -51,7 +52,9 @@ export default function LandingPart1({ handleLogoName }) {
           다른 사용자의 템플릿 둘러보기
         </button>
       </div>
-      <div className="container2"></div>
+      <div className="container2">
+        <img src={imgPath} />
+      </div>
       <div className="container3"></div>
       <div className="container4"></div>
     </div>

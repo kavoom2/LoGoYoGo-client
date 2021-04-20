@@ -42,7 +42,7 @@ input {
 
   position: sticky;
   top: 0;
-  height: 7rem;
+  height: 6rem;
   width: 100%;
 
   padding-left: 8rem;
@@ -61,6 +61,20 @@ input {
     color: $color-container;
     letter-spacing: 0.2rem;
     font-weight: 600;
+    transition: 0.1s;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+
+  button {
+    transition: 0.1s;
+    font-weight: 500;
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }
 
@@ -91,7 +105,7 @@ input {
     position: sticky;
     flex-direction: column;
     width: 100%;
-    top: 7rem;
+    top: 6rem;
     z-index: 30;
 
     .hamburger-items {

@@ -54,22 +54,21 @@
     display: flex;
     flex-direction: column;
     max-width: 60rem;
+    min-width: 45rem;
     width: 100%;
-    height: 50rem;
-    background-position: center;
-    background-size: 600px;
-    border-radius: 0.5rem;
-    border: 1px solid $color-container;
 
     margin-left: 10rem;
-    margin-bottom: 15vh;
+    margin-right: -5rem;
+
+    margin-bottom: 5vh;
     z-index: 2;
-    opacity: 1;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
   }
   .container {
     display: flex;
     flex-direction: column;
-    max-width: 60rem;
+    max-width: 65rem;
     margin-bottom: 15vh;
     z-index: 2;
 
@@ -112,8 +111,8 @@
         color: $color-button;
 
         width: 100%;
-        height: 6rem;
-        border-radius: 0.8rem;
+        height: 5.5rem;
+        border-radius: 0.6rem;
 
         margin-right: 15rem;
         padding-left: 3rem;
@@ -133,11 +132,11 @@
         margin: 0rem;
         position: absolute;
         right: 0%;
-        height: 6rem;
+        height: 5.5rem;
         width: 15rem;
         background: rgb(161, 118, 255);
 
-        border-radius: 0.8rem;
+        border-radius: 0.6rem;
         border-top-left-radius: 0rem;
         border-bottom-left-radius: 0rem;
         box-shadow: 0rem 0rem 3rem -1rem #223ab1;
@@ -155,8 +154,8 @@
     .btn-search-template {
       font-family: "NanumBarunGothic";
       margin: 0rem;
-      height: 6rem;
-      border-radius: 0.8rem;
+      height: 5.5rem;
+      border-radius: 0.6rem;
       width: 100%;
       margin-top: 2rem;
       background: #23273b;
@@ -210,13 +209,13 @@
     top: 60rem;
     right: -10vw;
 
-    transform: rotate(55deg);
+    transform: rotate(58deg);
 
     &:before {
       width: 80rem;
       height: 160rem;
       padding-bottom: 100%;
-      border-radius: 15rem;
+      border-radius: 30rem;
 
       background: linear-gradient(
         180deg,
@@ -236,11 +235,20 @@
 
 @media (max-width: 768px,) {
   // * MOBILE: max-width: 768px;
+  #section1 {
+    flex-direction: column;
+
+    height: auto !important;
+  }
   #container-mainpage {
     min-height: auto !important;
   }
   #section1 .container2 {
-    display: none !important;
+    margin: 0rem !important;
+    margin-top: 5rem !important;
+    margin-bottom: 5rem !important;
+    width: 78vw !important;
+    min-width: auto !important;
   }
 
   #container-mainpage > #section1 {
@@ -251,6 +259,7 @@
       height: 80%;
       width: 100%;
       margin: 0;
+      margin-top: 7rem;
 
       .title {
         font-size: 3rem;
@@ -735,7 +744,7 @@
       justify-content: center;
       align-items: center;
       max-width: 70rem;
-      padding: 0.6rem;
+      padding: 0.4rem;
       width: 100%;
       min-width: 50rem;
       border-radius: 1rem;
