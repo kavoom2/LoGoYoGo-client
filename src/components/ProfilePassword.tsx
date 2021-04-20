@@ -83,40 +83,37 @@ function ProfilePassword(props) {
       </header>
       <section id="profile-section">
         <div>
-          <span>현재 비밀번호</span>
           <br></br>
           <input
             className="profile-input-changepw"
             type="password"
-            placeholder="현재 비밀번호"
             onChange={(e) => {
               handleOnChange(e, "CURRENTPW");
             }}
           ></input>
+          <label htmlFor="date">현재 비밀먼호</label>
         </div>
         <div>
-          <span>새로운 비밀번호</span>
           <br></br>
           <input
             className="profile-input-changepw"
             type="password"
-            placeholder="새로운 비밀번호"
             onChange={(e) => {
               handleOnChange(e, "NEWPW");
             }}
           ></input>
+          <label htmlFor="date">새로운 비밀번호</label>
         </div>
         <div>
-          <span>새로운 비밀번호 확인</span>
           <br></br>
           <input
             className="profile-input-changepw"
             type="password"
-            placeholder="새로운 비밀번호 확인"
             onChange={(e) => {
               handleOnChange(e, "RENEWPW");
             }}
           ></input>
+          <label htmlFor="date">새로운 비밀번호 확인</label>
         </div>
       </section>
       <footer>

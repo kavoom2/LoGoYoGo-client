@@ -247,37 +247,46 @@
         }
 
         #web-page1 {
-          width: 120px;
-          height: 120px;
+          width: 175px;
+          height: 150px;
           position: relative;
-          left: 33%;
-          top: 25%;
+          left: 25%;
+          top: 21%;
         }
 
         #face-book1 {
           transform: rotateX(24deg) rotateZ(-17deg);
-          width: 73.5px;
-          height: 73.5px;
+          width: 84px;
+          height: 72px;
           position: relative;
-          left: 39.5%;
-          top: 36.8%;
+          left: 38%;
+          top: 36.9%;
         }
 
         #b-card1 {
           transform: rotateX(47deg) rotateZ(-39deg);
-          width: 100px;
-          height: 100px;
+          width: 112px;
+          height: 96px;
           position: relative;
-          left: 23%;
+          left: 22%;
           top: 20.5%;
         }
         #b-card2 {
-          transform: rotateX(46deg) rotateZ(-39.5deg);
-          width: 70px;
-          height: 70px;
+          transform: rotateX(44deg) rotateZ(-41deg);
+          width: 91px;
+          height: 78px;
           position: relative;
           left: 38%;
-          top: 30%;
+          top: 29%;
+        }
+
+        #b-name {
+          transform: rotateX(44deg) rotateZ(-41deg);
+          width: 91px;
+          height: 78x;
+          position: relative;
+          left: 62%;
+          top: -4%;
         }
       }
     }
@@ -360,22 +369,23 @@
       }
 
       #web-page1 {
-        width: 30vw !important;
+        width: 35vw !important;
         height: 30vw !important;
         position: relative;
-        left: 35% !important;
+        left: 30% !important;
+        top: 23% !important;
       }
 
       #face-book1 {
-        width: 17vw !important;
-        height: 17vw !important;
+        width: 19.25vw !important;
+        height: 16.5vw !important;
         position: relative;
-        left: 39% !important;
-        top: 37.3% !important;
+        left: 38% !important;
+        top: 37% !important;
       }
 
       #b-card1 {
-        width: 20vw !important;
+        width: 23.33vw !important;
         height: 20vw !important;
         position: relative;
         left: 23% !important;
@@ -383,11 +393,17 @@
       }
 
       #b-card2 {
-        width: 18vw !important;
+        width: 21vw !important;
         height: 18vw !important;
         position: relative;
         left: 39% !important;
         top: 31% !important;
+      }
+
+      #b-name {
+        width: 21vw !important;
+        height: 18vw !important;
+        position: relative !important;
       }
     }
   }
