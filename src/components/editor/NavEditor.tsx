@@ -8,10 +8,14 @@ import {
   faShareSquare,
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 export default function Nav({ canvas }) {
   const dispatch = useDispatch();
   const isLogin = useSelector((state: RootState) => state.loginReducer.isLogin);
+  const accessToken = useSelector(
+    (state: RootState) => state.accessTokenReducer.accessToken
+  );
   const modalType = useSelector(
     (state: RootState) => state.modalTypeReducer.modalType
   );
@@ -31,10 +35,22 @@ export default function Nav({ canvas }) {
       var a: any = document.createElement("a");
       canvas.discardActiveObject().renderAll();
 
-      var selectcanvas: any = document.getElementById("my-canvas");
-      var img: string = selectcanvas.toDataURL("image/png; base64");
+      if (accessToken) {
+        const json = canvas.toJSON();
+        axios
+          .post("http://localhost:5000/savelogo", {
+            accessToken: accessToken,
+            json: JSON.stringify(json),
+          })
+          .then(() => {
+            sessionStorage.setItem("preset", JSON.stringify(json));
+          });
+      }
 
-      a.download = "LoGo.png";
+      var selectcanvas: any = document.getElementById("my-canvas");
+      var img: string = selectcanvas.toDataURL("image/png");
+
+      a.download = "LoGo";
       a.href = img;
       a.click();
       a.remove();

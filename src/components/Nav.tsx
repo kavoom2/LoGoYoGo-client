@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom";
 import React, { useState, useEffect, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import { access } from "node:fs";
 
 export default function Nav() {
   const dispatch = useDispatch();
@@ -43,6 +45,7 @@ export default function Nav() {
 
     sessionStorage.removeItem("userinfo");
     sessionStorage.removeItem("accessToken");
+    sessionStorage.removeItem("preset");
 
     const url = new URL(window.location.href);
     const authorizationCode = url.searchParams.get("code");

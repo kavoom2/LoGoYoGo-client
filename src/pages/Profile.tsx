@@ -8,6 +8,7 @@ import { RootState } from "../reducers/index";
 import { Actions } from "../actions/index";
 import "../scss/Profile.scss";
 import Nav from "../components/Nav";
+import Mylogo from "../components/Mylogo";
 
 const axios: any = require("axios");
 axios.default.withCredentials = true;
@@ -69,7 +70,10 @@ export default function Profile() {
       </aside>
       <section className="profile-container">
         {!profileOn ? (
-          <div>내 로고가 들어올 예정</div>
+          <div>
+            <Mylogo />
+            <div>가장 최신 저장</div>
+          </div>
         ) : (
           <div>
             <div>

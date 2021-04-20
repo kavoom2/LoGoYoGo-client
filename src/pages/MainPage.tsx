@@ -1,7 +1,8 @@
 import Nav from "../components/Nav";
 import LandingPart1 from "../components/LandingPart1";
-import LandingPart2 from "../components/LandingPart2";
-import LandingPart3 from "../components/LandingPart3";
+import LandingPart2_1 from "../components/LandingPart2-1";
+import LandingPart2_2 from "../components/LandingPart2-2";
+import LandingPart2_3 from "../components/LandingPart2-3";
 import LandingPart4 from "../components/LandingPart4";
 
 import { useHistory } from "react-router-dom";
@@ -74,8 +75,9 @@ export default function MainPage() {
     <div id="container-mainpage">
       <Nav />
       <LandingPart1 handleLogoName={handleLogoName} />
-      <LandingPart2 />
-      <LandingPart3 />
+      <LandingPart2_1 />
+      <LandingPart2_2 />
+      <LandingPart2_3 />
       <LandingPart4 handleLogoName={handleLogoName} />
     </div>
   );

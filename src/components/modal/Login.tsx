@@ -57,6 +57,16 @@ export default function Login(props) {
         dispatch(Actions.setAccessToken(token));
         dispatch(Actions.setLoginStatus(true));
 
+        axios
+          .post("http://localhost:5000/loadlogo", { accessToken: token })
+          .then((data) => {
+            sessionStorage.setItem(
+              "preset",
+              JSON.stringify(JSON.parse(data.data.json[0].setting))
+            );
+          })
+          .catch(() => console.log("err"));
+
         sessionStorage.setItem("accessToken", JSON.stringify(token));
         return axios.post(`${scheme}://${host}:${port}/user/userinfo`, {
           accessToken: token,
