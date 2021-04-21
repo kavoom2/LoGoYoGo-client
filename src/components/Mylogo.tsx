@@ -19,7 +19,7 @@ export default function Mylogo() {
         fireRightClick: true,
         height: canvasHeight,
         width: canvasWidth,
-        backgroundColor: "yellow",
+        backgroundColor: "white",
       });
 
       if (stageWidth <= 768) {
@@ -54,14 +54,27 @@ export default function Mylogo() {
     history.push("/maker/editor");
   };
 
+  const goedit = () => {
+    const json = sessionStorage.getItem("preset");
+    if (json) {
+      sessionStorage.setItem("sample", json);
+      history.push("/maker/editor");
+    } else {
+      history.push("/maker/editor");
+    }
+  };
+
   return (
     <div>
       {sessionStorage.getItem("preset") ? (
-        <div className="mylogo" onClick={() => edit()}>
-          <canvas id="mylogo" />
+        <div>
+          <div className="mylogo" onClick={edit}>
+            <canvas id="mylogo" />
+          </div>
+          <div onClick={goedit}>에디터 바로가기</div>
         </div>
       ) : (
-        ""
+        <div onClick={goedit}>에디터 바로가기</div>
       )}
     </div>
   );

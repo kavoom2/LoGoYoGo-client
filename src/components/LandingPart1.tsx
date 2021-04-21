@@ -9,6 +9,7 @@ export default function LandingPart1({ handleLogoName }) {
     if (sessionStorage.getItem("logo")) {
       creator[0].objects[1].text = sessionStorage.getItem("logo");
       sessionStorage.removeItem("logo");
+      creator[0].objects[1].text = "sample";
       history.push("/maker/selectshape");
     } else {
       sessionStorage.removeItem("logo");
