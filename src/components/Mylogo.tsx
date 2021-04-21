@@ -46,7 +46,7 @@ export default function Mylogo() {
       c.clear();
       c.loadFromJSON(json, c.renderAll.bind(c));
     }
-  });
+  }, []);
 
   const edit = () => {
     const json = sessionStorage.getItem("preset");
