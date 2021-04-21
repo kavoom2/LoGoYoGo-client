@@ -76,12 +76,6 @@ export default function selectShape() {
               onClick={() => history.push("/maker/editor")}
               style={{ backgroundImage: `url(${samplemake})` }}
             ></div>
-            {/* <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div>
-            <div className="item">SAMPLE</div> */}
           </div>
         </div>
       </div>
