@@ -69,7 +69,7 @@
 .profile-container {
   padding-top: 8rem;
   margin-left: 23%;
-  // margin-right: 23%;
+  margin-right: 23%;
   box-sizing: border-box;
 
   display: flex;
@@ -95,11 +95,13 @@
 .mylogo {
   display: flex;
   flex-direction: row;
+  margin: 1rem;
 }
 
 .mylogo:hover {
   border: solid black;
   cursor: pointer;
+  border-radius: 20px;
 }
 
 @media (max-width: 768px,) {

@@ -72,7 +72,6 @@ export default function Profile() {
         {!profileOn ? (
           <div>
             <Mylogo />
-            <div>가장 최신 저장</div>
           </div>
         ) : (
           <div>
