@@ -1,6 +1,6 @@
 
 
-<p align="center"><img src="https://user-images.githubusercontent.com/58407182/115673737-eb635480-a387-11eb-84fb-9d5c2d9e1b82.png" height="200px" width="200px"><
+<p align="center"><img src="https://user-images.githubusercontent.com/58407182/115673737-eb635480-a387-11eb-84fb-9d5c2d9e1b82.png" height="200px" width="200px">
 
  <h3 align="center"> 나만의 특별한 로고를 만드는 사이트 </br></br> LOGOYOGO 입니다 <br/><br/><br/> </h3>
 
