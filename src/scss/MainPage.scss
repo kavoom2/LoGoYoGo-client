@@ -30,7 +30,8 @@
   word-break: keep-all;
   #section2,
   #section3,
-  #section4 {
+  #section4,
+  #Footer {
     border-top: 1px solid $color-border-landing;
   }
 }
@@ -898,52 +899,247 @@
   }
 }
 
-/////////////////////footer
+// TODO: FOOTER
+
 #container-mainpage > #Footer {
-  height: 50%;
+  position: relative;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
   justify-content: center;
   align-items: center;
-  background-color: whitesmoke;
+
+  background: #f8fcff;
+
+  width: 100%;
+  // height: 100%;
 
   .container {
     display: flex;
     flex-direction: column;
-    width: 90rem;
-    height: 30rem;
-    border: solid black;
+    align-items: center;
 
-    * {
-      padding: 1rem;
-      margin: 0.5rem;
-    }
+    padding-top: 12rem;
+    padding-bottom: 20rem;
 
     .title {
-      font-size: 3rem;
+      font-size: 4rem;
       font-weight: 700;
-      border: solid black;
+      color: #3f3c4e;
+      font-family: "NanumBarunGothic";
       text-align: center;
+      margin-bottom: 1.5rem;
     }
 
     .subtitle {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 500;
-      border: solid black;
+      color: #8ca0b7;
+      font-family: "NanumSquareRound";
       text-align: center;
+      margin-bottom: 5rem;
     }
-    input {
-      display: block;
-      font-size: 3rem;
-      width: 500px;
-      border: solid black;
+
+    .landing4-button-container {
+      display: flex;
+      position: relative;
+      align-items: center;
+      width: 100%;
+      max-width: 65rem;
+      border-radius: 5rem;
+
+      input {
+        font-family: "NanumBarunGothic";
+        font-size: $font-size-H4;
+        color: $color-button;
+
+        width: 100%;
+        height: 5.5rem;
+        border: 2px solid rgb(161, 118, 255);
+        border-top-right-radius: 0rem;
+        border-bottom-right-radius: 0rem;
+
+        margin-right: 15rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        background: $color-background;
+        outline: none;
+        z-index: 3;
+
+        transition: 0.1s;
+      }
+
+      button {
+        font-family: "NanumBarunGothic";
+        margin: 0rem;
+        position: absolute;
+        right: 0%;
+        height: 5.5rem;
+        width: 15rem;
+        border-top-left-radius: 0rem;
+        border-bottom-left-radius: 0rem;
+
+        background: rgb(161, 118, 255);
+
+        letter-spacing: 0.1rem;
+        z-index: 1;
+        transition: 0.3s ease;
+      }
+
+      button:hover {
+        background: rgb(215, 134, 223);
+      }
     }
-    button {
-      display: block;
-      position: right;
-      width: 200px;
-      font-size: 1rem;
-      border: solid black;
+  }
+
+  .container2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: #403a4f;
+
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    .title {
+      padding-left: 20rem;
+      display: flex;
+      align-items: center;
+      word-break: keep-all;
+
+      .logo {
+        font-family: "Questrial";
+        font-size: 2.3rem;
+        letter-spacing: 0.2rem;
+        font-weight: 600;
+
+        background: linear-gradient(
+          39deg,
+          rgba(70, 101, 217, 1) 9%,
+          rgba(161, 118, 253, 1) 88%
+        );
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .content {
+        margin-left: 1.5rem;
+        font-family: "NanumBarunGothic";
+        font-size: 1.4rem;
+        color: #948c9c;
+      }
+    }
+
+    .crews {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 5rem;
+      padding-right: 20rem;
+      div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-right: 2.5rem;
+        span {
+          margin-left: 0.6rem;
+          font-family: "NanumSquareRound";
+          font-size: 1.6rem;
+          color: #948c9c;
+          font-weight: 800;
+
+          transition: 0.2s;
+        }
+
+        img {
+          border-radius: 0.2rem;
+          width: 2.5rem;
+          opacity: 0.9;
+        }
+
+        &:hover {
+          cursor: pointer;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px,) {
+  #Footer {
+    .container {
+      width: 90vw;
+      .title {
+        font-size: 3rem !important;
+        text-align: center;
+        line-height: 4.5rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+      }
+
+      .subtitle {
+        font-size: 1.6rem !important;
+        line-height: 2.6rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+      }
+
+      .landing4-button-container {
+        border-radius: 0.6rem !important;
+        input {
+          height: 5rem !important;
+          margin-right: 10rem !important;
+          font-size: $font-size-H4;
+        }
+
+        button {
+          height: 5rem !important;
+          width: 10rem !important;
+          font-size: $font-size-H4;
+        }
+      }
+    }
+
+    .container2 {
+      padding-top: 1.7rem !important;
+      padding-bottom: 1.5rem !important;
+
+      .title {
+        flex-direction: column;
+        padding-left: 2rem !important;
+        align-items: flex-start !important;
+
+        .logo {
+          font-size: 1.8rem !important;
+          letter-spacing: 0.15rem !important;
+        }
+
+        .content {
+          margin-left: 0rem !important;
+          margin-top: 0.3rem;
+          font-size: 1rem !important;
+          line-height: 1.5rem;
+        }
+      }
+
+      .crews {
+        margin-left: 2rem !important;
+        padding-right: 1rem !important;
+        div {
+          margin-right: 1.5rem !important;
+          margin-top: 0.5rem;
+
+          span {
+            margin-left: 0.4rem !important;
+            font-size: 1.2rem !important;
+          }
+
+          img {
+            width: 2.2rem !important;
+          }
+        }
+      }
     }
   }
 }

@@ -62,8 +62,6 @@ export default function Modal() {
   ];
   const ModalTypesIndex = ["LOGIN", "SIGNUP", "PREVIEW"];
 
-  console.log(modalType);
-
   return (
     <div
       id="modal-background"
