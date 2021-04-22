@@ -4,7 +4,6 @@
   #section-creator {
     display: flex;
     flex-direction: column;
-    padding-top: 5rem;
     height: 100%;
     overflow-y: auto;
 
@@ -40,7 +39,8 @@
   .body-header {
     display: flex;
     flex-direction: column;
-    margin-top: 10rem;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
     height: 20rem;
     .title {
       text-align: center;
@@ -65,7 +65,6 @@
         width: 32vw;
         height: 21.3vw;
         margin: 4rem;
-        background-color: lightseagreen;
         background-size: cover;
       }
 
@@ -78,7 +77,6 @@
         width: 21.3vw;
         height: 21.3vw;
         margin: 4rem;
-        background-color: lightseagreen;
         background-size: cover;
       }
 
@@ -102,12 +100,13 @@
         width: 18vw;
         height: 18vw;
         margin: 2rem;
-        border: solid black;
+
         border-radius: 7vw;
         background-size: cover;
       }
       .item-Shape:hover {
         cursor: pointer;
+        border: solid black;
         transform: scale(1.1);
       }
       #sample1 {
@@ -216,15 +215,16 @@
       }
 
       .item-position {
-        width: 20vw !important;
-        height: 20vw !important;
-        margin-left: 2rem !important;
-        margin-right: 2rem !important;
+        width: 25vw !important;
+        height: 25vw !important;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
       }
       .item-Shape {
-        width: 18vw !important;
-        height: 16vw !important;
+        width: 30vw !important;
+        height: 28vw !important;
         border-radius: 4vmin !important;
+        background-size: cover;
       }
       #sample1 {
         background-position: -1.5vw !important;
