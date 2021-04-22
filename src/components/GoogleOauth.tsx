@@ -20,8 +20,18 @@ export default function GoogleButton({ onSocial }) {
       profileObj: { email, name },
     } = res;
 
-    const username = res.gt.Te;
-    const googleemail = res.gt.Rt;
+    let username: string;
+    let googleemail: string;
+
+    if (res.gt) {
+      username = res.gt.Te;
+      googleemail = res.gt.Rt;
+    }
+    if (res.ft) {
+      username = res.ft.Ue;
+      googleemail = res.ft.Qt;
+    }
+
     const json = { username: username, email: googleemail };
     dispatch(Actions.setUserInfo(username, googleemail));
     sessionStorage.setItem("userinfo", JSON.stringify(json));
