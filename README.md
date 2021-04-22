@@ -15,7 +15,7 @@
 
 
 ### 주요 기능
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/58407182/115724845-44e57680-a3bc-11eb-8cd1-72362539a17e.gif)<br/><br/><br/><br/><br/
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/58407182/115724845-44e57680-a3bc-11eb-8cd1-72362539a17e.gif)<br/><br/><br/><br/>
 
 ### 메인페이지
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/58407182/115671605-a807e680-a385-11eb-8290-3c6ed093e437.gif)
