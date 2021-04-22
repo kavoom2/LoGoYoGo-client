@@ -9,6 +9,7 @@ import {
   faFacebookSquare,
   faGooglePlusSquare,
 } from "@fortawesome/free-brands-svg-icons";
+import GoogleButton from "../GoogleOauth";
 
 require("dotenv").config();
 const axios: any = require("axios");
@@ -180,9 +181,7 @@ export default function Login(props) {
         <button>
           <FontAwesomeIcon icon={faFacebookSquare} />
         </button>
-        <button>
-          <FontAwesomeIcon icon={faGooglePlusSquare} />
-        </button>
+        <GoogleButton />
       </div>
       <div className="modal-comment">
         아직 회원이 아니신가요?{" "}
