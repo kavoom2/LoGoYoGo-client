@@ -1,4 +1,5 @@
 import React from "react";
+import cardName from "../../images/preview/card-name.png";
 
 export default function Preview(props) {
   var origin: any = document.getElementById("my-canvas");
@@ -21,6 +22,7 @@ export default function Preview(props) {
           <span id="Bcard" className="preview-item">
             <img id="b-card1" src={urlData}></img>
             <img id="b-card2" src={urlData}></img>
+            <img id="b-name" src={cardName}></img>
           </span>
         </div>
       </div>

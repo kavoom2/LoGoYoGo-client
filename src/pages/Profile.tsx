@@ -57,11 +57,16 @@ export default function Profile() {
     <div>
       <Nav />
       <aside className="profile-aside">
-        <div>
-          <button className="profile-aside-btn" onClick={handelMyLogo}>
-            내 로고
-          </button>
-        </div>
+        {accessToken ? (
+          <div>
+            <button className="profile-aside-btn" onClick={handelMyLogo}>
+              내 로고
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
+
         <div>
           <button className="profile-aside-btn" onClick={handleProfileMain}>
             내 프로필
@@ -69,32 +74,65 @@ export default function Profile() {
         </div>
       </aside>
       <section className="profile-container">
-        {!profileOn ? (
+        {accessToken ? (
           <div>
-            <Mylogo />
+            {!profileOn ? (
+              <div>
+                <Mylogo />
+              </div>
+            ) : (
+              <div>
+                <div>
+                  <Router>
+                    <Switch>
+                      <Route exact path="/profile">
+                        <ProfileMain />
+                        <div>
+                          {accessToken ? (
+                            <button
+                              className="profile-inner-btn"
+                              onClick={handleDeleteId}
+                            >
+                              회원탈퇴
+                            </button>
+                          ) : (
+                            ""
+                          )}
+                        </div>
+                      </Route>
+                      <Route exact path="/profile/password">
+                        <ProfilePassword />
+                      </Route>
+                    </Switch>
+                  </Router>
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           <div>
-            <div>
-              <Router>
-                <Switch>
-                  <Route exact path="/profile">
-                    <ProfileMain />
-                    <div>
+            <Router>
+              <Switch>
+                <Route exact path="/profile">
+                  <ProfileMain />
+                  <div>
+                    {accessToken ? (
                       <button
                         className="profile-inner-btn"
                         onClick={handleDeleteId}
                       >
                         회원탈퇴
                       </button>
-                    </div>
-                  </Route>
-                  <Route exact path="/profile/password">
-                    <ProfilePassword />
-                  </Route>
-                </Switch>
-              </Router>
-            </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </Route>
+                <Route exact path="/profile/password">
+                  <ProfilePassword />
+                </Route>
+              </Switch>
+            </Router>
           </div>
         )}
       </section>

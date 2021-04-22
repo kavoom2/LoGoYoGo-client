@@ -13,9 +13,13 @@ function ProfileMain() {
   const userInfoState = useSelector(
     (state: RootState) => state.userInfoReducer.userInfo
   );
+  const accessToken = useSelector(
+    (state: RootState) => state.accessTokenReducer.accessToken
+  );
 
   console.log(loginState);
   console.log(userInfoState);
+  console.log("토큰", accessToken);
 
   const handleRedirectPassword = (): void => {
     history.push("/profile/password");
@@ -25,39 +29,39 @@ function ProfileMain() {
   };
 
   return (
-    <div>
-      <div>
-        <header className="profile-header">
-          <nav className="profile-header-a" onClick={handleRedirectProfile}>
-            <h1>Profile</h1>
-          </nav>
+    <div className="profile-container-background">
+      <header className="profile-header">
+        <nav className="profile-header-a" onClick={handleRedirectProfile}>
+          <h2 style={{ fontSize: "23px" }}>Profile</h2>
+        </nav>
+        {accessToken ? (
           <nav className="profile-header-b" onClick={handleRedirectPassword}>
-            <h1>비밀번호 변경</h1>
+            <h2 style={{ fontSize: "19px" }}>비밀번호 변경</h2>
           </nav>
-        </header>
-        <section id="profile-section">
-          <div>
-            <div className="profile-label">
-              <label className="profile-label-content">username</label>
-            </div>
-            <div className="profile-info">
-              <span className="profile-info-content">
-                {userInfoState.username}
-              </span>
-            </div>
+        ) : (
+          ""
+        )}
+      </header>
+      <section className="profile-section">
+        <div>
+          <div className="profile-label">
+            <label className="profile-label-content">사용자 이름</label>
           </div>
-          <div>
-            <div className="profile-label">
-              <label className="profile-label-content">email</label>
-            </div>
-            <div className="profile-info">
-              <span className="profile-info-content">
-                {userInfoState.email}
-              </span>
-            </div>
+          <div className="profile-info">
+            <span className="profile-info-content">
+              {userInfoState.username}
+            </span>
           </div>
-        </section>
-      </div>
+        </div>
+        <div>
+          <div className="profile-label">
+            <label className="profile-label-content">email</label>
+          </div>
+          <div className="profile-info">
+            <span className="profile-info-content">{userInfoState.email}</span>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

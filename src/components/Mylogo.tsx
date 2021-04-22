@@ -68,13 +68,22 @@ export default function Mylogo() {
     <div>
       {sessionStorage.getItem("preset") ? (
         <div>
+          <span>내 최근 로고</span>
           <div className="mylogo" onClick={edit}>
             <canvas id="mylogo" />
           </div>
-          <div onClick={goedit}>에디터 바로가기</div>
+          <div>
+            <button className="profile-inner-btn" onClick={goedit}>
+              에디터 바로가기
+            </button>
+          </div>
         </div>
       ) : (
-        <div onClick={goedit}>에디터 바로가기</div>
+        <div>
+          <button className="profile-inner-btn" onClick={goedit}>
+            에디터 바로가기
+          </button>
+        </div>
       )}
     </div>
   );
