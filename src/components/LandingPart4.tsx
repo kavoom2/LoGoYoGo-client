@@ -7,16 +7,12 @@ export default function LandingPart4({ handleLogoName }) {
   const logoname = (): void => {
     if (sessionStorage.getItem("logo")) {
       creator[0].objects[1].text = sessionStorage.getItem("logo");
-      const selectsample = creator[0];
-      sessionStorage.setItem("sample", JSON.stringify(selectsample));
       sessionStorage.removeItem("logo");
       creator[0].objects[1].text = "sample";
-      history.push("/maker/editor");
+      history.push("/maker/selectshape");
     } else {
       sessionStorage.removeItem("logo");
-      const selectsample = creator[0];
-      sessionStorage.setItem("sample", JSON.stringify(selectsample));
-      history.push("/maker/editor");
+      history.push("/maker/selectshape");
     }
   };
 
@@ -26,22 +22,67 @@ export default function LandingPart4({ handleLogoName }) {
     }
   };
 
+  const handleOpenGitProfile = (username: string): void => {
+    window.open(`https://github.com/${username}`, "_blank");
+  };
+
   return (
     <div id="Footer">
       <div className="container">
-        <div className="title">나만의 멋진 로고를 지금 만들어볼까요?</div>
+        <div className="title">나만의 멋진 로고를 지금 만들어보세요.</div>
         <div className="subtitle">
-          간단한 몇 가지의 질의응답 통해 자신만의 로고를 제작할수 있습니다.
-          <br />
-          지금 LOGOYOGO와 함께 시작하세요!
+          간단한 몇 가지의 질의응답 통해 자신만의 로고를 제작할수 있습니다. 지금
+          LOGOYOGO와 함께 시작하세요!
         </div>
-        <input
-          onChange={handleLogoName}
-          className="input-logoname"
-          placeholder="로고를 입력하세요"
-          onKeyPress={enter}
-        ></input>
-        <button onClick={logoname}>시작하기</button>
+        <div className="landing4-button-container">
+          <input
+            className="input-logoname"
+            placeholder="로고를 입력하세요"
+            onChange={handleLogoName}
+            onKeyPress={enter}
+          ></input>
+          <button onClick={logoname}>시작하기</button>
+        </div>
+      </div>
+      <div className="container2">
+        <div className="title">
+          <span className="logo">logoyogo</span>
+          <span className="content">Copyright © 2021 logoyogo</span>
+        </div>
+        <div className="crews">
+          <div
+            onClick={() => {
+              handleOpenGitProfile("kavoom2");
+            }}
+          >
+            <img src="https://avatars.githubusercontent.com/u/70474517?v=4" />
+            <span>정진규</span>
+          </div>
+          <div
+            onClick={() => {
+              handleOpenGitProfile("kjk0507");
+            }}
+          >
+            <img src="https://avatars.githubusercontent.com/u/68223697?v=4" />
+            <span>김정규</span>
+          </div>
+          <div
+            onClick={() => {
+              handleOpenGitProfile("yhl88");
+            }}
+          >
+            <img src="https://avatars.githubusercontent.com/u/55075025?v=4" />
+            <span>이용학</span>
+          </div>
+          <div
+            onClick={() => {
+              handleOpenGitProfile("gmlwhd6159");
+            }}
+          >
+            <img src="https://avatars.githubusercontent.com/u/58407182?v=4" />
+            <span>김희종</span>
+          </div>
+        </div>
       </div>
     </div>
   );

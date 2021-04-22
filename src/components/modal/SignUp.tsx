@@ -119,6 +119,16 @@ export default function SignUp(props) {
           "영문자, 숫자, 특수문자를 포함하여 8~16자리의 비밀번호를 입력해주세요."
         );
       }
+
+      // *: 비밀번호 입력 시 비밀번호 확인과 일치여부 확인할 필요가 있음
+      if (rePassword === event.target.value) {
+        setIsRePasswordValid(true);
+        setMsgRePassword("");
+      } else {
+        setIsRePasswordValid(false);
+        setMsgRePassword("비밀번호가 일치하지 않습니다.");
+      }
+      // END
     } else if (type === "REPASSWORD") {
       setRePassword(event.target.value);
       if (event.target.value.length === 0) {

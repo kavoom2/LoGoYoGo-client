@@ -119,7 +119,7 @@ export default function LandingPart3() {
             </div>
             <div className="btn-container">
               <button
-                className={index === 0 ? "target" : ""}
+                className={textIdx === 0 ? "target" : ""}
                 onClick={() => {
                   handleSetIndex(0);
                 }}
@@ -129,7 +129,7 @@ export default function LandingPart3() {
                 팔레트
               </button>
               <button
-                className={index === 1 ? "target" : ""}
+                className={textIdx === 1 ? "target" : ""}
                 onClick={() => {
                   handleSetIndex(1);
                 }}
@@ -139,7 +139,7 @@ export default function LandingPart3() {
                 텍스트
               </button>
               <button
-                className={index === 2 ? "target" : ""}
+                className={textIdx === 2 ? "target" : ""}
                 onClick={() => {
                   handleSetIndex(2);
                 }}
@@ -149,7 +149,7 @@ export default function LandingPart3() {
                 도형
               </button>
               <button
-                className={index === 3 ? "target" : ""}
+                className={textIdx === 3 ? "target" : ""}
                 onClick={() => {
                   handleSetIndex(3);
                 }}
@@ -159,7 +159,7 @@ export default function LandingPart3() {
                 클립아트
               </button>
               <button
-                className={index === 4 ? "target" : ""}
+                className={textIdx === 4 ? "target" : ""}
                 onClick={() => {
                   handleSetIndex(4);
                 }}
