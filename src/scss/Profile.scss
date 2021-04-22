@@ -1,77 +1,10 @@
 @import "./_varaiables.scss";
 
-.profile-header {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 20px;
-
-  .profile-header-a {
-    cursor: pointer;
-    transition: 0.5s ease;
-  }
-  .profile-header-b {
-    cursor: pointer;
-    transition: 0.5s ease;
-  }
-}
-
-.profile-header-a {
-  padding: 0px 15px;
-
-  :hover {
-    color: gray;
-  }
-}
-
-.profile-header-b {
-  padding: 0px 15px;
-  :hover {
-    color: gray;
-  }
-}
-
-.profile-inner-btn {
-  margin-left: 0%;
-  margin-right: 0%;
-  margin-top: 1vw;
-  margin-bottom: 0%;
-  width: 100px;
-  border: 0.5px solid gray;
-  color: black;
-  transition: 0.4s ease;
-}
-
-.profile-inner-btn:hover {
-  background-color: rgb(212, 212, 212);
-}
-
-.profile-aside {
-  flex-direction: column;
-  padding-top: 8rem;
-  padding-left: 4%;
-  width: 10vw;
-  align-items: center;
-  float: left;
-}
-
-.profile-aside-btn {
-  padding: 0.5rem;
-  margin-top: 1.5rem;
-  border-radius: 0rem;
-  width: 12rem;
-  border: 0.5px solid gray;
-  transition: 0.4s ease;
-  color: black;
-}
-
-.profile-aside-btn:hover {
-  background-color: rgb(212, 212, 212);
-}
-
 .profile-container {
+  position: fixed;
   padding-top: 8rem;
-  margin-left: 23%;
-  margin-right: 23%;
+  margin-left: 35rem;
+  width: 65vw;
   box-sizing: border-box;
 
   display: flex;
@@ -79,19 +12,207 @@
   flex-direction: column;
 }
 
-.profile-section {
-  margin: auto;
+.profile-container-background {
+  background-color: #ece9ff;
 }
 
-.profile-input-changepw {
-  width: 30vw;
-  border-radius: 0%;
-  border-bottom: solid;
-  border-width: 0.5px;
+.profile-section {
+  background-color: #ece9ff;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  background-clip: content-box;
+
+  .profile-header-a {
+    cursor: pointer;
+    transition: 0.5s ease;
+    color: #725fd8;
+    background-color: #ece9ff;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    padding: 0px 25px;
+    &:hover {
+      opacity: 0.8;
+      color: #a176fd;
+    }
+
+    h2 {
+      font-family: "Questrial";
+    }
+  }
+  .profile-header-b {
+    cursor: pointer;
+    transition: 0.5s ease;
+    color: #725fd8;
+    background-color: rgb(192, 192, 192);
+    border-bottom: none;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    padding: 0px 25px;
+    &:hover {
+      opacity: 0.8;
+      color: white;
+    }
+
+    h2 {
+      font-family: "Questrial";
+    }
+  }
+}
+
+.profile-footer {
+  background-color: white;
+}
+
+.profile-inner-btn {
+  margin-left: 0%;
+  margin-right: 3%;
+  margin-top: 5%;
+  margin-bottom: 0%;
+  width: 150px;
+  background: #a176fd;
+  color: $color-item-container !important;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: rgb(215, 134, 223);
+  }
+}
+
+.profile-aside {
+  background-color: #ece9ff;
+  flex-direction: column;
+  padding-top: 8rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  width: 26rem;
+  height: 100rem;
+  align-items: center;
+  float: left;
+}
+
+.profile-aside-btn {
+  font-family: "Questrial";
+  padding: 0.5rem;
+  margin-top: 1.5rem;
+  width: 15rem;
+  height: 5rem;
+  background: #a176fd;
+  color: $color-item-container !important;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: rgb(215, 134, 223);
+  }
+}
+
+.profile-group {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 1%;
+
+  input {
+    display: block;
+    width: 50rem;
+    padding: 0rem;
+    padding-top: 1.5rem;
+    background: transparent;
+    border-bottom: 1.5px solid $color-font-sub;
+    border-radius: 0rem;
+    opacity: 0.8;
+    outline: none;
+
+    font-size: $font-size-H5;
+    height: 5rem;
+    letter-spacing: 0.1rem;
+
+    &[type*="password"] {
+      letter-spacing: 0.6rem;
+    }
+
+    &:focus {
+      border-bottom: 1.5px solid #725fd8;
+    }
+
+    &:valid {
+      border-bottom: 1.5px solid #725fd8;
+    }
+
+    &[class*="invalid"] {
+      border-bottom: 1.5px solid #dc0812;
+    }
+  }
+
+  label {
+    pointer-events: none;
+    color: $color-font-sub;
+    font-size: $font-size-H5;
+    position: absolute;
+    top: 4rem;
+
+    transition: 0.2s;
+  }
+
+  input:focus ~ label {
+    transform-origin: left;
+    top: 1.5rem;
+    transform: scale(0.85);
+    color: #725fd8;
+  }
+
+  input:valid ~ label {
+    transform-origin: left;
+    top: 1.5rem;
+    transform: scale(0.85);
+    color: #725fd8;
+  }
+
+  input[class*="invalid"] ~ label {
+    color: #dc0812;
+  }
+
+  span {
+    pointer-events: none;
+    height: $font-size-H6;
+    font-size: $font-size-H6;
+    color: #dc0812;
+    padding-top: 0.3rem;
+    display: block;
+  }
 }
 
 .profile-label {
-  border-top: 1px solid gray;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 2%;
+
+  label {
+    font-family: "Questrial";
+    font-size: 23px;
+    color: #725fd8;
+  }
+}
+
+.profile-info {
+  padding-bottom: 1%;
+  padding-left: 4%;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 60vw;
+    border-bottom: 1px solid gray;
+    margin: 10px;
+  }
+
+  span {
+    font-family: "Questrial";
+    font-size: 20px;
+    color: #725fd8;
+  }
 }
 
 .mylogo {
@@ -111,29 +232,45 @@
   .profile-aside {
     float: none !important;
     display: table !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: 0% !important;
+    padding-left: 6vw !important;
+    padding-right: 6vw !important;
+    padding-top: 2.5rem !important;
+    width: 100vw;
+    height: 20rem !important;
   }
 
   .profile-aside-btn {
-    width: 60vw;
+    width: 85vw;
   }
 
   .profile-container {
     display: flex;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 60vw !important;
+    margin-left: 7.5vw !important;
+    margin-right: 7.5vw !important;
+    padding-top: 5vw !important;
+    width: 85vw !important;
   }
 
   .profile-input-changepw {
-    width: 60vw !important;
+    width: 85vw !important;
   }
 
   .profile-inner-btn {
     margin-top: 3vw !important;
-    width: 60vw !important;
+    margin-right: 50px;
+    width: 85vw !important;
+  }
+
+  .profile-group {
+    * {
+      width: 83vw !important;
+    }
+  }
+
+  .profile-info {
+    &::after {
+      width: 77vw;
+    }
   }
 
   .mylogo {
