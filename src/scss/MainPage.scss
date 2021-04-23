@@ -424,18 +424,24 @@
   }
   .container2 {
     display: flex;
+    margin-left: 5rem;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width: 70rem;
+    padding: 0.4rem;
     width: 100%;
-    height: 50rem;
-    background-position: center;
-    background-size: 600px;
+    min-width: 50rem;
     border-radius: 1rem;
-    background: #eeeeee;
-    border: 1px solid $color-border-landing;
-
-    margin-left: 8rem;
+    background: #ececec;
     z-index: 1;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.8rem;
+      border: 1px solid $color-border;
+    }
   }
 
   .container3 {
@@ -485,6 +491,20 @@
       .subtitle {
         font-size: 1.6rem;
         line-height: 2.6rem;
+      }
+    }
+
+    .container2 {
+      display: none;
+      height: 5rem;
+      max-width: 98vw;
+      min-width: 98vw;
+      width: 98vw;
+      margin: 0rem;
+      margin-top: 3rem;
+
+      img {
+        margin: 0rem;
       }
     }
 

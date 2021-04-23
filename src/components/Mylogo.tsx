@@ -9,7 +9,7 @@ export default function Mylogo() {
 
   useEffect(() => {
     if (sessionStorage.getItem("preset")) {
-      const canvasWidth = 560;
+      const canvasWidth = 700;
       const canvasHeight = 600;
 
       const stageWidth = document.body.clientWidth;
@@ -23,6 +23,15 @@ export default function Mylogo() {
         width: canvasWidth,
         backgroundColor: "white",
       });
+
+      const initRatio = (stageHeight * 0.55) / canvasHeight;
+
+      c.setDimensions({
+        width: canvasWidth * initRatio,
+        height: canvasHeight * initRatio,
+      });
+
+      c.setZoom(initRatio);
 
       if (stageWidth <= 768) {
         const scaleRatio = (stageHeight * 0.4) / canvasHeight;
