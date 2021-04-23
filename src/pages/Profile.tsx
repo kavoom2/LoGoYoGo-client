@@ -57,9 +57,16 @@ export default function Profile() {
     <div>
       <Nav />
       <aside className="profile-aside">
+        <div className="profile-aside-top">
+          <span>logoyogo</span>
+        </div>
         {accessToken ? (
           <div>
-            <button className="profile-aside-btn" onClick={handelMyLogo}>
+            <button
+              id="profile-aside-mylogo"
+              className="profile-aside-btn"
+              onClick={handelMyLogo}
+            >
               내 로고
             </button>
           </div>
@@ -68,7 +75,11 @@ export default function Profile() {
         )}
 
         <div>
-          <button className="profile-aside-btn" onClick={handleProfileMain}>
+          <button
+            id="profile-aside-myprofile"
+            className="profile-aside-btn"
+            onClick={handleProfileMain}
+          >
             내 프로필
           </button>
         </div>
