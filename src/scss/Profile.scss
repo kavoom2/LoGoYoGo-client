@@ -236,8 +236,8 @@
   display: flex;
   flex-direction: row;
   margin: 0rem;
-  width: 708px;
-  height: 608px;
+  width: 630px;
+  height: 540px;
   border: solid black 1px;
   border-radius: 20px;
 
@@ -247,8 +247,8 @@
   }
 
   img {
-    width: 708px;
-    height: 608px;
+    width: 630px;
+    height: 540px;
   }
 }
 
@@ -268,10 +268,10 @@
 }
 
 .mylogo-addlogo {
-  margin-left: 750px;
+  margin-left: 700px;
   flex: 1;
-  width: 708px;
-  height: 608px;
+  width: 630px;
+  height: 540px;
   border: solid black 1px;
   border-radius: 1.5rem;
   text-align: center;
@@ -286,15 +286,37 @@
   }
 
   .icon {
-    margin-top: 12rem;
+    margin-top: 10rem;
+    width: 200;
+    height: 200;
+  }
+}
+
+.mylogo-addlogo-b {
+  flex: 1;
+  width: 630px;
+  height: 540px;
+  border: solid black 1px;
+  border-radius: 1.5rem;
+  text-align: center;
+  font-family: "NanumBarunGothic";
+  color: #a176fd;
+  font-size: 3rem;
+  padding-top: 3rem;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+  }
+
+  .icon {
+    margin-top: 10rem;
     width: 200;
     height: 200;
   }
 }
 
 #mylogo {
-  width: 700px;
-  height: 600px;
   padding: 5px;
   border-radius: 5rem;
 }
@@ -354,6 +376,13 @@
     }
   }
 
+  .mylogo-title-text {
+    margin-left: 10vw !important;
+    padding-left: 3vw !important;
+    padding-right: 3vw !important;
+    font-size: 2rem !important;
+  }
+
   .mylogo {
     margin-left: 10vw !important;
     margin-right: auto !important;
@@ -372,14 +401,38 @@
 
   .mylogo-addlogo {
     margin-left: 10vw !important;
-    margin-top: 63vw !important;
+    margin-top: 65vw !important;
     width: 63vw !important;
     height: 10vw !important;
-    padding: 2rem !important;
+    padding: 2.5vw !important;
     font-size: 4vw;
 
+    br {
+      display: none !important;
+    }
+
     .icon {
-      display: none;
+      display: none !important;
+    }
+
+    &:hover {
+      transform: scale(1.01) !important;
+    }
+  }
+
+  .mylogo-addlogo-b {
+    margin-left: 10vw !important;
+    width: 63vw !important;
+    height: 10vw !important;
+    padding: 2.5vw !important;
+    font-size: 4vw;
+
+    br {
+      display: none !important;
+    }
+
+    .icon {
+      display: none !important;
     }
 
     &:hover {

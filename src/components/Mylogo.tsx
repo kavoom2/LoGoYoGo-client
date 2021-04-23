@@ -9,7 +9,7 @@ export default function Mylogo() {
 
   useEffect(() => {
     if (sessionStorage.getItem("preset")) {
-      const canvasWidth = 700;
+      const canvasWidth = 560;
       const canvasHeight = 600;
 
       const stageWidth = document.body.clientWidth;
@@ -93,9 +93,11 @@ export default function Mylogo() {
         </div>
       ) : (
         <div>
-          <button className="profile-inner-btn" onClick={goedit}>
-            에디터 바로가기
-          </button>
+          <div className="mylogo-addlogo-b" onClick={addLogoHandle}>
+            Add More LOGO
+            <br></br>
+            <img className="icon" src={addLogoIcon}></img>
+          </div>
         </div>
       )}
     </div>
