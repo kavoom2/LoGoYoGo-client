@@ -24,7 +24,7 @@ export default function Mylogo() {
         backgroundColor: "white",
       });
 
-      const initRatio = (stageHeight * 0.55) / canvasHeight;
+      const initRatio = 0.7;
 
       c.setDimensions({
         width: canvasWidth * initRatio,
