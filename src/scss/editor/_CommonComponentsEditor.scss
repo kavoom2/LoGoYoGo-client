@@ -287,9 +287,6 @@
 
   background: $color-container;
   border: 1px solid #cccccc;
-  // box-shadow: 0px 2px 10px #999999;
-
-  // border-radius: 0.2rem;
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -371,4 +368,9 @@
     margin-right: 1rem;
     margin-bottom: 0.8rem;
   }
+}
+
+#fontFamily {
+  max-height: 3.5rem;
+  min-height: 3.5rem;
 }

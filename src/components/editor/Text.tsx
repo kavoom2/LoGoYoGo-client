@@ -57,13 +57,15 @@ export default function Text({
     });
 
     textbox.set("text", "내용을 입력하세요");
-
     textbox.set({
       // * : 오브젝트 타입과 키값을 명시합니다.
       customType: "textbox",
       left: canvas.width / 2 - textbox.width / 2,
       top: canvas.height / 2 - textbox.height / 2,
     });
+
+    textbox._charWidthsCache = {};
+    textbox._clearCache();
 
     textbox.setControlsVisibility({
       mb: false,
@@ -112,6 +114,9 @@ export default function Text({
         item.set("fontFamily", event.target.value);
         item.set("text", text + " ");
         item.set("text", text);
+
+        item._charWidthsCache = {};
+        item._clearCache();
       }
     });
 
@@ -151,7 +156,7 @@ export default function Text({
     const result: Array<JSX.Element> = [];
     fonts.forEach((el, idx) => {
       const jsxEl = (
-        <option key={idx} value={el}>
+        <option key={idx} value={el} style={{ fontFamily: el }}>
           {el}
         </option>
       );
@@ -198,6 +203,7 @@ export default function Text({
           id="fontFamily"
           onChange={handleChangeFont}
           defaultValue={fontType}
+          style={{ fontFamily: fontType }}
         >
           {renderFontLists()}
         </select>
