@@ -4,12 +4,15 @@
   #section-creator {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
     overflow-y: auto;
     word-break: keep-all;
 
     padding-top: 2rem;
-    padding-left: 10rem;
-    padding-right: 10rem;
+    padding-left: 25rem;
+    padding-right: 25rem;
+    padding-bottom: 20rem;
 
     .title {
       font-size: 4rem;
@@ -18,7 +21,8 @@
       color: #3f3c4e;
       font-family: "NanumBarunGothic";
       text-align: center;
-      margin-bottom: 1rem;
+      margin-top: 5rem;
+      margin-bottom: 3rem;
     }
 
     .subtitle {
@@ -32,6 +36,9 @@
   }
 
   #footer-creator {
+    position: sticky;
+    width: 100%;
+    bottom: 0rem;
     border-top: 1px solid $color-border;
     background: #efefef;
 
@@ -40,8 +47,8 @@
     align-items: center;
 
     margin-top: 10rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
 
     button {
       font-size: 2rem;
@@ -66,142 +73,85 @@
 }
 
 #section-creator {
-  .body-header {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5rem;
-    margin-bottom: 2rem;
-    .title {
-      text-align: center;
-      font-size: 5rem;
-      font-weight: 700;
-    }
-    .subtitle {
-      padding-top: 1.5rem;
-      text-align: center;
-      font-size: 2rem;
-    }
-  }
-}
-
-#section-creator {
   text-align: center;
   .body-item-outer-container {
     .body-item-container {
       display: flex;
       flex-wrap: wrap;
-      + .item {
-        display: inline-block;
-        width: 32vw;
-        height: 21.3vw;
-        margin: 4rem;
-        background-size: cover;
-      }
-
-      .item:hover {
-        cursor: pointer;
-      }
 
       .item-position {
-        display: inline-block;
-        width: 21.3vw;
-        height: 21.3vw;
-        margin: 4rem;
-        background-size: cover;
+        display: flex;
+        flex: 1 1 33.3%;
+
+        padding: 1.8rem 2rem 0rem 2rem;
+
+        img {
+          width: 100%;
+          height: auto;
+          border: 1px solid $color-border;
+
+          &:hover {
+            cursor: pointer;
+            box-shadow: 0px 2px 13px -1px $color-slider-fill;
+            opacity: 0.7;
+          }
+        }
       }
 
-      .item-position:hover {
-        cursor: pointer;
-        opacity: 0.7;
+      .item-shape {
+        display: flex;
+        flex: 0 0 14.28%;
+
+        padding: 1.8rem 1.5rem 2rem 1.5rem;
+
+        img {
+          padding: 1rem;
+          width: 100%;
+          height: auto;
+          border: 1px solid $color-border;
+          background: #fbfcfd;
+          transition: 0.2s ease;
+          fill: #333135;
+
+          &:hover {
+            cursor: pointer;
+            box-shadow: 0px 2px 15px -1px $color-slider-fill;
+            opacity: 0.8;
+          }
+        }
       }
 
-      .item-position-margin {
-        display: inline-block;
-        border-radius: 3rem;
-        transition: 0.5s ease;
-      }
-
-      .item-position-margin:hover {
-        background-color: rgb(233, 233, 233);
-      }
-
-      .item-Shape {
-        display: inline-block;
-        width: 18vw;
-        height: 18vw;
-        margin: 2rem;
-
-        border-radius: 7vw;
-        background-size: cover;
-      }
-      .item-Shape:hover {
-        cursor: pointer;
-        border: solid black;
-        transform: scale(1.1);
-      }
-      #sample1 {
-        background-image: url(../images/test/sample1.png);
-        background-position: -3vw;
-      }
-      #sample2 {
-        background-image: url(../images/test/sample2.png);
-        background-position: -1.3vw;
-      }
-      #sample3 {
-        background-image: url(../images/test/sample3.png);
-        background-position: -0.2vw;
-      }
-      #sample4 {
-        background-image: url(../images/test/sample4.png);
-        background-position: -1vw;
-      }
-      #sample5 {
-        background-image: url(../images/test/sample5.png);
-        background-position: -2vw;
-      }
-      #sample6 {
-        background-image: url(../images/test/sample6.png);
-        background-position: -0.6vw;
-      }
-      #sample7 {
-        background-image: url(../images/test/sample7.png);
-        background-position: -1.4vw;
-      }
-      #sample8 {
-        background-image: url(../images/test/test1.png);
-        background-position: -2.7vw;
-      }
       .item-color {
-        width: 9vw;
-        height: 35vw;
-        padding: 1rem;
-        display: table-cell;
-        vertical-align: middle;
-        transition: 0.5s ease;
-        border-radius: 5px;
-      }
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 12.5%;
+        padding: 4rem 1rem 4rem 1rem;
+        width: 100%;
 
-      .item-color:hover {
-        background-color: rgb(233, 233, 233);
+        transition: 0.5s ease;
+
+        &:hover {
+          background-color: rgb(233, 233, 233);
+        }
       }
 
       .item-color-inner {
-        display: inline-block;
-        width: 6.5vw;
-        height: 6.5vw;
-        border-radius: 100%;
-      }
+        width: 100%;
+        padding-bottom: 70%;
+        border: solid 2.5px transparent;
+        opacity: 0.8;
 
-      .item-color-inner:hover {
-        cursor: pointer;
-        border: solid 2.5px;
+        &:hover {
+          cursor: pointer;
+          border: solid 2.5px rgb(68, 65, 65);
+        }
       }
 
       .item-sample {
         display: inline-block;
-        flex: 0 0 25%;
+        flex: 0 0 33%;
 
-        padding: 1.8rem 1.8rem 3rem 1.8rem;
+        padding: 1.8rem 2.2rem 3rem 2.2rem;
         background: transparent;
 
         img {
@@ -221,6 +171,17 @@
   }
 }
 
+@media (max-width: 1200px,) {
+  #section-creator {
+    padding-left: 8rem !important;
+    padding-right: 8rem !important;
+  }
+
+  .item-shape {
+    flex: 0 0 16.6% !important;
+  }
+}
+
 @media (max-width: 768px,) {
   // * MOBILE: max-width: 768px;
   #section-creator {
@@ -235,13 +196,14 @@
         line-height: 4.5rem;
         padding-left: 1rem;
         padding-right: 1rem;
+        margin-bottom: 1rem !important;
       }
       .subtitle {
         font-size: 1.6rem !important;
         line-height: 2.6rem;
         padding-left: 3rem;
         padding-right: 3rem;
-        margin-bottom: 3rem !important;
+        margin-bottom: 4rem !important;
       }
     }
   }
@@ -256,62 +218,23 @@
       }
 
       .item-position {
-        width: 25vw !important;
-        height: 25vw !important;
-        margin-left: 1rem !important;
-        margin-right: 1rem !important;
+        flex: 0 0 100% !important;
       }
-      .item-Shape {
-        width: 30vw !important;
-        height: 28vw !important;
-        border-radius: 4vmin !important;
-        background-size: cover;
-      }
-      #sample1 {
-        background-position: -1.5vw !important;
-      }
-      #sample2 {
-        background-position: 0.1px !important;
-      }
-      #sample3 {
-        background-position: 0.1px !important;
-      }
-      #sample4 {
-        background-position: 0.1px !important;
-      }
-      #sample5 {
-        background-position: -1vw !important;
-      }
-      #sample6 {
-        background-position: 0.1px !important;
-      }
-      #sample7 {
-        background-position: 0.1px !important;
-      }
-      #sample8 {
-        background-position: -1vw !important;
-        background-image: url(../images/test/test1.png) !important;
-        background-size: 150px !important;
-        background-repeat: no-repeat !important;
+
+      .item-shape {
+        flex: 0 0 33% !important;
+        padding: 0rem 0.8rem 1rem 0.8rem !important;
       }
 
       .item-color {
-        width: 100vw !important;
-        height: 16vw !important  ;
-        padding: 1rem !important;
-        display: table-cell !important;
-        vertical-align: middle !important;
-        transition: 0.5s ease !important;
-        border-radius: 5px !important;
-        float: left !important;
+        display: flex;
+        flex-direction: row !important;
+        flex: 0 0 100% !important;
+        padding: 0rem 0.3rem 1rem 0.3rem !important;
       }
 
       .item-color-inner {
-        display: inline-block;
-        width: 12vw !important;
-        height: 12vw !important;
-        border-radius: 100% !important;
-        margin: 0.5rem !important;
+        padding-bottom: 20% !important;
       }
 
       .item-sample {

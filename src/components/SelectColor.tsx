@@ -15,9 +15,10 @@ export default function selectShape() {
     <React.Fragment>
       <div id="section-creator">
         <div className="body-header">
-          <div className="title">사용할 색상을 선택하세요</div>
+          <div className="title">색상을 선택하세요</div>
           <div className="subtitle">
-            선택한 색상은 에디터에서 수정할 수 있습니다
+            로고의 글자와 도형 색상을 선택합니다. 선택한 색상은 에디터에서
+            수정할 수 있습니다
           </div>
         </div>
         <div className="body-item-outer-container">
@@ -241,11 +242,14 @@ export default function selectShape() {
           </div>
         </div>
       </div>
-      {/* <div id="footer-creator">
-        <button onClick={() => history.push("/maker")}>
-          이전으로 돌아가기
+      <div id="footer-creator">
+        <button
+          className="item-sample"
+          onClick={() => history.push("/maker/editor")}
+        >
+          빈 캔버스에서 직접 로고 만들기
         </button>
-      </div> */}
+      </div>
     </React.Fragment>
   );
 }

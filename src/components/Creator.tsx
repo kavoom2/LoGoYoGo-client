@@ -69,7 +69,7 @@ export default function Creator() {
           // style={{ backgroundImage: `url(${samplemake})` }}
           onClick={() => history.push("/maker/editor")}
         >
-          새로운 프로젝트에서 로고 만들기
+          빈 캔버스에서 직접 로고 만들기
         </button>
       </div>
     </React.Fragment>

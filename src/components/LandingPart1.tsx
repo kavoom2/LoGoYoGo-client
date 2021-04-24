@@ -1,18 +1,60 @@
 import { useHistory } from "react-router-dom";
 import creator from "../dummy/creator";
 import imgPath from "../images/main/landing1.png";
+import { fabric } from "fabric";
 
 export default function LandingPart1({ handleLogoName }) {
   const history = useHistory();
 
   const logoname = (): void => {
     if (sessionStorage.getItem("logo")) {
-      creator[0].objects[1].text = sessionStorage.getItem("logo");
+      const textbox: any = new fabric.Textbox(" ", {
+        fontSize: 50,
+        fill: "black",
+        fontFamily: "Nanum Myeongjo",
+      });
+
+      textbox.set("text", sessionStorage.getItem("logo"));
+      textbox.set({
+        customType: "textbox",
+      });
+
+      textbox._charWidthsCache = {};
+      textbox._clearCache();
+
+      textbox.setControlsVisibility({
+        mb: false,
+        mt: false,
+      });
+
+      creator[0].objects[1] = textbox;
       sessionStorage.removeItem("logo");
+
       history.push("/maker/selectshape");
     } else {
       sessionStorage.removeItem("logo");
-      creator[0].objects[1].text = "sample";
+
+      // TODO: Make new textbox
+      const textbox: any = new fabric.Textbox(" ", {
+        fontSize: 50,
+        fill: "black",
+        fontFamily: "Nanum Myeongjo",
+      });
+
+      textbox.set("text", "sample");
+      textbox.set({
+        customType: "textbox",
+      });
+
+      textbox._charWidthsCache = {};
+      textbox._clearCache();
+
+      textbox.setControlsVisibility({
+        mb: false,
+        mt: false,
+      });
+
+      creator[0].objects[1] = textbox;
       history.push("/maker/selectshape");
     }
   };
