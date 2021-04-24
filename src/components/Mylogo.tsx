@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { fabric } from "fabric";
 import { useHistory } from "react-router-dom";
+import Invisible from "../images/test/투명레이어.png";
+import addLogoIcon from "../images/test/addLogo3.png";
 
 export default function Mylogo() {
   const history = useHistory();
@@ -21,6 +23,15 @@ export default function Mylogo() {
         width: canvasWidth,
         backgroundColor: "white",
       });
+
+      const initRatio = 0.7;
+
+      c.setDimensions({
+        width: canvasWidth * initRatio,
+        height: canvasHeight * initRatio,
+      });
+
+      c.setZoom(initRatio);
 
       if (stageWidth <= 768) {
         const scaleRatio = (stageHeight * 0.4) / canvasHeight;
@@ -64,25 +75,38 @@ export default function Mylogo() {
     }
   };
 
+  const addLogoHandle = (): void => {
+    history.push("/maker/selectshape");
+  };
+
   return (
     <div>
       {sessionStorage.getItem("preset") ? (
         <div>
-          <span>내 최근 로고</span>
+          <div className="mylogo-title">
+            <span className="mylogo-title-text">내 최근 로고</span>
+          </div>
           <div className="mylogo" onClick={edit}>
+            <img
+              className="mylogo-outer"
+              src={Invisible}
+              style={{ zIndex: 1, position: "absolute" }}
+            ></img>
             <canvas id="mylogo" />
           </div>
-          <div>
-            <button className="profile-inner-btn" onClick={goedit}>
-              에디터 바로가기
-            </button>
+          <div className="mylogo-addlogo" onClick={addLogoHandle}>
+            Add More LOGO
+            <br></br>
+            <img className="icon" src={addLogoIcon}></img>
           </div>
         </div>
       ) : (
         <div>
-          <button className="profile-inner-btn" onClick={goedit}>
-            에디터 바로가기
-          </button>
+          <div className="mylogo-addlogo-b" onClick={addLogoHandle}>
+            Add More LOGO
+            <br></br>
+            <img className="icon" src={addLogoIcon}></img>
+          </div>
         </div>
       )}
     </div>

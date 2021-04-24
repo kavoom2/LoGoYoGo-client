@@ -28,9 +28,7 @@ export default function selectShape() {
         <div className="body-header">
           <div className="title">사용할 도형을 선택하세요</div>
           <div className="subtitle">
-            선택한 도형은 에디터에서 수정하거나
-            <br />
-            바로 사용할 수 있습니다.
+            선택한 도형은 에디터에서 수정할 수 있습니다
           </div>
         </div>
         <div className="body-item-outer-container">

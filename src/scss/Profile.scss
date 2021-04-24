@@ -3,7 +3,7 @@
 .profile-container {
   position: fixed;
   padding-top: 8rem;
-  margin-left: 35rem;
+  margin-left: 33rem;
   width: 65vw;
   box-sizing: border-box;
 
@@ -85,34 +85,49 @@
 .profile-aside {
   background-color: #ece9ff;
   flex-direction: column;
-  padding-top: 8rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding-top: 4rem;
   width: 26rem;
   height: 100rem;
   align-items: center;
   float: left;
 }
 
+.profile-aside-top {
+  padding-left: 6rem;
+  padding-bottom: 4rem;
+  span {
+    font-family: "Questrial";
+    font-size: 3rem;
+    font-weight: 600;
+    color: #4665d9;
+  }
+}
+
 .profile-aside-btn {
   font-family: "Questrial";
-  padding: 0.5rem;
-  margin-top: 1.5rem;
-  width: 15rem;
-  height: 5rem;
-  background: #a176fd;
-  color: $color-item-container !important;
+  margin: 0rem;
+  width: 26rem;
+  height: 6rem;
+  border-radius: 0;
+  background: #ece9ff;
+  color: #725fd8;
   transition: 0.2s;
 
   &:hover {
     background-color: rgb(215, 134, 223);
+    color: white;
+  }
+
+  &:focus {
+    background-color: rgb(215, 134, 223);
+    color: white;
   }
 }
 
 .profile-group {
   position: relative;
   margin-bottom: 2rem;
-  padding-left: 1%;
+  padding-left: 2.5%;
 
   input {
     display: block;
@@ -149,7 +164,7 @@
   label {
     pointer-events: none;
     color: $color-font-sub;
-    font-size: $font-size-H5;
+    font-size: 1.8rem;
     position: absolute;
     top: 4rem;
 
@@ -198,7 +213,7 @@
 
 .profile-info {
   padding-bottom: 1%;
-  padding-left: 4%;
+  padding-left: 2%;
 
   &::after {
     content: "";
@@ -209,6 +224,7 @@
   }
 
   span {
+    padding-left: 1%;
     font-family: "Questrial";
     font-size: 20px;
     color: #725fd8;
@@ -216,15 +232,94 @@
 }
 
 .mylogo {
+  float: left;
   display: flex;
   flex-direction: row;
-  margin: 1rem;
+  margin: 0rem;
+  width: 50rem;
+  height: 42rem;
+  border: solid black 1px;
+  border-radius: 3rem;
+  justify-content: center;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+  }
+
+  img {
+    width: 50rem;
+    height: 42rem;
+  }
 }
 
-.mylogo:hover {
-  border: solid black;
-  cursor: pointer;
-  border-radius: 20px;
+.mylogo-title {
+  margin-bottom: 4rem;
+  span {
+    font-family: "NanumBarunGothic";
+    font-size: 2.5rem;
+    background-color: #ece9ff;
+    color: #725fd8;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 1.5rem;
+  }
+}
+
+.mylogo-addlogo {
+  margin-left: 55rem;
+  flex: 1;
+  width: 50rem;
+  height: 42rem;
+  border: solid black 1px;
+  border-radius: 3rem;
+  text-align: center;
+  font-family: "NanumBarunGothic";
+  color: #a176fd;
+  font-size: 3rem;
+  padding-top: 3rem;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+  }
+
+  .icon {
+    margin-top: 10rem;
+    width: 200;
+    height: 200;
+  }
+}
+
+.mylogo-addlogo-b {
+  flex: 1;
+  width: 50rem;
+  height: 42rem;
+  border: solid black 1px;
+  border-radius: 3rem;
+  text-align: center;
+  font-family: "NanumBarunGothic";
+  color: #a176fd;
+  font-size: 3rem;
+  padding-top: 3rem;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+  }
+
+  .icon {
+    margin-top: 10rem;
+    width: 200;
+    height: 200;
+  }
+}
+
+#mylogo {
+  padding: 5px;
+  border-radius: 5rem;
 }
 
 @media (max-width: 768px,) {
@@ -232,15 +327,24 @@
   .profile-aside {
     float: none !important;
     display: table !important;
-    padding-left: 6vw !important;
-    padding-right: 6vw !important;
     padding-top: 2.5rem !important;
     width: 100vw;
-    height: 20rem !important;
+    height: 14rem !important;
   }
 
   .profile-aside-btn {
-    width: 85vw;
+    position: absolute !important;
+    width: 50vw;
+  }
+
+  #profile-aside-myprofile {
+    margin-left: 50vw !important;
+  }
+
+  .profile-aside-top {
+    padding-left: 0 !important;
+    text-align: center !important;
+    padding-bottom: 2.5rem !important;
   }
 
   .profile-container {
@@ -273,10 +377,67 @@
     }
   }
 
+  .mylogo-title-text {
+    margin-left: 10vw !important;
+    padding-left: 3vw !important;
+    padding-right: 3vw !important;
+    font-size: 2rem !important;
+  }
+
   .mylogo {
-    margin-left: auto !important;
+    margin-left: 10vw !important;
     margin-right: auto !important;
-    display: flex;
-    flex-direction: column;
+    width: 63vw !important;
+    height: 54vw !important;
+
+    &:hover {
+      transform: scale(1.01) !important;
+    }
+  }
+
+  #mylogo {
+    width: 63vw !important;
+    height: 54vw !important;
+  }
+
+  .mylogo-addlogo {
+    margin-left: 10vw !important;
+    margin-top: 65vw !important;
+    width: 63vw !important;
+    height: 10vw !important;
+    padding: 2.5vw !important;
+    font-size: 4vw;
+
+    br {
+      display: none !important;
+    }
+
+    .icon {
+      display: none !important;
+    }
+
+    &:hover {
+      transform: scale(1.01) !important;
+    }
+  }
+
+  .mylogo-addlogo-b {
+    margin-left: 10vw !important;
+    width: 63vw !important;
+    height: 10vw !important;
+    padding: 2.5vw !important;
+    font-size: 4vw;
+
+    br {
+      display: none !important;
+    }
+
+    .icon {
+      display: none !important;
+    }
+
+    &:hover {
+      transform: scale(1.01) !important;
+    }
   }
 }
