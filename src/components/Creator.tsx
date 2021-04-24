@@ -8,6 +8,7 @@ import sampleimage4 from "../images/sample/sample4.png";
 import sampleimage5 from "../images/sample/sample5.png";
 import sampleimage6 from "../images/sample/sample6.png";
 import sampleimage7 from "../images/sample/sample7.png";
+import sampleimage8 from "../images/sample/sample8.png";
 import samplemake from "../images/sample/samplemake.png";
 
 export default function Creator() {
@@ -23,10 +24,10 @@ export default function Creator() {
     <React.Fragment>
       <div id="section-creator">
         <div className="body-header">
-          <div className="title">원하시는 샘플을 선택하세요</div>
+          <div className="title">원하는 템플릿을 선택하세요</div>
           <div className="subtitle">
-            이곳에 있는 샘플이 마음에 드시지 않으신가요? <br /> 직접 만드실 수도
-            있습니다!
+            원하는 템플릿을 선택하여 로고로 사용해보세요. 또는 하단의 버튼을
+            클릭하여 처음부터 만들 수도 있습니다.
           </div>
         </div>
         <div className="body-item-outer-container">
@@ -34,54 +35,43 @@ export default function Creator() {
             <div
               className="item-sample"
               onClick={() => samplemaker(0)}
-              style={{
-                backgroundImage: `url(${sampleimage1}) `,
-              }}
-            ></div>
-            <div
-              className="item-sample"
-              onClick={() => samplemaker(1)}
-              style={{ backgroundImage: `url(${sampleimage2})` }}
-            ></div>
-            <div
-              className="item-sample"
-              onClick={() => samplemaker(2)}
-              style={{ backgroundImage: `url(${sampleimage3})` }}
-            ></div>
-            <div
-              className="item-sample"
-              onClick={() => samplemaker(3)}
-              style={{ backgroundImage: `url(${sampleimage4})` }}
-            ></div>
-            <div
-              className="item-sample"
-              onClick={() => samplemaker(4)}
-              style={{ backgroundImage: `url(${sampleimage5})` }}
-            ></div>
-            <div
-              className="item-sample"
-              onClick={() => samplemaker(5)}
-              style={{ backgroundImage: `url(${sampleimage6})` }}
-            ></div>
-            <div
-              className="item-sample"
-              onClick={() => samplemaker(6)}
-              style={{ backgroundImage: `url(${sampleimage7})` }}
-            ></div>
-            <div
-              className="item-sample"
-              style={{ backgroundImage: `url(${samplemake})` }}
-              onClick={() => history.push("/maker/editor")}
-            ></div>
+              style={{}}
+            >
+              <img src={sampleimage1} />
+            </div>
+            <div className="item-sample">
+              <img src={sampleimage2} onClick={() => samplemaker(1)} />
+            </div>
+            <div className="item-sample">
+              <img src={sampleimage3} onClick={() => samplemaker(2)} />
+            </div>
+            <div className="item-sample">
+              <img src={sampleimage4} onClick={() => samplemaker(3)} />
+            </div>
+            <div className="item-sample">
+              <img src={sampleimage5} onClick={() => samplemaker(4)} />
+            </div>
+            <div className="item-sample">
+              <img src={sampleimage6} onClick={() => samplemaker(5)} />
+            </div>
+            <div className="item-sample">
+              <img src={sampleimage7} onClick={() => samplemaker(6)} />
+            </div>
+            <div className="item-sample">
+              <img src={sampleimage8} onClick={() => samplemaker(7)} />
+            </div>
           </div>
         </div>
       </div>
-      {/* <div id="footer-creator">
-        <button onClick={() => history.push("/")}>이전으로 돌아가기</button>
-        <button onClick={() => history.push("/maker/results")}>
-          다음으로 넘어가기
+      <div id="footer-creator">
+        <button
+          className="item-sample"
+          // style={{ backgroundImage: `url(${samplemake})` }}
+          onClick={() => history.push("/maker/editor")}
+        >
+          새로운 프로젝트에서 로고 만들기
         </button>
-      </div> */}
+      </div>
     </React.Fragment>
   );
 }

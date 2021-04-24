@@ -50,8 +50,8 @@ export default function Editor() {
   const [pointer, setPointer] = useState<any>({ x: null, y: null });
 
   useEffect(() => {
-    // TODO: Get Fonts from API
-    async function asyncFunc() {
+    // TODO: Get Fonts from API and Preload Fonts!!
+    async function asyncPreloadFonts() {
       const result = await Fetch_Font.getFonts();
 
       const fontItems = result.items.filter((el) => {
@@ -66,25 +66,14 @@ export default function Editor() {
       }
 
       const promises = fontItems.map(async (item: any) => {
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.id = item.family;
-        link.type = "text/css";
-        link.href = `https://fonts.googleapis.com/css?family=${item.family}`;
-        link.media = "all";
-
-        document.head.appendChild(link);
         return item.family;
       });
 
       const items = await Promise.all(promises);
       setFonts(items);
     }
+    asyncPreloadFonts();
 
-    asyncFunc();
-  }, []);
-
-  useEffect(() => {
     // TODO: Canvas 초기 설정(반응형 포함)
     // Save additional attributes in Serialization
     fabric.Object.prototype.toObject = (function (toObject) {
@@ -240,14 +229,6 @@ export default function Editor() {
         if (!(c.getActiveObjects().length > 0)) return;
         setPointer({ x: event.e.x, y: event.e.y });
         setVisible(true);
-      });
-
-      c.on("mouse:down", (event) => {
-        // ! 그룹 내부 오브젝트들을 수정할 수 있는 이벤트입니다.
-        // if (event.subTargets[0]) {
-        //   const item = event.subTargets[0];
-        //   c.setActiveObject(item);
-        // }
       });
     };
 
@@ -443,14 +424,34 @@ export default function Editor() {
     if (sessionStorage.getItem("canvas")) {
       const json = JSON.parse(sessionStorage.getItem("canvas"));
       c.clear();
-      c.loadFromJSON(json, c.renderAll.bind(c));
+      c.loadFromJSON(json, c.renderAll.bind(c), () => {
+        fabric.util.clearFabricFontCache();
+        c.renderAll();
+      });
+
+      c.clear();
+      c.loadFromJSON(json, c.renderAll.bind(c), () => {
+        fabric.util.clearFabricFontCache();
+        c.renderAll();
+      });
+
       sessionStorage.removeItem("canvas");
     }
 
     if (sessionStorage.getItem("sample")) {
       const json = sessionStorage.getItem("sample");
       c.clear();
-      c.loadFromJSON(json, c.renderAll.bind(c));
+      c.loadFromJSON(json, c.renderAll.bind(c), () => {
+        fabric.util.clearFabricFontCache();
+        c.renderAll();
+      });
+
+      c.clear();
+      c.loadFromJSON(json, c.renderAll.bind(c), () => {
+        fabric.util.clearFabricFontCache();
+        c.renderAll();
+      });
+
       sessionStorage.removeItem("sample");
     }
 

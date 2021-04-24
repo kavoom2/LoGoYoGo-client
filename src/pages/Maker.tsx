@@ -19,7 +19,6 @@ export default function Maker() {
       <Router>
         <Switch>
           <Route path="/maker/" component={Creator} exact />
-          <Route path="/maker/results" component={Results} exact />
           <Route path="/maker/editor" component={Editor} exact />
           <Route path="/maker/selectshape" component={SelectShape} exact />
           <Route path="/maker/selectcolor" component={SelectColor} exact />

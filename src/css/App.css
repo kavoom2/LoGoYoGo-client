@@ -4,6 +4,17 @@
   /* border: 1px solid green; */
 }
 
+#font-preload {
+  max-width: 0rem !important;
+  width: 0rem !important;
+  max-height: 0rem !important;
+  height: 0rem !important;
+  padding: 0rem !important;
+  margin: 0rem !important;
+  font-size: 0rem !important;
+  overflow: hidden;
+}
+
 html {
   position: relative;
   width: 100%;
