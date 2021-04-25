@@ -105,7 +105,6 @@ export default function Text({
 
   const handleChangeFont = (event) => {
     event.preventDefault();
-    console.log(event.target.value);
     const items = canvas.getActiveObjects();
 
     items.forEach((item) => {

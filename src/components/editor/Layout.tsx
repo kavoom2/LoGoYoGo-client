@@ -14,7 +14,6 @@ export default function Layout({ canvas, setIndex }) {
       ry: 5,
     });
 
-    console.log(canvas);
     canvas.add(rect);
   };
   return (

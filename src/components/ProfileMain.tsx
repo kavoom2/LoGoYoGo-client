@@ -17,10 +17,6 @@ function ProfileMain() {
     (state: RootState) => state.accessTokenReducer.accessToken
   );
 
-  console.log(loginState);
-  console.log(userInfoState);
-  console.log("토큰", accessToken);
-
   const handleRedirectPassword = (): void => {
     history.push("/profile/password");
   };
