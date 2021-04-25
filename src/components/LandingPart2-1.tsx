@@ -1,6 +1,14 @@
+import { useEffect } from "react";
 import vid_mp4 from "../images/main/landing-2-1.mp4";
 
 export default function LandingPart2() {
+  useEffect(() => {
+    const imageList = [vid_mp4];
+    imageList.forEach((item) => {
+      new Image().src = item;
+    });
+  }, []);
+
   return (
     <div id="section2">
       <div className="container">

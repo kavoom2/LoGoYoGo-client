@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import sample from "../dummy/sample";
 import sampleimage1 from "../images/sample/sample1.png";
@@ -11,6 +11,22 @@ import sampleimage7 from "../images/sample/sample7.png";
 import sampleimage8 from "../images/sample/sample8.png";
 
 export default function Creator() {
+  useEffect(() => {
+    const imageList = [
+      sampleimage1,
+      sampleimage2,
+      sampleimage3,
+      sampleimage4,
+      sampleimage5,
+      sampleimage6,
+      sampleimage7,
+      sampleimage8,
+    ];
+    imageList.forEach((item) => {
+      new Image().src = item;
+    });
+  }, []);
+
   const history = useHistory();
 
   const samplemaker = (index) => {
