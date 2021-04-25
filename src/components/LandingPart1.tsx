@@ -12,13 +12,10 @@ export default function LandingPart1({ handleLogoName }) {
         fontSize: 50,
         fill: "black",
         fontFamily: "Nanum Myeongjo",
+        fontWeight: 400,
       });
 
       textbox.set("text", sessionStorage.getItem("logo"));
-      textbox.set({
-        customType: "textbox",
-      });
-
       textbox._charWidthsCache = {};
       textbox._clearCache();
 
@@ -39,13 +36,10 @@ export default function LandingPart1({ handleLogoName }) {
         fontSize: 50,
         fill: "black",
         fontFamily: "Nanum Myeongjo",
+        fontWeight: 400,
       });
 
       textbox.set("text", "sample");
-      textbox.set({
-        customType: "textbox",
-      });
-
       textbox._charWidthsCache = {};
       textbox._clearCache();
 

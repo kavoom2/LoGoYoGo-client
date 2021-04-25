@@ -53,6 +53,9 @@ export default function selectShape() {
       creator[0].objects[1].left = (canvasWidth - totalWidth) / 2;
     }
 
+    creator[0].objects[0].customType = "shape";
+    creator[0].objects[1].customType = "textbox";
+
     const makesample = creator[0];
     sessionStorage.setItem("sample", JSON.stringify(makesample));
     history.push("/maker/editor");
