@@ -16,7 +16,7 @@ export default function LandingPart2() {
         </div>
       </div>
       <div className="container2">
-        <video autoPlay loop>
+        <video autoPlay loop muted>
           <source src={vid_mp4} type="video/mp4" />
         </video>
       </div>

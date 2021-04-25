@@ -44,7 +44,7 @@ export default function LandingPart3() {
     <div id="section3">
       <div id="section-sub-1">
         <div className="container2">
-          <video autoPlay loop>
+          <video autoPlay loop muted>
             <source src={vid_mp4} type="video/mp4" />
           </video>
         </div>
