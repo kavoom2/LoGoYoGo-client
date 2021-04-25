@@ -28,6 +28,13 @@ export default function LandingPart3() {
     "로고와 어울리는 배경 색상을 선택하세요. 쉽고 간편하게 변경할 수 있습니다.",
   ];
 
+  useEffect(() => {
+    const imageList = [img_cp, img_tx, img_sp, img_ca, img_bg, vid_mp4];
+    imageList.forEach((item) => {
+      new Image().src = item;
+    });
+  }, []);
+
   useEffect(() => {}, [index]);
 
   const handleSetIndex = (idx) => {
