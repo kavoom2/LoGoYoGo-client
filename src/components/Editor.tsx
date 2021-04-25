@@ -237,7 +237,6 @@ export default function Editor() {
     // TODO: 오브젝트 타입에 따른 텝 이동 이벤트
     // TODO: 1. 선택영역 생성시
     c.on("selection:created", (event: any) => {
-      console.log(event.target);
       // * 1. Group: 제외
       if (event.target._objects) {
         if (event.target.customType === "clipArt") {
