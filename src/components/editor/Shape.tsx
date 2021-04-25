@@ -65,7 +65,6 @@ export default function Shape({
 
     fabric.loadSVGFromURL(svgPath, (objects, options) => {
       objects.forEach((object: any) => {
-        console.log(object);
         object.set({
           customType: "shape",
           fill: shapeColor,

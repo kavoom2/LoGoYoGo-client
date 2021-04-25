@@ -66,7 +66,6 @@ export default function Creator() {
       <div id="footer-creator">
         <button
           className="item-sample"
-          // style={{ backgroundImage: `url(${samplemake})` }}
           onClick={() => history.push("/maker/editor")}
         >
           빈 캔버스에서 직접 로고 만들기

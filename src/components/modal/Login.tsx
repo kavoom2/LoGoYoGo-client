@@ -74,7 +74,6 @@ export default function Login(props) {
         });
       })
       .then((data) => {
-        console.log(data);
         const username = data.data.data.name;
         const email = data.data.data.email;
         const json = { username: username, email: email };

@@ -424,11 +424,11 @@
   }
   .container2 {
     display: flex;
-    margin-left: 5rem;
+    margin-left: 4rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 70rem;
+    max-width: 80rem;
     padding: 0.4rem;
     width: 100%;
     min-width: 50rem;
@@ -436,7 +436,7 @@
     background: #ececec;
     z-index: 1;
 
-    img {
+    video {
       width: 100%;
       height: auto;
       border-radius: 0.8rem;
@@ -495,17 +495,10 @@
     }
 
     .container2 {
-      display: none;
-      height: 5rem;
-      max-width: 98vw;
-      min-width: 98vw;
-      width: 98vw;
       margin: 0rem;
-      margin-top: 3rem;
-
-      img {
-        margin: 0rem;
-      }
+      margin-top: 5rem;
+      width: 100%;
+      min-width: auto;
     }
 
     .container3 {
@@ -775,7 +768,7 @@
       background: #ececec;
       z-index: 1;
 
-      img {
+      video {
         width: 100%;
         height: auto;
         border-radius: 0.8rem;

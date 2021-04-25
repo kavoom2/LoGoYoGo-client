@@ -54,7 +54,6 @@ function ProfilePassword(props) {
         editpw: newPw,
       })
       .then((data) => {
-        console.log(data.data);
         handleRedirectProfile();
       })
       .catch((err) => {

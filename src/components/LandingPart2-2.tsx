@@ -12,7 +12,7 @@ import img_tx from "../images/main/landing-2-2-TX.png";
 import img_sp from "../images/main/landing-2-2-SP.png";
 import img_ca from "../images/main/landing-2-2-CA.png";
 import img_bg from "../images/main/landing-2-2-BG.png";
-import img_gif from "../images/main/landing-2-2-GIF.gif";
+import vid_mp4 from "../images/main/landing-2-2.mp4";
 
 export default function LandingPart3() {
   const [index, setIndex] = useState<number>(3);
@@ -44,7 +44,9 @@ export default function LandingPart3() {
     <div id="section3">
       <div id="section-sub-1">
         <div className="container2">
-          <img src={img_gif} />
+          <video autoPlay loop>
+            <source src={vid_mp4} type="video/mp4" />
+          </video>
         </div>
         <div className="container">
           <div className="label">

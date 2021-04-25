@@ -1,4 +1,4 @@
-import img_gif from "../images/main/landing-2-1-GIF.gif";
+import vid_mp4 from "../images/main/landing-2-1.mp4";
 
 export default function LandingPart2() {
   return (
@@ -16,7 +16,9 @@ export default function LandingPart2() {
         </div>
       </div>
       <div className="container2">
-        <img src={img_gif} />
+        <video autoPlay loop>
+          <source src={vid_mp4} type="video/mp4" />
+        </video>
       </div>
     </div>
   );
