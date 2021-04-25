@@ -15,8 +15,8 @@
 
 
 ### 주요 기능
-![landing-2-1-GIF](https://user-images.githubusercontent.com/58407182/115826883-87ec2c00-a446-11eb-841c-aa305837aad5.gif)
 
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/58407182/115979539-7713f580-a5c1-11eb-8cd5-dd3b2f05c5bd.gif)
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/58407182/115724845-44e57680-a3bc-11eb-8cd1-72362539a17e.gif)<br/><br/><br/><br/>
 
 -------------------------------------
