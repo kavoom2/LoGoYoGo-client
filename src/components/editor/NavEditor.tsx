@@ -72,9 +72,9 @@ export default function Nav({ canvas }) {
       <button
         className="btn-nav"
         onClick={() => {
-          // const json = canvas.toJSON();
-          // console.log(json);
-          // axios.post("http://localhost:5000/save", { json: json });
+          const json = canvas.toJSON();
+          console.log(json);
+          axios.post("http://localhost:5000/save", { json: json });
           canvas.discardActiveObject().renderAll();
           handleModalOpen("PREVIEW");
         }}

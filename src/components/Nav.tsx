@@ -5,8 +5,6 @@ import { useHistory } from "react-router-dom";
 import React, { useState, useEffect, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
-import { access } from "node:fs";
 
 export default function Nav() {
   const dispatch = useDispatch();

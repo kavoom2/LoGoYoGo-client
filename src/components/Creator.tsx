@@ -9,7 +9,6 @@ import sampleimage5 from "../images/sample/sample5.png";
 import sampleimage6 from "../images/sample/sample6.png";
 import sampleimage7 from "../images/sample/sample7.png";
 import sampleimage8 from "../images/sample/sample8.png";
-import samplemake from "../images/sample/samplemake.png";
 
 export default function Creator() {
   const history = useHistory();

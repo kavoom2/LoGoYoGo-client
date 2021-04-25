@@ -13,12 +13,17 @@ export default function selectShape() {
   const handleIndex = (idx: number): void => {
     const svgPath = svgs[idx];
 
-    fabric.loadSVGFromURL(svgPath, (objects, options) => {
-      objects.forEach((object: any, idx: number) => {
-        object.set({
-          customType: "shape",
-        });
+    fabric.Object.prototype.toObject = (function (toObject) {
+      return function (propertiesToInclude) {
+        propertiesToInclude = (propertiesToInclude || []).concat([
+          "customType",
+        ]);
+        return toObject.apply(this, [propertiesToInclude]);
+      };
+    })(fabric.Object.prototype.toObject);
 
+    fabric.loadSVGFromURL(svgPath, (objects, options) => {
+      objects.forEach((object: any) => {
         object.set({
           scaleX: 100 / object.width,
           scaleY: 100 / object.width,

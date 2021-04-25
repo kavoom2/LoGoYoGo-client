@@ -74,7 +74,7 @@ export default function Editor() {
     }
     asyncPreloadFonts();
 
-    // TODO: Canvas 초기 설정(반응형 포함)
+    // TODO: Canvas 초기 Custom Props 설정
     // Save additional attributes in Serialization
     fabric.Object.prototype.toObject = (function (toObject) {
       return function (propertiesToInclude) {
@@ -84,6 +84,8 @@ export default function Editor() {
         return toObject.apply(this, [propertiesToInclude]);
       };
     })(fabric.Object.prototype.toObject);
+
+    // TODO: Canvas 반응형 설정
 
     const canvasWidth = 700;
     const canvasHeight = 600;
@@ -235,6 +237,7 @@ export default function Editor() {
     // TODO: 오브젝트 타입에 따른 텝 이동 이벤트
     // TODO: 1. 선택영역 생성시
     c.on("selection:created", (event: any) => {
+      console.log(event.target);
       // * 1. Group: 제외
       if (event.target._objects) {
         if (event.target.customType === "clipArt") {
@@ -443,6 +446,7 @@ export default function Editor() {
       c.clear();
       c.loadFromJSON(json, c.renderAll.bind(c), () => {
         fabric.util.clearFabricFontCache();
+
         c.renderAll();
       });
 
@@ -451,6 +455,13 @@ export default function Editor() {
         fabric.util.clearFabricFontCache();
         c.renderAll();
       });
+
+      // ! Shape의 CustomType이 반영이 안되므로, 직접 넣어줍니다....
+      const items = c.getObjects();
+      for (let i = 0; i < items.length; i++) {
+        const item: any = items[i];
+        if (!item.customType) item.customType = "shape";
+      }
 
       sessionStorage.removeItem("sample");
     }
