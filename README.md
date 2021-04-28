@@ -15,18 +15,32 @@
 
 
 ### 주요 기능
+## 1. 랜딩 페이지
+<video autoPlay loop muted width="700px">
+  <source src="https://drive.google.com/uc?export=view&id=1pwz5kJiHKrR3U7pPeIZl5gEzLhwpsMFr" type="video/mp4" />
+</video>    
 
-![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/58407182/115979539-7713f580-a5c1-11eb-8cd5-dd3b2f05c5bd.gif)
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/58407182/115724845-44e57680-a3bc-11eb-8cd1-72362539a17e.gif)<br/><br/><br/><br/>
+## 2. 로고 요소 선택 페이지, 탬플릿 선택 페이지
+<video autoPlay loop muted width="700px">
+  <source src="https://drive.google.com/uc?export=view&id=1Xv80PRxllcHfJwa755qrtGFIgP3Oc8Pn" type="video/mp4" />
+</video>
+
+## 3. 에디터 기능
+<video autoPlay loop muted width="700px">
+  <source src="https://drive.google.com/uc?export=view&id=1iHFfhdFT2LxVoJVjnAgBLfvu_FJRO5uj"  type="video/mp4" />
+</video>
+
+## 4. 반응형 디자인(모바일 지원)
+<video autoPlay loop muted width="700px">
+  <source src="https://drive.google.com/uc?export=view&id=1Ik9Ay-PzGvK3plo3Z7w9C7ycbw4_NPm1"  type="video/mp4" />
+</video>
+
+<video autoPlay loop muted width="700px">
+  <source src="https://drive.google.com/uc?export=view&id=1ECZpxl4rPfIGJbPGsJLzRrIuIM5fJk6f"  type="video/mp4" />
+</video>
+
 
 -------------------------------------
-
-### 메인페이지
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/58407182/115671605-a807e680-a385-11eb-8290-3c6ed093e437.gif)
-
-
-<img src="https://user-images.githubusercontent.com/58407182/115672838-e9e55c80-a386-11eb-94c4-cf4b71911ea1.gif"><br/><br/><br/><br/>
-
 
 
 ### 사용 스택
