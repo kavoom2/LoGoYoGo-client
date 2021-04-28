@@ -16,26 +16,26 @@
 
 ### 주요 기능
 ## 1. 랜딩 페이지
-<video autoPlay loop muted width="700px">
+<video autoPlay loop muted width="500px">
   <source src="https://drive.google.com/uc?export=view&id=1pwz5kJiHKrR3U7pPeIZl5gEzLhwpsMFr" type="video/mp4" />
 </video>    
 
 ## 2. 로고 요소 선택 페이지, 탬플릿 선택 페이지
-<video autoPlay loop muted width="700px">
+<video autoPlay loop muted width="500px">
   <source src="https://drive.google.com/uc?export=view&id=1Xv80PRxllcHfJwa755qrtGFIgP3Oc8Pn" type="video/mp4" />
 </video>
 
 ## 3. 에디터 기능
-<video autoPlay loop muted width="700px">
+<video autoPlay loop muted width="500px">
   <source src="https://drive.google.com/uc?export=view&id=1iHFfhdFT2LxVoJVjnAgBLfvu_FJRO5uj"  type="video/mp4" />
 </video>
 
 ## 4. 반응형 디자인(모바일 지원)
-<video autoPlay loop muted width="700px">
+<video autoPlay loop muted width="500px">
   <source src="https://drive.google.com/uc?export=view&id=1Ik9Ay-PzGvK3plo3Z7w9C7ycbw4_NPm1"  type="video/mp4" />
 </video>
 
-<video autoPlay loop muted width="700px">
+<video autoPlay loop muted width="500px">
   <source src="https://drive.google.com/uc?export=view&id=1ECZpxl4rPfIGJbPGsJLzRrIuIM5fJk6f"  type="video/mp4" />
 </video>
 
