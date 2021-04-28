@@ -6,13 +6,12 @@
 
 -------------------------------------
 
-
-
 #### 과제, 프로젝트에 쓸 로고가 필요한가요? 
 #### 나만의 특별한 로고를 만들고 싶으신가요?
 #### 누구나 쉽고 간편하게!
 #### LOGOYOGO를 사용해서 지금 만들어 보세요! <br/><br/><br/><br/><br/><br/>
 
+-------------------------------------
 
 ### 주요 기능
 #### 1. 랜딩 페이지
@@ -25,13 +24,8 @@
 <img src="https://im3.ezgif.com/tmp/ezgif-3-e2f041667955.gif" width="600px"/>
 
 #### 4. 반응형 디자인(모바일 지원)
-<video autoPlay loop muted width="500px">
-  <source src="https://drive.google.com/uc?export=view&id=1Ik9Ay-PzGvK3plo3Z7w9C7ycbw4_NPm1"  type="video/mp4" />
-</video>
-
-<video autoPlay loop muted width="500px">
-  <source src="https://drive.google.com/uc?export=view&id=1ECZpxl4rPfIGJbPGsJLzRrIuIM5fJk6f"  type="video/mp4" />
-</video>
+<img src="https://im3.ezgif.com/tmp/ezgif-3-bb7970786bb4.gif" width="600px"/>
+<img src="https://im3.ezgif.com/tmp/ezgif-3-44eee9317414.gif" width="600px"/>
 
 
 -------------------------------------
