@@ -19,29 +19,18 @@
 ### 주요 기능
 #### 1. 랜딩 페이지
 
-<a href="https://drive.google.com/uc?export=view&id=1PO9anwiFVeuX-Thw_BOy4fUGc8tr7tBc">
-<img src="https://drive.google.com/uc?export=view&id=1PO9anwiFVeuX-Thw_BOy4fUGc8tr7tBc" width="600px"/>
-</a>
+![image]("https://drive.google.com/uc?export=view&id=1PO9anwiFVeuX-Thw_BOy4fUGc8tr7tBc")
 
 #### 2. 로고 요소 선택 페이지, 탬플릿 선택 페이지
-<a href="https://drive.google.com/uc?export=view&id=1rGthA_azvGitPwfmbrDg1sIBIM12nAtB">
-<img src="https://drive.google.com/uc?export=view&id=1rGthA_azvGitPwfmbrDg1sIBIM12nAtB" width="600px"/>
-</a>
+![image]("https://drive.google.com/uc?export=view&id=1rGthA_azvGitPwfmbrDg1sIBIM12nAtB")
 
 #### 3. 에디터 기능
-<a href="https://drive.google.com/uc?export=view&id=11KDqph4pdds3PJKyS4F9S0XvU_GqWvqb">
-<img src="https://drive.google.com/uc?export=view&id=11KDqph4pdds3PJKyS4F9S0XvU_GqWvqb" width="600px"/>
-</a>
+![image]("https://drive.google.com/uc?export=view&id=11KDqph4pdds3PJKyS4F9S0XvU_GqWvqb")
 
 #### 4. 반응형 디자인(모바일 지원)
-<a href="https://drive.google.com/uc?export=view&id=14t3dl9eRZZjO5b2xWrozO1R38OmF9fLL">
-<img src="https://drive.google.com/uc?export=view&id=14t3dl9eRZZjO5b2xWrozO1R38OmF9fLL" width="600px"/>
-</a>
+![image]("https://drive.google.com/uc?export=view&id=14t3dl9eRZZjO5b2xWrozO1R38OmF9fLL")
 
-
-<a href="https://drive.google.com/uc?export=view&id=1ieeg8bryqG_kXVPftecCjaZmIA_UtLQT">
-<img src="https://drive.google.com/uc?export=view&id=1ieeg8bryqG_kXVPftecCjaZmIA_UtLQT" width="600px"/>
-</a>
+![image]("https://drive.google.com/uc?export=view&id=1ieeg8bryqG_kXVPftecCjaZmIA_UtLQT")
 
 
 -------------------------------------
