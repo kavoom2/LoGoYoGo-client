@@ -19,18 +19,18 @@
 ### 주요 기능
 #### 1. 랜딩 페이지
 
-![image]("https://drive.google.com/uc?export=view&id=1PO9anwiFVeuX-Thw_BOy4fUGc8tr7tBc")
+![image](https://drive.google.com/uc?export=view&id=1PO9anwiFVeuX-Thw_BOy4fUGc8tr7tBc)
 
 #### 2. 로고 요소 선택 페이지, 탬플릿 선택 페이지
-![image]("https://drive.google.com/uc?export=view&id=1rGthA_azvGitPwfmbrDg1sIBIM12nAtB")
+![image](https://drive.google.com/uc?export=view&id=1rGthA_azvGitPwfmbrDg1sIBIM12nAtB)
 
 #### 3. 에디터 기능
-![image]("https://drive.google.com/uc?export=view&id=11KDqph4pdds3PJKyS4F9S0XvU_GqWvqb")
+![image](https://drive.google.com/uc?export=view&id=11KDqph4pdds3PJKyS4F9S0XvU_GqWvqb)
 
 #### 4. 반응형 디자인(모바일 지원)
-![image]("https://drive.google.com/uc?export=view&id=14t3dl9eRZZjO5b2xWrozO1R38OmF9fLL")
+![image](https://drive.google.com/uc?export=view&id=14t3dl9eRZZjO5b2xWrozO1R38OmF9fLL)
 
-![image]("https://drive.google.com/uc?export=view&id=1ieeg8bryqG_kXVPftecCjaZmIA_UtLQT")
+![image](https://drive.google.com/uc?export=view&id=1ieeg8bryqG_kXVPftecCjaZmIA_UtLQT)
 
 
 -------------------------------------
