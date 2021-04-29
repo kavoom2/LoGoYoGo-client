@@ -19,7 +19,8 @@
 ### 주요 기능
 #### 1. 랜딩 페이지
 
-![image](https://drive.google.com/uc?export=view&id=1PO9anwiFVeuX-Thw_BOy4fUGc8tr7tBc)
+<a href="https://drive.google.com/uc?export=view&id=1PO9anwiFVeuX-Thw_BOy4fUGc8tr7tBc">
+<img src="https://drive.google.com/uc?export=view&id=1PO9anwiFVeuX-Thw_BOy4fUGc8tr7tBc" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" />
 
 #### 2. 로고 요소 선택 페이지, 탬플릿 선택 페이지
 ![image](https://drive.google.com/uc?export=view&id=1rGthA_azvGitPwfmbrDg1sIBIM12nAtB)
