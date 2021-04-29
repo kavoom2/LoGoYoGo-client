@@ -18,17 +18,17 @@
     
 ### 주요 기능
 #### 1. 랜딩 페이지
-<img src="https://im3.ezgif.com/tmp/ezgif-3-c711ec14d28a.gif" width="600px"/>
+<img src="https://drive.google.com/uc?export=view&id=1PO9anwiFVeuX-Thw_BOy4fUGc8tr7tBc" width="600px"/>
 
 #### 2. 로고 요소 선택 페이지, 탬플릿 선택 페이지
-<img src="https://im3.ezgif.com/tmp/ezgif-3-aeab419a1ada.gif" width="600px"/>
+<img src="https://drive.google.com/uc?export=view&id=1rGthA_azvGitPwfmbrDg1sIBIM12nAtB" width="600px"/>
 
 #### 3. 에디터 기능
-<img src="https://im3.ezgif.com/tmp/ezgif-3-e2f041667955.gif" width="600px"/>
+<img src="https://drive.google.com/uc?export=view&id=11KDqph4pdds3PJKyS4F9S0XvU_GqWvqb" width="600px"/>
 
 #### 4. 반응형 디자인(모바일 지원)
-<img src="https://im3.ezgif.com/tmp/ezgif-3-bb7970786bb4.gif" width="600px"/>
-<img src="https://im3.ezgif.com/tmp/ezgif-3-44eee9317414.gif" width="600px"/>
+<img src="https://drive.google.com/uc?export=view&id=14t3dl9eRZZjO5b2xWrozO1R38OmF9fLL" width="600px"/>
+<img src="https://drive.google.com/uc?export=view&id=1ieeg8bryqG_kXVPftecCjaZmIA_UtLQT" width="600px"/>
 
 
 -------------------------------------
