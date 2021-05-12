@@ -1,0 +1,146 @@
+@import "_varaiables";
+
+* {
+  font-size: $font-size-H5;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+button {
+  background: transparent;
+
+  font-weight: 500;
+  font-size: $font-size-H4;
+
+  color: $color-item-button-text;
+  border: 0px;
+  border-radius: 0.6rem;
+
+  margin: 1rem;
+  padding: 1rem;
+}
+
+button:focus {
+  outline: 0;
+}
+
+input {
+  background: $color-item-input;
+  border: 0px;
+  border-radius: 0.6rem;
+  padding-left: 2rem;
+
+  height: 5rem;
+  font-size: $font-size-H4;
+}
+
+#nav {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
+  position: sticky;
+  top: 0;
+  height: 6rem;
+  width: 100%;
+
+  padding-left: 8rem;
+  padding-right: 8rem;
+  background: $color-nav;
+
+  z-index: 50;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    font-size: $font-size-H3;
+    font-family: "Questrial";
+    color: $color-container;
+    letter-spacing: 0.2rem;
+    font-weight: 600;
+    transition: 0.1s;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+
+  button {
+    transition: 0.1s;
+    font-weight: 500;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #nav {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    justify-content: space-between;
+
+    * {
+      font-size: $font-size-H3;
+      color: $color-container;
+    }
+
+    .title-burger {
+      cursor: pointer;
+    }
+  }
+
+  #nav-hamburger {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
+    display: flex;
+    position: sticky;
+    flex-direction: column;
+    width: 100%;
+    top: 6rem;
+    z-index: 30;
+
+    .hamburger-items {
+      display: flex;
+      top: 0rem;
+      position: absolute;
+      flex-direction: column;
+      width: 100%;
+
+      .hamburger-item {
+        display: flex;
+        height: 5rem;
+        width: 100%;
+        padding-left: 2rem;
+        font-size: $font-size-H4;
+        font-weight: 500;
+        align-items: center;
+        background: #333333;
+        color: $color-container;
+
+        &:hover {
+          cursor: pointer;
+          color: #333333;
+          background: #ddd;
+        }
+      }
+      transition: 0.3s ease;
+    }
+
+    .inactive {
+      top: -40rem;
+    }
+
+    .active {
+      top: 0rem;
+    }
+  }
+}

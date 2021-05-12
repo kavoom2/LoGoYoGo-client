@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+
+  "env": {
+    "es6": true
+  }
+}

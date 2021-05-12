@@ -1,0 +1,17 @@
+@import "./_varaiables.scss";
+
+#container-maker {
+  width: 100%;
+  height: 100%;
+  background: #f8fcff;
+}
+
+#container-maker > #section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px,) {
+  // * MOBILE: max-width: 768px;
+}

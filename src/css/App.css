@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  list-style: none;
+  /* border: 1px solid green; */
+}
+
+#font-preload {
+  max-width: 0rem !important;
+  width: 0rem !important;
+  max-height: 0rem !important;
+  height: 0rem !important;
+  padding: 0rem !important;
+  margin: 0rem !important;
+  font-size: 0rem !important;
+  overflow: hidden;
+}
+
+html {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+
+  font-size: 1.6rem;
+  overflow: hidden;
+}
+
+#root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+button:hover {
+  cursor: pointer;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  #root {
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+}

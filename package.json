@@ -1,0 +1,87 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@reduxjs/toolkit": "^1.5.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/fabric": "^4.2.5",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.20.7",
+    "@types/react": "^16.14.5",
+    "@types/react-dom": "^16.9.12",
+    "@types/react-redux": "^7.1.16",
+    "@types/webfontloader": "^1.6.32",
+    "@types/webpack-env": "^1.16.0",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "fabric": "^4.4.0",
+    "fabric-history": "^1.6.0",
+    "http-proxy-middleware": "^0.19.1",
+    "react": "^17.0.2",
+    "react-color": "^2.19.3",
+    "react-dom": "^17.0.2",
+    "react-google-login": "^5.2.2",
+    "react-redux": "^7.2.3",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "redux-devtools-extension": "^2.13.9",
+    "webfontloader": "^1.6.28"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "startHttps": "HTTPS=true SSL_CRT_FILE=./cert.pem SSL_KEY_FILE=./key.pem react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "compileSCSS": "node-sass ./src/scss --output dist/css",
+    "watchSCSS": "node-sass --watch ./src/scss --output dist/css"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json",
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "ignorePatterns": [
+      "dist/",
+      "node_modules/"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/http-proxy-middleware": "^1.0.0",
+    "@types/react-router-dom": "^5.1.7",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "file-loader": "^6.1.1",
+    "node-sass": "^5.0.0",
+    "prettier": "^2.2.1",
+    "ts-loader": "^8.1.0",
+    "typescript": "^4.2.4"
+  }
+}
